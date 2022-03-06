@@ -1,0 +1,98 @@
+@import "~assets/scss/variables";
+
+.ant-pagination {
+  display: flex;
+  align-items: center;
+
+  .ant-pagination-item-active {
+    a {
+      color: #777b82 !important;
+    }
+  }
+
+  .ant-pagination-item {
+    width: 50px;
+    height: 40px;
+    line-height: 38px;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 500;
+    border: 1px solid #b6bccd;
+
+    a {
+      color: $primary;
+    }
+  }
+
+  .ant-pagination-prev,
+  .ant-pagination-next {
+    a {
+      color: $primary;
+      font-weight: 500;
+      font-size: 17px;
+    }
+
+    &.ant-pagination-disabled {
+      background: #f6f6f7;
+
+      a {
+        color: #85898f;
+      }
+    }
+  }
+
+  .ant-pagination-next {
+    display: flex;
+    align-items: center;
+    padding-right: 5px;
+
+    &.ant-pagination-disabled {
+      &:after {
+        transform: rotate(180deg);
+        background: url("assets/svg/disable-chevron.svg") no-repeat center
+          center;
+        background-size: contain !important;
+      }
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      width: 22px;
+      height: 22px;
+      background: url("assets/svg/enable-chevron.svg") no-repeat center center;
+      background-size: contain !important;
+      margin-left: 2px;
+    }
+  }
+
+  .ant-pagination-prev {
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+
+    &.ant-pagination-disabled {
+      &:before {
+        transform: rotate(0deg);
+        background: url("assets/svg/disable-chevron.svg") no-repeat center
+          center;
+        background-size: contain !important;
+      }
+    }
+
+    &:before {
+      content: "";
+      display: block;
+      width: 22px;
+      height: 22px;
+      margin-left: 2px;
+      background: url("assets/svg/enable-chevron.svg") no-repeat center center;
+      transform: rotate(180deg);
+      background-size: contain !important;
+    }
+  }
+
+  .custom-ant-next {
+    color: red;
+  }
+}

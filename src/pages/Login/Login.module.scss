@@ -1,0 +1,31 @@
+.leftSection {
+  height: 100vh;
+  background-image: url("../../images/bannerAuth.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.logo {
+  width: 250px;
+  object-fit: cover;
+}
+
+.rightSection {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+
+  .form {
+    max-width: 540px;
+    h1 {
+      font-size: 26px;
+      font-weight: bold;
+      margin: 0 !important;
+    }
+    p {
+      font-size: 18px;
+      color: #b0b7c3;
+    }
+  }
+}

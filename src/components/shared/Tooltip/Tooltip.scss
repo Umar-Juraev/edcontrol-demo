@@ -1,0 +1,55 @@
+.ant-tooltip-inner {
+  border-radius: 12px !important;
+  padding: 5px 20px !important;
+}
+.ant-tooltip-arrow-content {
+  width: 14px !important;
+  height: 14px !important;
+  border-radius: 0 0 3px 0 !important;
+}
+
+.ant-tooltip-arrow {
+  width: 20px !important;
+  height: 13px !important;
+  bottom: -5px !important;
+}
+
+.tooltipText {
+  font-size: 15px;
+}
+
+.tooltipIconBg {
+  height: 50px;
+  width: 50px;
+  border-radius: 15px;
+  background-color: #f7f8f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 4px;
+  transition: 0.2s;
+  cursor: pointer;
+  svg path {
+    transition: 0.2s;
+  }
+  &:hover {
+    background-color: #ebf2ff;
+  }
+  &:hover svg path {
+    fill: #377dff;
+  }
+  &.canceled {
+    background-color: #feecea;
+    svg path {
+      fill: #ff4f37;
+    }
+  }
+  &.undo {
+    &:hover {
+      background-color: #feecea;
+    }
+    &:hover svg path {
+      fill: #ff4f37;
+    }
+  }
+}

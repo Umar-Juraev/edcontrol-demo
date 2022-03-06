@@ -1,0 +1,33 @@
+@import "assets/scss/variables.scss";
+
+.ant-modal {
+  top: 5% !important;
+  padding-bottom: 0 !important ;
+
+  .ant-modal-content {
+    border-radius: 20px !important;
+    padding: 0 !important;
+  }
+
+  .ant-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    padding-top: 30px;
+    border-radius: 20px !important;
+  }
+
+  .ant-modal-title {
+    font-size: 24px;
+    color: $darkBlue !important;
+  }
+  .ant-modal-body {
+    max-height: 75vh;
+    overflow-y: auto !important;
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+      display: none !important;
+    }
+  }
+}

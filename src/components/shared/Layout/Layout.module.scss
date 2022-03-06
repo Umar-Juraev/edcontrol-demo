@@ -1,0 +1,10 @@
+@import "assets/scss/variables";
+.content {
+  background-color: #fafbfc;
+  padding: 40px;
+  height: 100%;
+  @media (max-width: 1025px) {
+    padding: 20px;
+  }
+}
+

@@ -1,0 +1,25 @@
+.upload_file {
+  label {
+    display: block;
+    height: 240px;
+    background: rgba(176, 183, 195, 0.1);
+    border: 2px dashed #377dff;
+    border-radius: 15px;
+    .upload_text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100%;
+      span {
+        font-size: 14px;
+        color: #323b4b;
+        text-align: center;
+        margin-top: 8px;
+        p {
+          color: #377dff;
+        }
+      }
+    }
+  }
+}

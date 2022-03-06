@@ -1,0 +1,102 @@
+.link{
+  display: block;
+  width: 100%;
+}
+.card_stats {
+  height: 100px;
+  padding: 0 5px;
+  border-radius: 15px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 16.6471px 41.6176px rgba(22, 22, 22, 0.05);
+  &.small {
+    padding: 20px 24px;
+    @media (max-width: 1400px) {
+      padding: 16px 20px;
+    }
+  }
+  @media (max-width: 850px) {
+    height: 80px;
+  }
+  @media (max-width: 426px) {
+    padding: 16px 24px;
+  }
+  @media (max-width: 376px) {
+    padding: 12px 20px;
+  }
+  .card_stats_container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 15px;
+    @media (max-width: 1024px) {
+      gap: 10px;
+    }
+    @media (max-width: 769px) {
+      gap: 5px;
+    }
+    .card_stats_img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      &.small {
+        width: 64px;
+        height: 64px;
+      }
+      @media (max-width: 1025px) {
+        width: 45px;
+        height: 45px;
+      }
+      @media (max-width: 426px) {
+        width: 60px;
+        height: 60px;
+      }
+    }
+    .card_stats_inf {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-decoration: none;
+      color: #323b4b;
+      .inf_number {
+        font-size: 42px;
+        line-height: 42px;
+        font-weight: 600;
+        color: #323b4b;
+        margin: 0;
+        white-space: nowrap;
+        @media (max-width: 1025px) {
+          font-size: 23px;
+          line-height: 22px;
+        }
+
+        &.small {
+          font-size: 28px;
+          @media (max-width: 1441px) {
+            font-size: 32px;
+            line-height: 32px;
+          }
+          @media (max-width: 1400px) {
+            font-size: 26px;
+          }
+        }
+        @media (max-width: 426px) {
+          font-size: 24px;
+          line-height: 24px;
+        }
+      }
+      .inf_name {
+        font-size: 14px;
+        margin: 0;
+        @media (max-width: 1025px) {
+          font-size: 12px;
+          line-height: 22px;
+        }
+      }
+    }
+  }
+}
+.content {
+  margin-top: 10px;
+}

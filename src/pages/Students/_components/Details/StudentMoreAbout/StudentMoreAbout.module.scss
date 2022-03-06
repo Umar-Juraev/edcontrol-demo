@@ -1,0 +1,28 @@
+.list {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  padding: 0 20px;
+  box-shadow: 0px 8px 20px rgba(22, 22, 22, 0.05);
+}
+
+.number {
+  width: 44px;
+  height: 44px;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(176, 183, 195,0.1);
+}
+
+.value {
+    font-size: 16px;
+    font-weight: 500;
+}

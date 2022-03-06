@@ -1,0 +1,50 @@
+@import "assets/scss/variables";
+
+.header {
+  display: flex !important;
+  min-height: 76px !important;
+  align-items: center !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 5 !important;
+  background: #ffffff !important;
+  box-shadow: 0px 8px 20px rgba(22, 22, 22, 0.05) !important;
+}
+.btn_close {
+  cursor: pointer;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: 0.2s;
+  position: relative;
+  left: -30px;
+  &:hover {
+    background-color: #f3f3f3;
+  }
+  @media (max-width: 769px) {
+    display: none;
+  }
+}
+.close {
+  color: #666666 !important;
+  font-size: 25px;
+}
+
+.nav {
+  width: 100%;
+}
+
+.notificationCont {
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  background-color: #f7f8f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 4px;
+}

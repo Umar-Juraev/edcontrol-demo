@@ -1,0 +1,13 @@
+.section {
+  padding: 20px 0;
+}
+
+.pointButton {
+  background-color: #f3f4f6;
+  &:hover {
+    background-color: transparent;
+  }
+  &:focus {
+    background-color: #f3f4f6;
+  }
+}

@@ -1,0 +1,100 @@
+@import "assets/scss/variables.scss";
+
+.ant-btn {
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 12px !important;
+  text-shadow: none !important;
+  font-weight: 500 !important;
+  font-size: 15px !important;
+  line-height: 15px !important;
+
+  svg {
+    margin-right: 8px !important;
+  }
+
+  &.ant-icon-mode {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    color: #b0b7c3 !important;
+  }
+
+  &.ant-single-icon-mode {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: rgba(176, 183, 195, 0.1);
+    
+    &:hover{
+      background-color: rgba(176, 183, 195, 0.1);
+    }
+
+    svg {
+      margin: 0 !important;
+    }
+  }
+
+  &.full-width {
+    min-width: 100%;
+  }
+
+  &.ant-btn-primary {
+    background-color: rgba(55, 125, 255, 0.1) !important;
+    color: $darkBlue !important;
+  }
+
+  &.ant-btn-dangerous {
+    background-color: rgba(255, 79, 55, 0.1) !important;
+    color: $buttonRed !important;
+  }
+
+  &.ant-btn-ghost {
+    background: rgba(8, 100, 32, 0.1) !important;
+    color: $mediumGreen !important;
+  }
+
+  &.ant-btn-add {
+    background-color: rgba(8, 100, 32, 0.1) !important;
+    display: flex;
+    align-items: center;
+    color: $mediumGreen !important;
+
+    svg {
+      margin-right: 8px !important;
+    }
+  }
+  &.ant-btn-filter {
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin-right: 8px;
+    }
+  }
+
+  &.ant-btn-lg {
+    height: 50px;
+  }
+
+  &.danger {
+    background-color: tomato !important;
+    color: #fff !important;
+    margin: 0 0 0 10px;
+  }
+  &.popButton {
+    background-color: #f7f8f9;
+    width: 200px;
+    height: 50px;
+    text-align: start;
+    margin: 4px;
+    &:focus {
+      background-color: #ebf2ff !important;
+      color: #377dff !important;
+    }
+    &:hover {
+      background-color: #f7f8f9;
+      color: #000 !important;
+    }
+  }
+}

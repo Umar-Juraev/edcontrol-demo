@@ -1,0 +1,141 @@
+.user_card_info {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 15px;
+  background-color: #fff;
+  box-shadow: 0px 8px 20px rgba(22, 22, 22, 0.05);
+  display: flex;
+  @media (max-width: 768px) {
+    &.details {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.user_data_container {
+  margin-left: 10px;
+}
+
+.user_image {
+  max-width: 108px;
+  height: 108px;
+  border-radius: 15px;
+  object-fit: cover;
+  padding: 0 !important;
+  @media (max-width: 1200px) {
+    width: 100px;
+  }
+  @media (max-width: 1025px) {
+    width: 120px;
+  }
+  @media (max-width: 768px) {
+    width: 90px;
+  }
+  @media (max-width: 425px) {
+    width: 75px;
+  }
+}
+
+.user_image_detail {
+  max-width: 140px;
+  height: 140px;
+  border-radius: 15px;
+  object-fit: cover;
+  @media (max-width: 1300px) {
+    width: 110px;
+  }
+  @media (max-width: 1160px) {
+    width: 100px;
+    height: 100px;
+  }
+  @media (max-width: 1030px) {
+    width: 100%;
+  }
+}
+
+.user_name {
+  font-weight: bold;
+  font-size: 20px;
+  @media (max-width: 540px) {
+    font-size: 18px;
+  }
+  @media (max-width: 426px) {
+    font-size: 16px;
+  }
+  @media (max-width: 376px) {
+    font-size: 13px;
+  }
+}
+
+.detail {
+  padding: 16px 18px !important;
+}
+
+.title {
+  width: 250px;
+}
+
+.btn_skeleton {
+  width: 334px;
+  height: 50px;
+}
+
+.text {
+  width: 120px;
+  height: 20px !important;
+}
+
+.cardImage {
+  width: 100px;
+}
+
+.dataValue {
+  color: #b0b7c3;
+  font-size: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  @media (max-width: 1200px) {
+    font-size: 14px;
+  }
+}
+
+.user_card_infor {
+  display: flex;
+}
+.user_grid {
+  width: 100%;
+  color: #b0b7c3;
+  column-gap: 10px;
+}
+.user_data_none {
+  color: #b0b7c3;
+  width: 100%;
+  column-gap: 10px;
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.card_btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @media (max-width: 768px) {
+    display: flex;
+  }
+  .btn {
+    padding: 4px 0;
+    button {
+      width: 100%;
+      height: 50px;
+    }
+  }
+  .btn2 {
+    padding: 4px 0;
+    button {
+      width: 100%;
+      height: 50px;
+    }
+  }
+}

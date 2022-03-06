@@ -1,0 +1,18 @@
+.schedule {
+  background: #ffffff;
+  box-shadow: 0px 8px 20px rgba(22, 22, 22, 0.05);
+  border-radius: 15px;
+  margin: 24px 0 0 0;
+  display: flex;
+  &__boxLeft {
+    background-color: #ffffff;
+    &__innerBox {
+      margin: 24px 29px 24px 32px;
+      width: 180px;
+    }
+  }
+  &__boxRight {
+    overflow-x: auto;
+    padding: 24px 29px 24px 0;
+  }
+}

@@ -1,0 +1,74 @@
+.attendContainer {
+  position: relative;
+}
+.dateTitle {
+  transform: rotate(-60deg);
+}
+
+.title {
+  border-top: 1px solid #e7e9ed;
+  padding: 12px 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+}
+
+.box {
+  overflow-y: auto;
+  max-height: 260px;
+}
+
+.item {
+  height: 50px;
+  width: 200px;
+  border-radius: 15px;
+  background-color: #f7f8f9;
+  padding: 0 24px;
+  margin-bottom: 8px;
+  font-weight: 500;
+  position: relative;
+  font-size: 16px;
+  line-height: 100%;
+  color: #323b4b;
+  cursor: pointer;
+  user-select: none;
+}
+
+.SelectMonth {
+  background-color: #ebf2ff;
+  color: #377dff;
+}
+.CancelLesson {
+  background-color: #ffeeeb;
+  color: #ff4f37;
+}
+.MoveLesson {
+  background-color: #ebf2ff;
+  color: #377dff;
+}
+
+.dateInput {
+  visibility: hidden;
+  position: absolute;
+}
+
+.btn {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  display: block;
+}
+
+.canceled_lesson {
+  color: rgba(255, 79, 55, 0.7);
+}
+
+.moved_lesson {
+  color: rgba(55, 125, 255, 0.7);
+}
+
+.loader {
+  height: 60px;
+  min-height: auto;
+  margin-top: 10px;
+}

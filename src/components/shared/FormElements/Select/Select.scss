@@ -1,0 +1,106 @@
+.ant-select {
+  min-width: 210px;
+
+  &.large {
+    .ant-select-selector {
+      padding: 15px 10px;
+    }
+    .ant-select-selection-placeholder,
+    .ant-select-selection-item {
+      //line-height: 50px !important;
+    }
+  }
+
+  &.small {
+    .ant-select-selector,
+    input {
+      //height: 35px !important;
+    }
+    .ant-select-selection-placeholder,
+    .ant-select-selection-item {
+      line-height: 35px !important;
+    }
+  }
+
+  &.full-width {
+    min-width: 100%;
+  }
+
+  &.ant-select-single:not(.ant-select-customize-input) .ant-select-selector,
+  &.ant-select-single:not(.ant-select-customize-input)
+    .ant-select-selector
+    .ant-select-selection-search-input {
+    //height: 40px;
+    border-radius: 8px;
+    padding: 0 16px;
+  }
+
+  &.ant-select-single .ant-select-selector .ant-select-selection-item,
+  &.ant-select-single .ant-select-selector .ant-select-selection-placeholder {
+    //line-height: 40px;
+    color: #000000;
+  }
+
+}
+
+.blue-select {
+  min-width: 210px;
+
+  &.large {
+    .ant-select-selector,
+    input {
+      height: 50px !important;
+    }
+    .ant-select-selection-placeholder,
+    .ant-select-selection-item {
+      line-height: 50px !important;
+    }
+  }
+
+  &.small {
+    .ant-select-selector,
+    input {
+      height: 35px !important;
+    }
+    .ant-select-selection-placeholder,
+    .ant-select-selection-item {
+      line-height: 35px !important;
+    }
+  }
+
+  &.full-width {
+    min-width: 100%;
+  }
+
+  &.ant-select-single:not(.ant-select-customize-input) .ant-select-selector,
+  &.ant-select-single:not(.ant-select-customize-input)
+    .ant-select-selector
+    .ant-select-selection-search-input {
+    height: 40px;
+    border-radius: 8px;
+    padding: 0 16px;
+    background-color: #e8f0fd;
+  }
+
+  &.ant-select-single .ant-select-selector .ant-select-selection-item,
+  &.ant-select-single .ant-select-selector .ant-select-selection-placeholder {
+    line-height: 40px;
+    color: #000000;
+  }
+}
+
+.select-label {
+  position: absolute;
+  top: -10px;
+  left: 8px;
+  padding: 0 5px;
+  z-index: 1;
+  background: #fff;
+}
+
+.bold {
+  & .ant-select-selection-item {
+    font-weight: 900;
+    color: #000;
+  }
+}

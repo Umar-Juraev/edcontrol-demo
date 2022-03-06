@@ -1,0 +1,122 @@
+.antBadge {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.ant-badge-not-a-wrapper {
+  .ant-scroll-number {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 50px;
+    padding: 0 35px;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    color: unset;
+    background-color: rgba(176, 183, 195, 0.1);
+    cursor: pointer;
+    user-select: none;
+  }
+}
+
+.activeBadge {
+  .ant-scroll-number {
+    color: #fff;
+    background-color: rgba(55, 125, 255, 1);
+  }
+}
+
+.badgeSchedule {
+  width: 100%;
+  .ant-scroll-number {
+    justify-content: flex-start !important;
+  }
+}
+
+.activeBadgeSchedule {
+  .ant-scroll-number {
+    color: #4f8cff;
+    background-color: #f5f8ff;
+  }
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.roundedBadge {
+  .ant-scroll-number {
+    color: rgba(55, 125, 255, 1);
+    height: 32px;
+    padding: 8px 20px;
+    background-color: rgba(55, 125, 255, 0.1);
+  }
+}
+
+.ant-badge-status-dot {
+  width: 12px !important;
+  height: 12px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+  }
+}
+
+.ant-badge-status-success {
+  background-color: rgba(8, 100, 32, 0.4) !important;
+
+  &::before {
+    background-color: rgba(8, 100, 32, 1);
+  }
+  &::after {
+    background-color: rgba(8, 100, 32, 0.5);
+  }
+}
+
+.ant-badge-status-error {
+  background-color: rgba(255, 79, 55, 0.4) !important;
+
+  &::before {
+    background-color: rgba(255, 79, 55, 1);
+  }
+  &::after {
+    background-color: rgba(255, 79, 55, 0.5);
+  }
+}
+
+.arabic {
+  .ant-scroll-number {
+    background-color: #ccf0fb;
+    color: #01b2ea;
+  }
+}
+
+.english {
+  .ant-scroll-number {
+    background-color: #ffd7ed;
+    color: #ff37a3;
+  }
+}
+
+.frontend {
+  .ant-scroll-number {
+    background-color: #ffe6d0;
+    color: #fd8312;
+  }
+}

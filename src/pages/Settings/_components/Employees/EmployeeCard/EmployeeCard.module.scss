@@ -1,0 +1,90 @@
+.user_card_info {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 15px;
+  background-color: #fff;
+  box-shadow: 0px 8px 20px rgba(22, 22, 22, 0.05);
+  &.detail {
+    padding: 16px 18px !important;
+  }
+  @media (max-width: 993px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.user_data_container {
+  margin-left: 10px;
+}
+
+.user_image {
+  width: 100%;
+  // min-width: 108px;
+  height: 108px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.user_image_detail {
+  width: 100%;
+  min-width: 140px;
+  height: 140px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.card_btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 12px;
+
+  .btn {
+    padding: 4px 0;
+    button {
+      width: 100%;
+      height: 50px;
+    }
+  }
+  .btn2 {
+    padding: 4px 0;
+    button {
+      width: 100%;
+      height: 50px;
+    }
+  }
+}
+.user_name {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.detail {
+  padding: 16px 18px !important;
+}
+
+.title {
+  width: 250px;
+}
+
+.btn_skeleton {
+  width: 334px;
+  height: 50px;
+}
+
+.text {
+  width: 120px;
+  height: 20px !important;
+}
+
+.cardImage {
+  width: 100px;
+}
+
+.dataValue {
+  color: #b0b7c3;
+  font-size: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

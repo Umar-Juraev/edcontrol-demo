@@ -1,0 +1,36 @@
+.home_page {
+  .page_title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #323b4b;
+  }
+  .card_stats_container {
+    margin-top: 10px;
+  }
+  .statusBox{
+    display: flex;
+    gap: 20px;
+    @media (max-width: 1100px) {
+      gap: 10px;
+    }
+    @media (max-width: 765px) {
+      gap: 5px;
+    }
+  }
+  .active_groups {
+    .active_groups_title {
+      font-weight: 600;
+      font-size: 24px;
+      margin: 32px 0 24px;
+      @media (max-width: 420px) {
+        font-size: 22px;
+      }
+    }
+  }
+}
+
+.statusRow{
+ display: grid;
+ grid-template-columns: auto auto auto auto auto;
+ grid-column-gap: 20px;
+}

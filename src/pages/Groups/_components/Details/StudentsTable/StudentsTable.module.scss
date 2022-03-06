@@ -1,0 +1,27 @@
+.button {
+  background-color: rgba(176, 183, 195, 0.1);
+
+  &:hover {
+    color: #fff;
+    background-color: #086420;
+  }
+}
+
+.deleteButton {
+  &:hover {
+    background-color: #ff4f37;
+  }
+}
+
+.pointButton {
+  &:hover {
+    background-color: unset;
+  }
+}
+
+.image {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  object-fit: cover;
+}

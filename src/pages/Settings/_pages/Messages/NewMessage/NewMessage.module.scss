@@ -1,0 +1,83 @@
+.wrapper {
+  width: 100%;
+}
+
+.newMessageCard {
+  div {
+    width: 100%;
+    padding: 24px !important;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0px 8px 20px rgba(22, 22, 22, 0.05);
+    border-radius: 15px;
+    position: sticky;
+    top: 100px;
+
+    button {
+      margin-top: 16px;
+    }
+  }
+}
+
+.title {
+  font-weight: 500;
+  font-size: 24px;
+  color: #377dff;
+}
+
+.studentHeaderCard {
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  box-shadow: 0px 8px 20px rgba(22, 22, 22, 0.05);
+  border-radius: 15px;
+}
+
+.studentTitle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.usersCard {
+  background-color: #fff;
+  margin-top: 16px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  box-shadow: 0px 8px 20px rgba(22, 22, 22, 0.05);
+  border-radius: 15px;
+
+  .userInfoSection {
+    img {
+      width: 56px;
+      height: 56px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    span {
+      margin-left: 20px;
+      font-weight: 500;
+      font-size: 16px;
+    }
+  }
+}
+
+.pagination_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-top: 16px;
+}
+
+.errorText {
+  margin-top: -10px;
+  color: #ff4f37;
+}

@@ -1,0 +1,52 @@
+@import "assets/scss/variables.scss";
+
+//************************************ Input styles *************************
+.ant-input-affix-wrapper {
+  width: 100% !important;
+  height: 58px !important;
+  background: #ffffff;
+  border: 2px solid rgba(176, 183, 195, 0.2) !important ;
+  // box-shadow: 0px 8px 20px rgba(22, 22, 22, 0.05) !important ;
+  border-radius: 15px !important ;
+  outline: none !important ;
+  //   margin-bottom: 0 !important;
+  padding: 0 20px !important;
+  //   margin: 0 !important;
+}
+
+.simple-input {
+  width: 100% !important;
+  height: 50px !important;
+  background: #ffffff;
+  border: 2px solid rgba(176, 183, 195, 0.2) !important ;
+  // box-shadow: 0px 8px 20px rgba(22, 22, 22, 0.05) !important ;
+  border-radius: 15px !important ;
+  outline: none !important ;
+  //   margin-bottom: 0 !important;
+  padding: 0 20px !important;
+}
+
+.ant-input {
+  font-size: 16px !important;
+  font-weight: 500;
+}
+
+.ant-input:focus {
+  color: #377dff !important ;
+}
+
+.ant-input-affix-wrapper:focus,
+.ant-input-affix-wrapper-focused {
+  border: 2px solid rgba(55, 125, 255, 0.2) !important ;
+}
+
+.number {
+  color: #377dff;
+}
+
+.password {
+  color: #377dff;
+}
+
+.error {
+}

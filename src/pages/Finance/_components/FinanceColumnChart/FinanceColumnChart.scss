@@ -1,0 +1,11 @@
+.apexcharts-canvas {
+  display: flex !important;
+  justify-content: start !important;
+  flex-direction: column !important;
+
+  svg {
+    // background-color: red !important;
+  }
+}
+.apexcharts-text .apexcharts-xaxis-label .bar {
+}

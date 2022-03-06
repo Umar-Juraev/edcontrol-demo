@@ -1,0 +1,26 @@
+.card {
+  border: none !important;
+  height: 120px !important;
+  position: relative;
+  .cardImage {
+    width: 120px !important;
+    height: 70px !important;
+    position: absolute;
+    top: 30px;
+    span {
+      width: 100% !important;
+      height: 100% !important;
+      border-radius: 5px !important ;
+    }
+  }
+  .textCont {
+    .text {
+      position: relative;
+      left: 140px;
+      width: 120px;
+      h3 {
+        height: 13px !important;
+      }
+    }
+  }
+}
