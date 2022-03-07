@@ -1,10 +1,10 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import { Link } from "react-router-dom";
 
 import classes from "./CardStats.module.scss";
 interface CardStatsProps {
   image?: string;
-  value?: string | number;
+  value?: string | number | ReactNode;
   types?: string;
   isLoading?: boolean;
   pathName?: any;

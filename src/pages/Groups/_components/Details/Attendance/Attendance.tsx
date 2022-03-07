@@ -7,10 +7,8 @@ import { useParams } from "react-router-dom";
 import { Col, Row, TableColumnsType } from "antd";
 import { CheckboxChangeEvent } from "antd/lib/checkbox";
 
-import { LessonsDTO } from "types";
 import { useAppSelector } from "store/hooks";
 import { Table, CheckBox, PopConfirm, Button, Tooltip } from "components/shared";
-import { useLessonsFullQuery, usePupilsFullQuery, useUpdateLessonMutation } from "store/endpoints";
 import { SettingIcon } from "components/svg";
 import AttendanceSettings from "./AttendanceSettings";
 
@@ -26,44 +24,16 @@ const AttendanceTable: FC<Props> = () => {
   const startOfMonth = moment(date).startOf("month").format("YYYY-MM-DD");
   const endOfMonth = moment(date).endOf("month").format("YYYY-MM-DD");
 
-  const pupilsQuery = usePupilsFullQuery({ group: id })
-  const lessonsQuery = useLessonsFullQuery({
-    group: id,
-    scheduled_time_from: startOfMonth,
-    scheduled_time_to: endOfMonth,
-  });
+  // const pupilsQuery = usePupilsFullQuery({ group: id })
+  // const lessonsQuery = useLessonsFullQuery({
+  //   group: id,
+  //   scheduled_time_from: startOfMonth,
+  //   scheduled_time_to: endOfMonth,
+  // });
 
-  const [updateMutation, { isLoading }] = useUpdateLessonMutation();
+  // const [updateMutation, { isLoading }] = useUpdateLessonMutation();
 
-  const onChange = (
-    e: CheckboxChangeEvent,
-    item: LessonsDTO,
-    users: number[] = item.participants
-  ) => {
-    const { checked, value } = e.target;
 
-    users = !checked
-      ? users.filter((f) => f !== value.user)
-      : [...users, value.user];
-
-    const values = {
-      group: id,
-      scheduled_time: value.lesson.scheduled_time,
-      participants: [...new Set(users)],
-    };
-
-    const mutationPromise = updateMutation({ id: item.id, ...values }).unwrap();
-
-    toast
-      .promise(mutationPromise, {
-        loading: `tasdiqlanmoqda...`,
-        success: `muvaffaqqiyatli tasdiqlandi`,
-        error: ({ data }) => JSON.stringify(data),
-      })
-      .then((res) => {
-        lessonsQuery.refetch();
-      });
-  };
 
   const columns: TableColumnsType = [
     {
@@ -82,7 +52,7 @@ const AttendanceTable: FC<Props> = () => {
           justify="space-between"
           className={classes.headerBox}
         >
-          {_.sortBy(lessonsQuery.data, (item) => item.scheduled_time).map(
+          {/* {_.sortBy(lessonsQuery.data, (item) => item.scheduled_time).map(
             (item) => (
               item.moved_time ? (
                 <Tooltip key={item.id} title={`oldingi sana ${moment(item.scheduled_time).format("DD-MMMM")}`} >
@@ -113,7 +83,7 @@ const AttendanceTable: FC<Props> = () => {
                 </Col>
               )
             )
-          )}
+          )} */}
         </Row >
       ),
       dataIndex: [`user`, `full_name`],
@@ -125,7 +95,7 @@ const AttendanceTable: FC<Props> = () => {
           className={`${classes.headerBox} ${record.is_canceled && classes.CancelLesson
             }`}
         >
-          {_.sortBy(lessonsQuery.data, (item) => item.scheduled_time).map(
+          {/* {_.sortBy(lessonsQuery.data, (item) => item.scheduled_time).map(
             (item) => (
               <CheckBox
                 value={{
@@ -141,40 +111,40 @@ const AttendanceTable: FC<Props> = () => {
                 onChange={(e: CheckboxChangeEvent) => onChange(e, item)}
               />
             )
-          )}
+          )} */}
         </Row>
       ),
     },
     {
-      title: () => (
-        <Row justify="center">
-          <PopConfirm
-            icon={false}
-            placement="bottomRight"
-            okButtonProps={{ hidden: true }}
-            cancelButtonProps={{ hidden: true }}
-            overlayInnerStyle={{
-              maxHeight: "50vh",
-              overflow: "scroll",
-            }}
-            title={
-              <AttendanceSettings
-                visible={visible}
-                setVisible={setVisible}
-                lessonsData={lessonsQuery.data || []}
-                lessonsQuery={lessonsQuery}
-              />
-            }
-          >
-            <Button
-              size="large"
-              singleIconMode
-              icon={<SettingIcon />}
-              style={{ background: "white" }}
-            />
-          </PopConfirm>
-        </Row>
-      ),
+      // title: () => (
+      //   <Row justify="center">
+      //     <PopConfirm
+      //       icon={false}
+      //       placement="bottomRight"
+      //       okButtonProps={{ hidden: true }}
+      //       cancelButtonProps={{ hidden: true }}
+      //       overlayInnerStyle={{
+      //         maxHeight: "50vh",
+      //         overflow: "scroll",
+      //       }}
+      //       title={
+      //         <AttendanceSettings
+      //           visible={visible}
+      //           setVisible={setVisible}
+      //           lessonsData={lessonsQuery.data || []}
+      //           lessonsQuery={lessonsQuery}
+      //         />
+      //       }
+      //     >
+      //       <Button
+      //         size="large"
+      //         singleIconMode
+      //         icon={<SettingIcon />}
+      //         style={{ background: "white" }}
+      //       />
+      //     </PopConfirm>
+      //   </Row>
+      // ),
       width: "5%",
       fixed: `right`,
     },
@@ -182,13 +152,13 @@ const AttendanceTable: FC<Props> = () => {
 
   return (
     <div>
-      <Table
+      {/* <Table
         columns={columns}
         dataSource={pupilsQuery.data || []}
         loading={lessonsQuery.isFetching}
         scroll={{ x: (lessonsQuery.data?.length || 10) * 70 }}
         pagination={false}
-      />
+      /> */}
     </div>
   );
 };

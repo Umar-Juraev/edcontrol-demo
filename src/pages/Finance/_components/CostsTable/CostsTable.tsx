@@ -6,7 +6,6 @@ import { useHistory } from "react-router-dom";
 
 import { Button, PopConfirm, Table } from "components/shared";
 import { DeleteIcon } from "components/svg";
-import { useDeleteOutcomeMutation, useOutcomesQuery } from "store/endpoints";
 import {
   checkObjectValueExist,
   checkValueEmpty,
@@ -42,22 +41,15 @@ const CostsTable: FC<Props> = ({ createCost, setCreateCost }) => {
   };
   checkObjectValueExist(queryKeys);
 
-  const outcomesQuery = useOutcomesQuery(queryKeys);
-  const [deleteMutation] = useDeleteOutcomeMutation();
+  // const outcomesQuery = useOutcomesQuery(queryKeys);
+  // const [deleteMutation] = useDeleteOutcomeMutation();
 
   function onChange(page: number) {
     setPage(page);
     history.push(`/admin/finance?type=outcome&page=${page}`);
   }
 
-  const onDelete = (record: any) => {
-    const mutationPromise = deleteMutation({ id: record.id }).unwrap();
-    toast.promise(mutationPromise, {
-      loading: `o'chirilmoqda...`,
-      success: `muvaffaqiyatli o'chirildi`,
-      error: ({ data }) => JSON.stringify(data),
-    });
-  };
+
 
   const columns: TableColumnsType = [
     {
@@ -116,7 +108,6 @@ const CostsTable: FC<Props> = ({ createCost, setCreateCost }) => {
           {(CEO || SUPER_USER) && (
             <PopConfirm
               title="Xarajat o'chirilsinmi?"
-              onConfirm={() => onDelete(record)}
             >
               <Button icon={<DeleteIcon />} className={classes.deleteButton} />
             </PopConfirm>
@@ -128,7 +119,7 @@ const CostsTable: FC<Props> = ({ createCost, setCreateCost }) => {
 
   return (
     <div>
-      <Table
+      {/* <Table
         columns={columns}
         dataSource={outcomesQuery.data?.results || []}
         loading={outcomesQuery.isFetching}
@@ -138,7 +129,7 @@ const CostsTable: FC<Props> = ({ createCost, setCreateCost }) => {
           current: page,
           onChange: (e) => onChange(e),
         }}
-      />
+      /> */}
       <CreateCostModal visible={createCost} setVisible={setCreateCost} />
 
       <CostsFilterModal />

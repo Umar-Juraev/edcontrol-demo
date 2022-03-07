@@ -1,6 +1,4 @@
 import { Col, Row } from "antd";
-
-import { useMainPageStatisticsQuery, useStudentsFullQuery, useStudentsQuery } from "store/endpoints";
 import { GroupCard } from "components/Cards";
 import CardStats from "components/Cards/CardStats";
 import UsersCard from "components/Cards/UsersCard/UsersCard";
@@ -13,42 +11,39 @@ import Income from "images/income.svg";
 import { Empty } from "components/shared";
 import CardStatsSkeleton from "components/Skeleton/CardStatsSkeleton";
 import GroupCardSkeleton from "components/Skeleton/GroupCardSkeleton";
-
 import classes from "./Home.module.scss";
-import { useEffect } from "react";
+import { groupsAPI, teacherAPI, studentAPI, clientsAPI } from "../../fakeAPI/fakeAPI";
 
 export type Props = {};
 
 const Home = (props: Props) => {
-  // const statisticsQuery = useMainPageStatisticsQuery();
-  // const studentsQuery = useStudentsFullQuery()
 
   const cardData = [
     {
       title: `Groups`,
       icon: GroupIcon,
-      value: '50',
+      value: groupsAPI.count,
       path: "/admin/groups",
       col: 6,
     },
     {
       title: `Teachers`,
       icon: StudentIcon,
-      value: '120',
+      value: teacherAPI.count,
       path: "/admin/teachers",
       col: 6,
     },
     {
       title: `Talabalar`,
       icon: TeacherIcon,
-      value: '600',
+      value: studentAPI.count,
       path: "/admin/students",
       col: 6,
     },
     {
       title: `Clients`,
       icon: ClientIcon,
-      value: '300',
+      value: clientsAPI.count,
       path: "/admin/clients",
       col: 6,
     }, {
@@ -60,18 +55,11 @@ const Home = (props: Props) => {
     },
   ];
 
-
-  // useEffect(() => {
-  //   fetch('db.json').then(res => console.log(res)
-  //   )
-  // }, [])
-
-
   return (
     <div className={classes.home_page}>
       <h2 className={classes.page_title}>General Statistics</h2>
       <div className={classes.card_stats_container}>
-        {/* {statisticsQuery.isFetching && (
+        {/* {isLoading() && (
           <div className={classes.statusBox}>
             <CardStatsSkeleton />
             <CardStatsSkeleton />
@@ -83,13 +71,13 @@ const Home = (props: Props) => {
 
         <div className={classes.statusBox}>
           {
-            // !statisticsQuery.isFetching &&
+            // !isLoading() &&
             cardData?.map(({ title, value, icon, path }) => (
               <CardStats
                 image={icon}
                 value={value}
                 types={title}
-                // isLoading={statisticsQuery.isLoading}
+                // isLoading={isLoading()}
                 pathName={path}
               />
             ))}
@@ -109,31 +97,27 @@ const Home = (props: Props) => {
               <GroupCardSkeleton lengthParagraph={5} />
             </>
           )} */}
-          {/* {statisticsQuery.data?.groups.length
-            ? statisticsQuery.data?.groups.slice(0, 3).map((group) => (
-              <Col key={group.id} sm={24} md={12} lg={12} xl={8} xxl={6}>
-                <GroupCard
-                  href={`/admin/groups/${group.id}`}
-                  name={group.name}
-                  teacher={group.teacher.full_name}
-                  days={group.days}
-                  startTime={group.lesson_start_time}
-                  startDate={group.lessons_start_date}
-                  endDate={group.lessons_end_date}
-                  room={group.room.name}
-                  userCount={group.pupils_count}
-                // badge={{
-                //   title: group?.lesson?.name,
-                //   background: colorGenerator(group?.lesson?.id),
-                // }}
-                />
-              </Col>
-            ))
-            : !statisticsQuery.isLoading && (
-              <Col span={24}>
-                <Empty description="Faol guruhlar mavjud emas" />
-              </Col>
-            )} */}
+          {groupsAPI.results.slice(0, 3).map((group) => (
+            <Col key={group.id} sm={24} md={12} lg={12} xl={8} xxl={6}>
+              <GroupCard
+                href={`/admin/groups/${group.id}`}
+                name={group.name}
+                teacher={group.teacher.full_name}
+                days={group.days}
+                startTime={group.lesson_start_time}
+                startDate={group.lessons_start_date}
+                endDate={group.lessons_end_date}
+                room={group.room.name}
+                userCount={group.pupils_count}
+              />
+            </Col>
+          ))
+            // : !statisticsQuery.isLoading && (
+            //   <Col span={24}>
+            //     <Empty description="Faol guruhlar mavjud emas" />
+            //   </Col>
+            // )
+          }
         </Row>
       </div>
 
@@ -145,8 +129,8 @@ const Home = (props: Props) => {
           gutter={[{ sm: 0, md: 5, lg: 20 }, 20]}
           style={{ margin: "24px 0 0 0" }}
         >
-          {/* {statisticsQuery.data?.teachers.length
-            ? statisticsQuery.data?.teachers.slice(0, 3).map((item) => (
+          {
+            teacherAPI.results.slice(0, 3).map((item) => (
               <Col key={item.id} sm={24} md={12} lg={12} xl={8} xxl={6}>
                 <UsersCard
                   name={item.full_name}
@@ -156,11 +140,12 @@ const Home = (props: Props) => {
                 />
               </Col>
             ))
-            : !statisticsQuery.isLoading && (
-              <Col sm={24} md={12} lg={12} xl={8} xxl={6}>
-                <Empty description="Ma'lumot yo'q" />
-              </Col>
-            )} */}
+            // : !statisticsQuery.isLoading && (
+            //   <Col sm={24} md={12} lg={12} xl={8} xxl={6}>
+            //     <Empty description="Ma'lumot yo'q" />
+            //   </Col>
+            // )
+          }
         </Row>
       </div>
     </div>

@@ -2,12 +2,10 @@ import React, { FC, useEffect } from "react";
 import { Form } from "antd";
 import toast from "react-hot-toast";
 
-import { ClientsDTO } from "types";
 import { useAppSelector } from "store/hooks";
 import { Button, FormElements, Modal } from "components/shared";
 import { checkObjectValueExist, parsePhoneNumber } from "utils";
 
-import { useCreateClientMutation, useDirectionsQuery, useSourcesQuery, useStatusesQuery } from "store/endpoints";
 
 import classes from "./CreateModalClient.module.scss";
 
@@ -17,35 +15,6 @@ export type Props = {
 };
 
 const CreateModalClient: FC<Props> = ({ visible, setVisible }) => {
-  const [form] = Form.useForm()
-
-  const source = useSourcesQuery();
-  const directions = useDirectionsQuery();
-  const status = useStatusesQuery();
-  const { currentUser } = useAppSelector((state) => state.persistedData);
-
-  const [createMutation, { isLoading }] = useCreateClientMutation();
-
-  const onFinish = (values: any) => {
-    const clientValues = {
-      ...values,
-      phone_number: parsePhoneNumber(values.phone_number),
-      branch: currentUser.data?.branch?.id,
-    };
-    checkObjectValueExist(clientValues);
-
-    const mutationPromise = createMutation(clientValues).unwrap();
-    toast
-      .promise(mutationPromise, {
-        loading: `mijoz qo'shilmoqda...`,
-        success: `muvaffaqqiyatli qo'shildi`,
-        error: ({ data }) => JSON.stringify(data),
-      })
-      .then((res) => {
-        setVisible(false);
-        form.resetFields()
-      });
-  };
 
   return (
     <Modal
@@ -55,8 +24,7 @@ const CreateModalClient: FC<Props> = ({ visible, setVisible }) => {
       onCancel={() => setVisible(false)}
     >
       <Form
-        onFinish={onFinish}
-        form={form}
+
         layout="vertical"
       >
         <Form.Item
@@ -82,12 +50,7 @@ const CreateModalClient: FC<Props> = ({ visible, setVisible }) => {
         >
           <FormElements.Select
             showSearch
-            loading={source.isFetching}
-            options={source.data?.map((item) => ({
-              title: item.name,
-              value: item.id,
-              key: item.id,
-            }))}
+           
           />
         </Form.Item>
 
@@ -98,12 +61,6 @@ const CreateModalClient: FC<Props> = ({ visible, setVisible }) => {
         >
           <FormElements.Select
             showSearch
-            loading={directions.isFetching}
-            options={directions.data?.map((item) => ({
-              title: item.name,
-              value: item.id,
-              key: item.id,
-            }))}
           />
         </Form.Item>
 
@@ -114,12 +71,7 @@ const CreateModalClient: FC<Props> = ({ visible, setVisible }) => {
         >
           <FormElements.Select
             showSearch
-            loading={status.isFetching}
-            options={status.data?.map((item) => ({
-              title: item.name,
-              value: item.id,
-              key: item.id,
-            }))}
+           
           />
         </Form.Item>
 
@@ -128,8 +80,7 @@ const CreateModalClient: FC<Props> = ({ visible, setVisible }) => {
           type="primary"
           htmlType="submit"
           size="large"
-          loading={isLoading}
-          disabled={isLoading}
+        
         >
           Tasdiqlash
         </Button>

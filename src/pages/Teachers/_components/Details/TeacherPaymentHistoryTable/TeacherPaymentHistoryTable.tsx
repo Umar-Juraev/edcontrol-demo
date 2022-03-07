@@ -2,24 +2,19 @@ import { FC, useState } from "react";
 import { TableColumnsType } from "antd";
 import { useParams } from "react-router-dom";
 
-import { PaymentsDTO } from "types"
 import { Table } from "components/shared";
-import { useTeacherSalariesQuery } from "store/endpoints"
 import { separateNumberThousands } from "utils";
 import moment from "moment";
 
 export type Props = {
-  data?: PaymentsDTO[];
+  data?: any;
 };
 
 const TeacherPaymentHistoryTable: FC<Props> = ({ data }) => {
   const [page, setPage] = useState(1)
   const { id } = useParams<{ id: any }>()
 
-  const teacherSalariesQuery = useTeacherSalariesQuery({
-    date_from: moment().subtract(1, 'year').format('YYYY-MM-DD'),
-    date_to: moment().format('YYYY-MM-DD')
-  })
+
 
   function onChange(page: number) {
     setPage(page)
@@ -70,21 +65,19 @@ const TeacherPaymentHistoryTable: FC<Props> = ({ data }) => {
     },
   ];
 
-  const filteredData = teacherSalariesQuery.data?.filter(item => item.teacher_id == id)
 
   return (
     <div>
       <Table
         columns={columns}
-        dataSource={filteredData || []}
-        loading={teacherSalariesQuery.isFetching}
-        pagination={{
-          total: filteredData?.length,
-          pageSize: 10,
-          current: page,
-          onChange: (e) => onChange(e),
-          showSizeChanger: false
-        }}
+        // dataSource={filteredData || []}
+        // pagination={{
+        //   total: filteredData?.length,
+        //   pageSize: 10,
+        //   current: page,
+        //   onChange: (e) => onChange(e),
+        //   showSizeChanger: false
+        // }}
       />
     </div>
   );

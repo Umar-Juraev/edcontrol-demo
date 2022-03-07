@@ -7,7 +7,7 @@ import { TopUpBalanceIcon } from "components/svg";
 import UserCardInfo from "components/Cards/UserCardInfo";
 import { BreadCrumb, Button, Tabs } from "components/shared";
 import UserCardSkeleton from "components/Skeleton/UserCardSkeleton";
-import { useStudentByIdQuery, useUpdateStudentMutation } from "store/endpoints";
+// import { useStudentByIdQuery, useUpdateStudentMutation } from "store/endpoints";
 
 import classes from "./StudentDetails.module.scss";
 import StudentHistoryMesseges from "pages/Students/_components/Details/StudentHistoryMessage";
@@ -34,23 +34,23 @@ const StudentDetails: FC<Props> = () => {
   const { id } = useParams<{ id: any }>();
   const history = useHistory();
 
-  const { data: studentData, isFetching } = useStudentByIdQuery({ id });
-  const [updateStudentMutation, { isLoading: updateLoading }] =
-    useUpdateStudentMutation();
+  // const { data: studentData, isFetching } = useStudentByIdQuery({ id });
+  // const [updateStudentMutation, { isLoading: updateLoading }] =
+  //   useUpdateStudentMutation();
 
-  const onDelete = () => {
-    const mutationPromise = updateStudentMutation({
-      id,
-      is_removed: true,
-    }).unwrap();
-    toast
-      .promise(mutationPromise, {
-        loading: `o'chirilmoqda...`,
-        success: `muvaffaqiyatli o'chirildi`,
-        error: ({ data }) => JSON.stringify(data),
-      })
-      .then(() => history.goBack());
-  };
+  // const onDelete = () => {
+  //   const mutationPromise = updateStudentMutation({
+  //     id,
+  //     is_removed: true,
+  //   }).unwrap();
+  //   toast
+  //     .promise(mutationPromise, {
+  //       loading: `o'chirilmoqda...`,
+  //       success: `muvaffaqiyatli o'chirildi`,
+  //       error: ({ data }) => JSON.stringify(data),
+  //     })
+  //     .then(() => history.goBack());
+  // };
 
   const tabs = [
     {
@@ -66,12 +66,16 @@ const StudentDetails: FC<Props> = () => {
     {
       key: 3,
       title: `Hodisalar tarixi`,
-      panel: <StudentHistoryLogs data={studentData?.logs} />,
+      panel: <StudentHistoryLogs 
+      // data={studentData?.logs} 
+      />,
     },
     {
       key: 4,
       title: `Ko'proq ma'lumot`,
-      panel: <StudentMoreAbout user={studentData} />,
+      panel: <StudentMoreAbout
+      //  user={studentData} 
+      />,
     },
     // {
     //   key: 5,
@@ -92,7 +96,9 @@ const StudentDetails: FC<Props> = () => {
 
   const breadCrumb = [
     { id: 1, title: "Talabalar", path: "/admin/students" },
-    { id: 2, title: studentData?.full_name },
+    { id: 2, title: 'umar juraev'
+      // studentData?.full_name
+     },
   ];
 
   let tabExtraContent;
@@ -125,10 +131,10 @@ const StudentDetails: FC<Props> = () => {
     <div className={classes.student_details}>
       <Row>
         <Col span={24}>
-          <BreadCrumb breadCrumb={breadCrumb} isFetching={isFetching} />
+          <BreadCrumb breadCrumb={breadCrumb}  />
         </Col>
       </Row>
-
+{/* 
       {!isFetching ? (
         <UserCardInfo
           key={studentData?.id}
@@ -148,7 +154,7 @@ const StudentDetails: FC<Props> = () => {
         />
       ) : (
         <UserCardSkeleton detailsUsers />
-      )}
+      )} */}
 
       <Tabs
         data={tabs}
@@ -160,13 +166,11 @@ const StudentDetails: FC<Props> = () => {
       <UpdateModalStudent
         visible={updateModal}
         setVisible={setUpdateModal}
-        data={studentData}
       />
 
       <StudentPaymentModal
         visible={paymentModal}
         setVisible={setPaymentModal}
-        user={studentData}
       />
       <CommentModal visible={commentModal} setVisible={setCommnetModal} />
       <NewMessageModal

@@ -3,7 +3,6 @@ import { TableColumnsType } from "antd";
 import { useHistory } from "react-router-dom";
 
 import { Table } from "components/shared";
-import { useStudentsQuery } from "store/endpoints";
 import { separateNumberThousands, separatePhoneNumber } from "utils";
 
 export type Props = {};
@@ -12,7 +11,7 @@ const DebtorsTable: FC<Props> = () => {
   const [page, setPage] = useState(1)
   const history = useHistory()
 
-  const studentsQuery = useStudentsQuery({ balance__lt: 0, page })
+  // const studentsQuery = useStudentsQuery({ balance__lt: 0, page })
 
   const currentParams = history.location.search?.split('&')
   const tabParams = currentParams[0]?.split("=")[1];
@@ -55,7 +54,7 @@ const DebtorsTable: FC<Props> = () => {
 
   return (
     <div>
-      <Table
+      {/* <Table
         columns={columns}
         dataSource={studentsQuery.data?.results || []}
         loading={studentsQuery.isFetching}
@@ -67,7 +66,7 @@ const DebtorsTable: FC<Props> = () => {
           onChange: (e) => onChange(e),
           showSizeChanger: false
         }}
-      />
+      /> */}
     </div>
   );
 };

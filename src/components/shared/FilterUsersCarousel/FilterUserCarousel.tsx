@@ -2,8 +2,8 @@ import { FC, useRef } from "react";
 import Slider from "react-slick";
 
 import { Row, Col } from "antd";
-import { DirectionsDTO, UsersDTO } from "types";
-import { useDirectionsQuery, useStudentsFullQuery } from "store/endpoints";
+// import { DirectionsDTO, UsersDTO } from "types";
+// import { useDirectionsQuery, useStudentsFullQuery } from "store/endpoints";
 import { ArrowLeft, ArrowRight } from "components/svg";
 import { Badge } from "..";
 
@@ -14,10 +14,10 @@ import "slick-carousel/slick/slick.css";
 export type Props = {
   title?: string;
   type?: `direction` | `teacher` | `student`;
-  selectedDirection?: DirectionsDTO | null;
-  selectedStudent?: UsersDTO | null;
-  setSelectedDirection: (item?: DirectionsDTO) => void;
-  setSelectedStudent: (item?: UsersDTO) => void;
+  selectedDirection?: any | null;
+  selectedStudent?: any | null;
+  setSelectedDirection: (item?: any) => void;
+  setSelectedStudent: (item?: any) => void;
 };
 
 const FilterUser: FC<Props> = ({
@@ -30,8 +30,8 @@ const FilterUser: FC<Props> = ({
 }) => {
   const sliderRef = useRef<Slider>(null);
 
-  const directionsQuery = useDirectionsQuery();
-  const studentsQuery = useStudentsFullQuery();
+  // const directionsQuery = useDirectionsQuery();
+  // const studentsQuery = useStudentsFullQuery();
 
   const settings = {
     dots: false,
@@ -69,7 +69,7 @@ const FilterUser: FC<Props> = ({
       </Row>
 
       <Slider {...settings} ref={sliderRef}>
-        {type === "direction" &&
+        {/* {type === "direction" &&
           directionsQuery.data?.map((direction) => (
             <Row gutter={8} key={direction.id}>
               <Col>
@@ -81,9 +81,9 @@ const FilterUser: FC<Props> = ({
                 />
               </Col>
             </Row>
-          ))}
+          ))} */}
 
-        {type === "student" &&
+        {/* {type === "student" &&
           studentsQuery.data?.map((student) => (
             <div
               className={
@@ -114,7 +114,7 @@ const FilterUser: FC<Props> = ({
                 </p>
               </div>
             </div>
-          ))}
+          ))} */}
       </Slider>
     </div>
   );

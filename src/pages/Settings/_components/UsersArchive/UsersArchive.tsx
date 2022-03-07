@@ -4,14 +4,7 @@ import { TableColumnsType, Row, Col } from "antd";
 
 import { Button, PopConfirm, Table, Tooltip } from "components/shared";
 import { DeleteIcon, UndoIcon } from "components/svg";
-import {
-  useDeleteStudentMutation,
-  useDeleteTeacherMutation,
-  useStudentsQuery,
-  useTeachersQuery,
-  useUpdateStudentMutation,
-  useUpdateTeacherMutation,
-} from "store/endpoints";
+
 import { separatePhoneNumber } from "utils";
 import { useAppSelector } from "store/hooks";
 
@@ -24,66 +17,10 @@ const UsersArchive = () => {
   const SUPER_USER = currentUser.data?.role == 1000;
   const CEO = currentUser.data?.role == 999;
 
-  const studentsQuery = useStudentsQuery({ is_removed: true });
-  const teachersQuery = useTeachersQuery();
+  // const studentsQuery = useStudentsQuery({ is_removed: true });
+  // const teachersQuery = useTeachersQuery();
 
-  const [updateStudentMutation] = useUpdateStudentMutation();
-  const [deleteStudentMutation] = useDeleteStudentMutation();
-  const [updateTeacherMutation] = useUpdateTeacherMutation();
-  const [deleteTeacherMutation] = useDeleteTeacherMutation();
 
-  useEffect(() => {
-    setFullArchiveUsers([
-      ...(studentsQuery.data?.results || []),
-      ...(teachersQuery.data?.results.filter((item) => item.is_removed) || []),
-    ]);
-  }, [studentsQuery, teachersQuery]);
-
-  function onChange(page: number) {
-    setPage(page);
-  }
-
-  const onUpdate = (record: any) => {
-    if ("salary" in record) {
-      let mutationPromise = updateTeacherMutation({
-        id: record.id,
-        is_removed: false,
-      }).unwrap();
-      toast.promise(mutationPromise, {
-        loading: `o'qituvchi arxivdan chiqarilmoqda...`,
-        success: `muvaffaqiyatli arxivdan chiqarildi`,
-        error: ({ data }) => JSON.stringify(data),
-      });
-    } else {
-      let mutationPromise = updateStudentMutation({
-        id: record.id,
-        is_removed: false,
-      }).unwrap();
-      toast.promise(mutationPromise, {
-        loading: `talaba arxivdan chiqarilmoqda...`,
-        success: `muvaffaqiyatli arxivdan chiqarildi`,
-        error: ({ data }) => JSON.stringify(data),
-      });
-    }
-  };
-
-  const onDelete = (record: any) => {
-    if ("salary" in record) {
-      let mutationPromise = deleteTeacherMutation({ id: record.id }).unwrap();
-      toast.promise(mutationPromise, {
-        loading: `o'qituvchi o'chirilmoqda...`,
-        success: `muvaffaqiyatli o'chirildi`,
-        error: ({ data }) => JSON.stringify(data),
-      });
-    } else {
-      let mutationPromise = deleteStudentMutation({ id: record.id }).unwrap();
-      toast.promise(mutationPromise, {
-        loading: `talaba o'chirilmoqda...`,
-        success: `muvaffaqiyatli o'chirildi`,
-        error: ({ data }) => JSON.stringify(data),
-      });
-    }
-  };
 
   const columns: TableColumnsType = [
     {
@@ -141,7 +78,6 @@ const UsersArchive = () => {
                 <Tooltip title="O'chirish">
                   <PopConfirm
                     title="O'chirishga ishonchingiz komilmi?"
-                    onConfirm={() => onDelete(record)}
                   >
                     <Button icon={<DeleteIcon />} singleIconMode size="large" />
                   </PopConfirm>
@@ -151,7 +87,6 @@ const UsersArchive = () => {
                 <Tooltip title="Arxivdan chiqarish">
                   <PopConfirm
                     title="Foydalanuvchi arxivdan chiqarilsinmi?"
-                    onConfirm={() => onUpdate(record)}
                   >
                     <Button icon={<UndoIcon />} singleIconMode size="large" />
                   </PopConfirm>
@@ -165,7 +100,7 @@ const UsersArchive = () => {
   ];
   return (
     <div>
-      <Table
+      {/* <Table
         columns={columns}
         dataSource={fullArchiveUsers || []}
         loading={studentsQuery.isFetching || teachersQuery.isFetching}
@@ -176,7 +111,7 @@ const UsersArchive = () => {
           current: page,
           onChange: (e) => onChange(e),
         }}
-      />
+      /> */}
     </div>
   );
 };

@@ -34,26 +34,26 @@ const routes: RouteProps[] = [
   { path: `/admin`, exact: true, component: HomePage },
   { path: `/admin/home`, exact: true, component: HomePage },
 
-  // { path: `/admin/groups`, exact: true, component: GroupsPage },
-  // { path: `/admin/groups/:id`, exact: true, component: GroupsDetailsPage },
-  // { path: `/admin/groups/:groupId/materials/:id`, exact: false, component: MaterialDetails },
+  { path: `/admin/groups`, exact: true, component: GroupsPage },
+  { path: `/admin/groups/:id`, exact: true, component: GroupsDetailsPage },
+  { path: `/admin/groups/:groupId/materials/:id`, exact: false, component: MaterialDetails },
 
-  // { path: `/admin/teachers`, exact: true, component: TeachersPage },
-  // { path: `/admin/teachers/:id`, exact: false, component: TeacherDetailsPage },
+  { path: `/admin/teachers`, exact: true, component: TeachersPage },
+  { path: `/admin/teachers/:id`, exact: false, component: TeacherDetailsPage },
 
-  // { path: `/admin/students/`, exact: true, component: StudentsPage },
-  // { path: `/admin/students/:id`, exact: false, component: StudentDetailsPage },
+  { path: `/admin/students/`, exact: true, component: StudentsPage },
+  { path: `/admin/students/:id`, exact: false, component: StudentDetailsPage },
 
-  // { path: `/admin/rooms`, exact: true, component: RoomsPage },
-  // { path: `/admin/finance`, exact: true, component: FinancePage },
+  { path: `/admin/rooms`, exact: true, component: RoomsPage },
+  { path: `/admin/finance`, exact: true, component: FinancePage },
 
-  // { path: `/admin/clients`, exact: true, component: ClientsPage },
+  { path: `/admin/clients`, exact: true, component: ClientsPage },
 
-  // { path: `/admin/settings`, exact: true, component: SettingsPage },
-  // { path: `/admin/settings/student-messages`, exact: true, component: MessageHistoryStudents },
-  // { path: `/admin/settings/new-message`, exact: true, component: NewMessage },
-  // { path: `/admin/settings/course/:id`, exact: true, component: CourseDetails },
-  // { path: `/admin/settings/course/:courseId/materials/:id`, exact: false, component: MaterialDetails },
+  { path: `/admin/settings`, exact: true, component: SettingsPage },
+  { path: `/admin/settings/student-messages`, exact: true, component: MessageHistoryStudents },
+  { path: `/admin/settings/new-message`, exact: true, component: NewMessage },
+  { path: `/admin/settings/course/:id`, exact: true, component: CourseDetails },
+  { path: `/admin/settings/course/:courseId/materials/:id`, exact: false, component: MaterialDetails },
 ];
 
 export default routes;

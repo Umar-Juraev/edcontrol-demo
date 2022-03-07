@@ -3,104 +3,19 @@ import { Form } from "antd";
 import moment from "moment";
 import toast from "react-hot-toast";
 
-import { UsersDTO } from "types";
 import { GENDER_TYPE } from "constants/states";
-import { checkObjectValueExist, parsePhoneNumber } from "utils";
+// import { checkObjectValueExist, parsePhoneNumber } from "utils";
 import { Button, FormElements, Modal } from "components/shared";
-import {
-  useDistrictsQuery,
-  useRegionsQuery,
-  useUpdateStudentMutation,
-  useUpdateExtraPhoneNumberMutation,
-  useCreatePhotoMutation
-} from "store/endpoints";
 
 export type Props = {
   visible: boolean;
   setVisible: (bool: boolean) => void;
-  data?: UsersDTO;
 };
 
-const UpdateModalStudent: FC<Props> = ({ visible, setVisible, data }) => {
+const UpdateModalStudent: FC<Props> = ({ visible, setVisible }) => {
   const [form] = Form.useForm()
   const [file, setFile] = useState<any>(null);
-  const [regionId, setRegionId] = useState<number>()
 
-  const regionsQuery = useRegionsQuery()
-  const districtsQuery = useDistrictsQuery({ region: regionId })
-
-  const [updateStudentMutation, { isLoading }] = useUpdateStudentMutation()
-  const [uploadPhotoMutation] = useCreatePhotoMutation();
-
-  useEffect(() => {
-    form.setFieldsValue({
-      full_name: data?.full_name,
-      phone_number: data?.phone_number,
-      birth_date: moment(data?.birth_date),
-      gender: data?.gender,
-      district: data?.district.name,
-      region: data?.district.region_id,
-      address: data?.address,
-    });
-  }, [data, form]);
-
-  const onFinish = (values: UsersDTO) => {
-    const studentValues = {
-      full_name: values.full_name,
-      phone_number: parsePhoneNumber(values.phone_number),
-      birth_date: moment(values.birth_date).format('YYYY-MM-DD'),
-      branch: data?.branch.id,
-      gender: values.gender,
-      district: !!Number(values.district) ? values.district : data?.district.id,
-      address: values.address
-    }
-    checkObjectValueExist(studentValues)
-
-    if (file) {
-      const formData = new FormData();
-      formData.append('file', file.originFileObj)
-      const photoMutationPromise = uploadPhotoMutation(formData).unwrap()
-
-      toast
-        .promise(photoMutationPromise, {
-          loading: `rasm yuklanmoqda...`,
-          success: `muvaffaqqiyatli yuklandi`,
-          error: ({ data }) => JSON.stringify(data),
-        })
-        .then((res: any) => {
-          const mutationPromise = updateStudentMutation({ id: data?.id, ...studentValues, photo: res.id }).unwrap()
-
-          toast
-            .promise(mutationPromise, {
-              loading: `talaba ma'lumotlari yangilanmoqda...`,
-              success: `muvaffaqqiyatli yangilandi`,
-              error: ({ data }) => JSON.stringify(data),
-            })
-            .then(() => {
-              setVisible(false);
-            });
-        })
-    } else {
-      const mutationPromise = updateStudentMutation({ id: data?.id, ...studentValues }).unwrap()
-      toast
-        .promise(mutationPromise, {
-          loading: `talaba ma'lumotlari yangilanmoqda...`,
-          success: `muvaffaqqiyatli yangilandi`,
-          error: (({ data }) => JSON.stringify(data))
-        })
-        .then(() => {
-          setVisible(false);
-        });
-    }
-  };
-
-  function onChangeUpload(e?: any) {
-    if (e.file.status === 'done') {
-      setFile(e.file)
-    } else if (e.file.status === 'removed') {
-      setFile(null)
-    }
-  };
 
   return (
     <Modal
@@ -111,12 +26,11 @@ const UpdateModalStudent: FC<Props> = ({ visible, setVisible, data }) => {
     >
       <Form
         form={form}
-        onFinish={onFinish}
         layout="vertical"
       >
 
         <Form.Item label="Rasm yuklash">
-          <FormElements.Upload dragger onChange={onChangeUpload} />
+          <FormElements.Upload dragger />
         </Form.Item>
 
         <Form.Item name="full_name" label="To'liq ismi" rules={[{ required: true, message: "ism majburiy" }]}>
@@ -132,10 +46,6 @@ const UpdateModalStudent: FC<Props> = ({ visible, setVisible, data }) => {
           label="Qo'shimcha telefon raqam"
           keyName="value"
           buttonName="Qo'shimcha raqam kiritish"
-          initialValue={data?.extra_phone_numbers
-            ?.filter((item) => item.is_parents === false)
-            .map((item) => ({ value: item.phone_number }))
-          }
         >
           <FormElements.PhoneInput />
         </FormElements.InputGenerator>
@@ -160,34 +70,29 @@ const UpdateModalStudent: FC<Props> = ({ visible, setVisible, data }) => {
           label="Ota-ona telefon raqami"
           keyName="value"
           buttonName="Ota-ona telefonini qo'shish"
-          initialValue={data?.extra_phone_numbers
-            ?.filter((item) => item.is_parents === true)
-            .map((item) => ({ value: item.phone_number }))
-          }
         >
           <FormElements.PhoneInput />
         </FormElements.InputGenerator>
 
         <Form.Item name="region" label="Viloyat">
           <FormElements.Select
-            loading={regionsQuery.isFetching}
-            onSelect={(e: number) => setRegionId(e)}
-            options={regionsQuery.data?.map((item) => ({
-              title: item.name,
-              value: item.id,
-              key: item.id,
-            }))}
+          // onSelect={(e: number) => setRegionId(e)}
+          // options={regionsQuery.data?.map((item) => ({
+          //   title: item.name,
+          //   value: item.id,
+          //   key: item.id,
+          // }))}
           />
         </Form.Item>
 
         <Form.Item name="district" label="Tuman" rules={[{ required: true, message: "Tuman majburiy" }]}>
           <FormElements.Select
-            loading={districtsQuery.isFetching}
-            options={districtsQuery.data?.map((item) => ({
-              title: item.name,
-              value: item.id,
-              key: item.id,
-            }))}
+          // loading={districtsQuery.isFetching}
+          // options={districtsQuery.data?.map((item) => ({
+          //   title: item.name,
+          //   value: item.id,
+          //   key: item.id,
+          // }))}
           />
         </Form.Item>
 
@@ -200,8 +105,8 @@ const UpdateModalStudent: FC<Props> = ({ visible, setVisible, data }) => {
           htmlType="submit"
           fullWidth
           size="large"
-          loading={isLoading}
-          disabled={isLoading}
+        // loading={isLoading}
+        // disabled={isLoading}
         >
           Tasdiqlash
         </Button>

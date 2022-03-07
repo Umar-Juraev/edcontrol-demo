@@ -1,12 +1,7 @@
-import React, { FC, useState } from "react";
+import  { FC } from "react";
 import { Form } from "antd";
-import toast from "react-hot-toast";
-
-import { checkObjectValueExist } from "utils";
-import { useAppSelector } from "store/hooks";
 import { Modal, FormElements, Button } from "components/shared";
 import { CourseDurationOptions, GROUP_TYPE, LessonDurationOptions } from "constants/states";
-import { useDirectionsQuery, useCreateCourseMutation, useCreatePhotoMutation } from "store/endpoints";
 
 export type Props = {
   visible: boolean;
@@ -14,69 +9,7 @@ export type Props = {
 };
 
 const CreateCourseModal: FC<Props> = ({ visible, setVisible }) => {
-  const [form] = Form.useForm()
-  const { currentUser } = useAppSelector(state => state.persistedData)
-  const [file, setFile] = useState<any>(null);
-
-  const directionsQuery = useDirectionsQuery()
-
-  const [createMutation, { isLoading }] = useCreateCourseMutation()
-  const [uploadPhotoMutation] = useCreatePhotoMutation();
-
-  const onFinish = (values: any) => {
-    const courseValues = {
-      ...values,
-      branches: [currentUser.data?.branch?.id || 1]
-    }
-    checkObjectValueExist(courseValues)
-
-    if (file) {
-      const formData = new FormData();
-      formData.append('file', file.originFileObj)
-      const photoMutationPromise = uploadPhotoMutation(formData).unwrap()
-
-      toast
-        .promise(photoMutationPromise, {
-          loading: `rasm yuklanmoqda...`,
-          success: `muvaffaqqiyatli yuklandi`,
-          error: ({ data }) => JSON.stringify(data),
-        })
-        .then((res: any) => {
-          const mutationPromise = createMutation({ ...courseValues, photo: res.id }).unwrap();
-          toast
-            .promise(mutationPromise, {
-              loading: `kurs yaratilmoqda...`,
-              success: `muvaffaqqiyatli yaratildi`,
-              error: ({ data }) => JSON.stringify(data),
-            })
-            .then(() => {
-              setVisible(false);
-              form.resetFields()
-            });
-        })
-    } else {
-      const mutationPromise = createMutation(courseValues).unwrap();
-      toast
-        .promise(mutationPromise, {
-          loading: `kurs yaratilmoqda...`,
-          success: `muvaffaqqiyatli yaratildi`,
-          error: ({ data }) => JSON.stringify(data),
-        })
-        .then((res) => {
-          setVisible(false);
-          form.resetFields()
-        });
-    }
-
-  };
-
-  function onChangeUpload(e?: any) {
-    if (e.file.status === 'done') {
-      setFile(e.file)
-    } else if (e.file.status === 'removed') {
-      setFile(null)
-    }
-  };
+ 
 
   return (
     <Modal
@@ -86,12 +19,10 @@ const CreateCourseModal: FC<Props> = ({ visible, setVisible }) => {
     >
       <Form
         name="basic"
-        onFinish={onFinish}
-        form={form}
         layout="vertical"
       >
         <Form.Item label="Rasm yuklash">
-          <FormElements.Upload dragger onChange={onChangeUpload} />
+          <FormElements.Upload dragger  />
         </Form.Item>
 
         <Form.Item name="name" label="Kurs nomi" rules={[{ required: true }]}>
@@ -100,10 +31,7 @@ const CreateCourseModal: FC<Props> = ({ visible, setVisible }) => {
 
         <Form.Item name="direction" label="Kurs yo'nalishi" rules={[{ required: true }]} >
           <FormElements.Select
-            loading={directionsQuery.isFetching}
-            options={directionsQuery.data?.map((item) => (
-              { title: item.name, value: item.id }
-            ))}
+          
           />
         </Form.Item>
 
@@ -133,8 +61,7 @@ const CreateCourseModal: FC<Props> = ({ visible, setVisible }) => {
           htmlType="submit"
           fullWidth
           size="large"
-          loading={isLoading}
-          disabled={isLoading}
+
         >
           Tasdiqlash
         </Button>

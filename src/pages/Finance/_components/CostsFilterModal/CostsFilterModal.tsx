@@ -2,7 +2,6 @@ import React, { FC } from "react";
 import { Col, Row, Form } from "antd";
 
 import { Button, FormElements, Modal } from "components/shared";
-import { useReasonsQuery, useEmployeesFullQuery } from "store/endpoints";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import {
   setOpenCostsFilterModal,
@@ -23,35 +22,14 @@ const CostsFilterModal: FC<Props> = () => {
   const { costsStates } = useAppSelector((state) => state.finances);
   const dispatch = useAppDispatch();
 
-  const reasonsQuery = useReasonsQuery();
-  const employeesQuery = useEmployeesFullQuery();
+  // const reasonsQuery = useReasonsQuery();
+  // const employeesQuery = useEmployeesFullQuery();
 
   const onCloseModal = () => {
     dispatch(setOpenCostsFilterModal(false));
   };
 
-  const onFinish = (values: any) => {
-    values.start_date &&
-      dispatch(
-        setCostsFilterStartDate(moment(values.start_date).format("YYYY-MM-DD"))
-      );
-    values.end_date &&
-      dispatch(
-        setCostsFilterEndDate(moment(values.end_date).format("YYYY-MM-DD"))
-      );
-    values.reason && dispatch(setCostsFilterReason(values.reason));
-    values.employee && dispatch(setConstsFilterEmployee(values.employee));
-    onCloseModal();
-  };
 
-  const onReset = () => {
-    dispatch(setCostsFilterStartDate(""));
-    dispatch(setCostsFilterEndDate(""));
-    dispatch(setCostsFilterReason(null));
-    dispatch(setConstsFilterEmployee(null));
-    form.resetFields();
-    onCloseModal();
-  };
 
   return (
     <Modal
@@ -61,7 +39,6 @@ const CostsFilterModal: FC<Props> = () => {
     >
       <Form
         form={form}
-        onFinish={onFinish}
         className={classes.form}
         layout="vertical"
       >
@@ -82,12 +59,7 @@ const CostsFilterModal: FC<Props> = () => {
           <FormElements.Select
             fullWidth
             showSearch
-            loading={reasonsQuery.isFetching}
-            options={reasonsQuery.data?.map((item) => ({
-              key: item?.id,
-              title: item.name,
-              value: item?.id,
-            }))}
+           
           />
         </Form.Item>
 
@@ -95,25 +67,19 @@ const CostsFilterModal: FC<Props> = () => {
           <FormElements.Select
             fullWidth
             showSearch
-            loading={employeesQuery.isFetching}
-            options={employeesQuery.data?.map((item) => ({
-              key: item?.id,
-              title: item.full_name,
-              value: item?.id,
-            }))}
+        
           />
         </Form.Item>
 
         <Row gutter={8}>
           <Col span={12}>
-            <Button danger fullWidth size="large" onClick={() => onReset()}>
+            <Button danger fullWidth size="large" >
               Qaytarish
             </Button>
           </Col>
           <Col span={12}>
             <Button
-              loading={reasonsQuery.isLoading || employeesQuery.isLoading}
-              disabled={reasonsQuery.isLoading || employeesQuery.isLoading}
+            
               type="primary"
               htmlType="submit"
               fullWidth

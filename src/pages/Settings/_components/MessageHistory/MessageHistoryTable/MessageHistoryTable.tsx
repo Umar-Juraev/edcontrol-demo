@@ -4,31 +4,26 @@ import moment from "moment";
 import { useHistory } from "react-router-dom";
 
 import { Button, Table } from "components/shared";
-import { usePostsQuery } from "store/endpoints";
+// import { usePostsQuery } from "store/endpoints";
 import { checkValueEmpty, separatePhoneNumber } from "utils";
 import { ReadMoreIcon } from "components/svg";
 
 export type Props = {};
 
 const CostsTable: FC<Props> = () => {
-  const [page, setPage] = useState(1)
   const history = useHistory()
 
-  const currentParams = history.location.search?.split('&')
-  const tabParams = currentParams[0]?.split("=")[1];
 
-  const postsQuery = usePostsQuery({ page })
 
-  function onChange(page: number) {
-    setPage(page)
-    history.push(`/admin/settings?tab=${tabParams}&page=${page}`);
-  }
+  // const postsQuery = usePostsQuery({ page })
+
+
   const columns: TableColumnsType = [
     {
       title: '№',
       dataIndex: `id`,
       key: `id`,
-      render: (value, record, index) => <div>{(page - 1) * 10 + index + 1}</div>,
+      render: (value, record, index) => <div> {index} </div>,
     },
     {
       title: 'Xabar',
@@ -89,7 +84,7 @@ const CostsTable: FC<Props> = () => {
 
   return (
     <div>
-      <Table
+      {/* <Table
         columns={columns}
         dataSource={postsQuery.data?.results || []}
         loading={postsQuery.isFetching}
@@ -99,7 +94,7 @@ const CostsTable: FC<Props> = () => {
           current: page,
           onChange: (e) => onChange(e)
         }}
-      />
+      /> */}
     </div>
   );
 };

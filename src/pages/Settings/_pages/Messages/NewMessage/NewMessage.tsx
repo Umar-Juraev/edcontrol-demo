@@ -4,8 +4,6 @@ import { CheckboxChangeEvent } from 'antd/lib/checkbox';
 
 import { BreadCrumb, Button, CheckBox, FormElements, Loader, Pagination } from 'components/shared';
 import { SelectUserIcon } from 'components/svg';
-import { useCreatePostMutation, useStudentsQuery } from 'store/endpoints';
-import { UsersDTO } from 'types';
 import userImage from "images/group-teacher-photo.png";
 
 import classes from './NewMessage.module.scss';
@@ -14,41 +12,10 @@ import toast from 'react-hot-toast';
 export type Props = {};
 
 const NewMessage = (props: Props) => {
-    const [text, setText] = useState<string>('')
-    const [checkedUsers, setCheckedUsers] = useState<number[]>([])
-    const [checkedAll, setCheckedAll] = useState<boolean>(false)
-    const [page, setPage] = useState<number>(1);
+    // const studentsQuery = useStudentsQuery({ is_removed: false, page });
 
-    const studentsQuery = useStudentsQuery({ is_removed: false, page });
-    const [createPostMutation, { isLoading }] = useCreatePostMutation();
 
-    const handleChangePage = (page: number) => {
-        setPage(page);
-    }
 
-    const handleChangeCheck = (e: CheckboxChangeEvent, item: UsersDTO) => {
-        const { checked, value } = e.target
-        if (!checked) {
-            setCheckedUsers(checkedUsers.filter((f) => f !== value))
-        } else {
-            setCheckedUsers([...checkedUsers, value])
-        }
-    }
-
-    const handlePost = () => {
-        const values = {
-            receivers: checkedUsers,
-            text: text
-        }
-        const mutationPromise = createPostMutation(values).unwrap();
-
-        toast
-            .promise(mutationPromise, {
-                loading: `xabar yuborilmoqda...`,
-                success: `muvaffaqqiyatli yuborildi`,
-                error: ({ data }) => JSON.stringify(data),
-            })
-    }
 
     const breadCrumb = [
         { id: 1, title: "Xabarlar tarixi", path: "/admin/settings" },
@@ -67,20 +34,16 @@ const NewMessage = (props: Props) => {
                 <Col className={classes.newMessageCard} span={10}>
                     <div>
                         <h3 className={classes.title}>Yangi xabar</h3>
-                        {text.length === 160 && <span className={classes.errorText}>Matn uzunligi 160 ta belgidan uzun bo'lmasligi kerak!</span>}
                         <FormElements.TextArea
                             placeholder="Yangi xabaringizni yozing"
                             rows={10}
-                            value={text}
+               
                             maxLength={160}
-                            onChange={(e) => setText(e.target.value)}
                         />
                         <Button
                             type="primary"
                             size="large"
                             fullWidth
-                            loading={isLoading}
-                            onClick={handlePost}
                         >
                             Xabar jo'natish
                         </Button>
@@ -99,7 +62,7 @@ const NewMessage = (props: Props) => {
                         </Col>
                     </Row>
 
-                    <Loader
+                    {/* <Loader
                         spinning={studentsQuery.isFetching}
                         style={studentsQuery.isFetching ? { marginTop: 50 } : undefined}
                     >
@@ -117,15 +80,15 @@ const NewMessage = (props: Props) => {
                                 </Col>
                             </Row>
                         ))}
-                    </Loader>
-                    <div className={classes.pagination_wrapper}>
+                    </Loader> */}
+                    {/* <div className={classes.pagination_wrapper}>
                         <Pagination
                             total={studentsQuery.data?.count}
                             pageSize={10}
                             current={page}
                             onChange={handleChangePage}
                         />
-                    </div>
+                    </div> */}
                 </Col>
             </Row >
         </div >

@@ -7,7 +7,6 @@ import { GENDER_STEPS, USER_ROLE_STATES } from "constants/states";
 import { checkValueEmpty, separatePhoneNumber } from "utils";
 import { genderTypes, UserRoleCodeTypes } from "utils/types";
 import { RoleAvatarIcon } from "components/svg";
-import { EmployeesDTO } from "types";
 import { useAppSelector } from "store/hooks";
 
 import GenderIcon from "images/gender.svg";
@@ -28,7 +27,7 @@ type UserCardProps = {
   location?: string;
   role?: string | number;
   onDelete: () => void;
-  onClick: (value?: EmployeesDTO) => void;
+  onClick: (value?: any) => void;
   setUpdateModal: (value: boolean) => void;
   deleteLoading?: boolean;
 };

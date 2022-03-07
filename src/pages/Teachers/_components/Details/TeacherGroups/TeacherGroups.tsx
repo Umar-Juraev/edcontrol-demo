@@ -4,7 +4,6 @@ import { useHistory, useParams } from "react-router-dom";
 
 import { Empty, Loader, Pagination } from "components/shared";
 import { GroupCard } from "components/Cards";
-import { useGroupsQuery } from "store/endpoints";
 
 import GroupCardSkeleton from "components/Skeleton/GroupCardSkeleton";
 
@@ -15,7 +14,6 @@ const TeacherGroups = (props: Props) => {
   const [page, setPage] = useState(1);
   const history = useHistory();
 
-  const groupsQuery = useGroupsQuery({ teacher: id, page });
 
   const currentParams = history.location.search?.split("&");
   const pageParams = currentParams[0]?.split("=")[1];
@@ -30,12 +28,12 @@ const TeacherGroups = (props: Props) => {
 
   return (
     <div>
-      <Loader spinning={groupsQuery.isFetching}>
+      <Loader spinning={false}>
         <Row
           gutter={[{ sm: 0, md: 5, lg: 20 }, 20]}
           style={{ margin: "24px 0 0 0" }}
         >
-          {groupsQuery.isLoading && (
+          {/* {groupsQuery.isLoading && (
             <>
               <GroupCardSkeleton lengthParagraph={5} />
               <GroupCardSkeleton lengthParagraph={5} />
@@ -74,8 +72,8 @@ const TeacherGroups = (props: Props) => {
               current={page}
               onChange={onChange}
             />
+          )} */}
           </Row>
-        )}
       </Loader>
     </div>
   );

@@ -8,8 +8,7 @@ import {
   FormElements,
   Modal,
 } from "components/shared";
-import { useWeekdaysQuery, useRoomsFullQuery } from "store/endpoints";
-import { DirectionsDTO, TeachersDTO } from "types";
+
 import { useAppDispatch } from "store/hooks";
 import {
   setGroupFilterDays,
@@ -30,38 +29,14 @@ const FilterModalGroup: FC<Props> = ({ visible, setVisible, loading }) => {
   const [form] = Form.useForm();
 
   const [selectedDirection, setSelectedDirection] =
-    useState<DirectionsDTO | null>();
-  const [selectedTeacher, setSelectedTeacher] = useState<TeachersDTO | null>();
+    useState<any | null>();
+
+  const [selectedTeacher, setSelectedTeacher] = useState<any | null>();
   const dispatch = useAppDispatch();
 
-  const weekDaysQuery = useWeekdaysQuery();
-  const roomsQuery = useRoomsFullQuery();
+  // const weekDaysQuery = useWeekdaysQuery();
+  // const roomsQuery = useRoomsFullQuery();
 
-  const onFinish = (values: any) => {
-
-    selectedDirection?.id && dispatch(setGroupFilterDirection(selectedDirection?.id))
-    selectedTeacher?.id && dispatch(setGroupFilterTeacher(selectedTeacher?.id))
-    values.days && dispatch(setGroupFilterDays(values.days))
-    values.rooms && dispatch(setGroupFilterRoom(values.rooms))
-    values.lessons_start_date && dispatch(setGroupFilterLessonStartDate(values.lessons_start_date))
-    values.lessons_end_date && dispatch(setGroupFilterLessonEndDate(values.lessons_end_date))
-    setVisible(false);
-  };
-
-  const onReset = () => {
-    dispatch(setGroupFilterDirection(null))
-    dispatch(setGroupFilterTeacher(null))
-    dispatch(setGroupFilterDays(null))
-    dispatch(setGroupFilterRoom(null))
-    dispatch(setGroupFilterLessonStartDate(null))
-    dispatch(setGroupFilterLessonEndDate(null))
-
-    form.resetFields();
-    setSelectedDirection(null);
-    setSelectedTeacher(null);
-    setVisible(false);
-  };
-  
   return (
     <Modal
       title="Filter qilish"
@@ -71,7 +46,7 @@ const FilterModalGroup: FC<Props> = ({ visible, setVisible, loading }) => {
     >
       <Form
         form={form}
-        onFinish={onFinish}
+   
         className={classes.form}
         layout="vertical"
       >
@@ -93,24 +68,14 @@ const FilterModalGroup: FC<Props> = ({ visible, setVisible, loading }) => {
         <Form.Item name="days" label="Kunlar:">
           <FormElements.Select
             fullWidth
-            loading={weekDaysQuery.isFetching}
-            options={weekDaysQuery.data?.map((days) => ({
-              key: days?.id,
-              title: days?.name,
-              value: days?.id,
-            }))}
+          
           />
         </Form.Item>
 
         <Form.Item name="rooms" label="Xonalar:">
           <FormElements.Select
             fullWidth
-            loading={roomsQuery.isFetching}
-            options={roomsQuery.data?.map((room) => ({
-              key: room?.id,
-              title: room?.name,
-              value: room?.id,
-            }))}
+         
           />
         </Form.Item>
 
@@ -129,7 +94,7 @@ const FilterModalGroup: FC<Props> = ({ visible, setVisible, loading }) => {
 
         <Row gutter={8}>
           <Col span={12}>
-            <Button danger fullWidth size="large" onClick={() => onReset()}>
+            <Button danger fullWidth size="large" >
               Qaytarish
             </Button>
           </Col>
@@ -139,8 +104,7 @@ const FilterModalGroup: FC<Props> = ({ visible, setVisible, loading }) => {
               htmlType="submit"
               fullWidth
               size="large"
-              loading={loading}
-              disabled={loading}
+            
             >
               Saqlash
             </Button>

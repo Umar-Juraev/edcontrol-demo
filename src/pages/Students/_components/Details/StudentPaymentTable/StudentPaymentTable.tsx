@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 
 import { Tooltip, Table, PopConfirm } from "components/shared";
-import { useIncomesQuery, usePaymentsQuery, useUpdatePaymentMutation } from "store/endpoints";
 import { checkValueEmpty, separateNumberThousands } from "utils";
 import { PrintIcon, UndoIcon } from "components/svg";
 import { useAppSelector } from "store/hooks";
@@ -21,19 +20,9 @@ const StudentPaymentTable: FC<Props> = ({ setVisible }) => {
   const SUPER_USER = currentUser.data?.role == 1000
   const CEO = currentUser.data?.role == 999
 
-  const paymentsQuery = usePaymentsQuery({ user: id });
-  // const incomesQuery = useIncomesQuery({ pupil__user: id })
-  const [updateMutation] = useUpdatePaymentMutation()
+  // const paymentsQuery = usePaymentsQuery({ user: id });
 
-  const onUpdate = (record: any) => {
-    const mutationPromise = updateMutation({ id: record.id, is_canceled: true }).unwrap()
-    toast
-      .promise(mutationPromise, {
-        loading: `to'lov bekor qilinmoqda...`,
-        success: `muvaffaqiyatli bekor qilindi`,
-        error: (({ data }) => JSON.stringify(data))
-      })
-  };
+
 
   const columns: TableColumnsType = [
     {
@@ -96,7 +85,7 @@ const StudentPaymentTable: FC<Props> = ({ setVisible }) => {
             <PopConfirm
               disabled={record.is_canceled}
               title="Haqiqatan ham toʻlovni bekor qilmoqchimisiz?"
-              onConfirm={() => onUpdate(record)}
+             
             >
               <div className={`tooltipIconBg undo ${record.is_canceled && 'canceled'}`} >
                 <UndoIcon />
@@ -111,13 +100,13 @@ const StudentPaymentTable: FC<Props> = ({ setVisible }) => {
 
   return (
     <div>
-      <Table
+      {/* <Table
         columns={columns}
         loading={paymentsQuery.isLoading}
         dataSource={paymentsQuery.data?.results || []}
         pagination={false}
         rowClassName={(record) => record.is_canceled && 'danger-table-row'}
-      />
+      /> */}
     </div>
   );
 };

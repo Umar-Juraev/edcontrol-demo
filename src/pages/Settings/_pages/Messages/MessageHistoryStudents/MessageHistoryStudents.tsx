@@ -4,7 +4,7 @@ import { Col, Row } from 'antd';
 import { BreadCrumb, Empty, Pagination } from 'components/shared';
 import UserCardInfo from 'components/Cards/UserCardInfo';
 
-import { usePostsQuery } from 'store/endpoints';
+// import { usePostsQuery } from 'store/endpoints';
 import { useHistory } from 'react-router-dom';
 import classes from './MessageHistory.module.scss';
 
@@ -14,7 +14,7 @@ const MessageHistory = (props: Props) => {
     const [page, setPage] = useState(1);
     // const history = useHistory()
 
-    const postsQuery = usePostsQuery({ page })
+    // const postsQuery = usePostsQuery({ page })
 
     function onChange(page: number) {
         setPage(page)
@@ -36,7 +36,7 @@ const MessageHistory = (props: Props) => {
             </Row>
 
             <Row gutter={[0, 10]}>
-                {
+                {/* {
                     postsQuery.data?.count ?
                         postsQuery.data?.results.map((item) => (
                             <UserCardInfo
@@ -68,8 +68,8 @@ const MessageHistory = (props: Props) => {
                         current={page}
                         onChange={onChange}
                     />
+                )} */}
                 </Row>
-            )}
         </div>
     );
 }

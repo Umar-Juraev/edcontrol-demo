@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import classes from "./TeacherHome.module.scss";
 
 import { checkObjectValueExist } from "utils";
-import { useTeachersQuery } from "store/endpoints";
+// import { useTeachersQuery } from "store/endpoints";
 import { FIlterIcon, AddIcon } from "components/svg";
 import UserCardInfo from "components/Cards/UserCardInfo";
 import {
@@ -40,15 +40,15 @@ const TeacherHome = (props: Props) => {
   };
   checkObjectValueExist(queryKeys);
 
-  const teachersQuery = useTeachersQuery(queryKeys);
+  // const teachersQuery = useTeachersQuery(queryKeys);
 
   const currentParams = history.location.search?.split("&");
   const pageParams = currentParams[0]?.split("=")[1];
   const searchParams = currentParams[1]?.split("=")[1];
 
-  useEffect(() => {
-    teachersQuery.refetch();
-  }, [teachers]);
+  // useEffect(() => {
+  //   teachersQuery.refetch();
+  // }, [teachers]);
 
   useEffect(() => {
     pageParams && setPage(Number(pageParams));
@@ -67,7 +67,7 @@ const TeacherHome = (props: Props) => {
     history.push(`/admin/teachers?page=${page}&search=${text}`);
     setPage(1);
     setDebouncedText(value);
-    teachersQuery.refetch();
+    // teachersQuery.refetch();
   }
   
   return (
@@ -85,7 +85,7 @@ const TeacherHome = (props: Props) => {
           <FormElements.Search
             value={text}
             onSearch={onSearch}
-            loading={teachersQuery.isFetching}
+            // loading={teachersQuery.isFetching}
             onChange={(e) => setText(e.target.value)}
             placeholder="O'qituvchi nomi bo'yicha qidirish"
           />
@@ -107,7 +107,7 @@ const TeacherHome = (props: Props) => {
               type="primary"
               addMode
               icon={<AddIcon />}
-              loading={teachersQuery.isLoading}
+              // loading={teachersQuery.isLoading}
               style={{ height: 50, padding: "13px 32px" }}
               onClick={() => setCreateModal((prev) => !prev)}
             >
@@ -117,10 +117,10 @@ const TeacherHome = (props: Props) => {
         </Row>
       </Row>
 
-      <Loader spinning={teachersQuery.isFetching}>
+      {/* <Loader spinning={teachersQuery.isFetching}> */}
         <section style={{ minHeight: 420 }}>
           <Row gutter={[0, 10]}>
-            {teachersQuery.isLoading && (
+            {/* {teachersQuery.isLoading && (
               <>
                 <UserCardSkeleton dataNone />
                 <UserCardSkeleton dataNone />
@@ -150,10 +150,10 @@ const TeacherHome = (props: Props) => {
                   <Col span={24}>
                     <Empty description="O'qituvchilar mavjud emas" />
                   </Col>
-                )}
+                )} */}
           </Row>
         </section>
-        {!teachersQuery.isLoading && (
+        {/* {!teachersQuery.isLoading && (
           <Row justify="end" style={{ marginTop: 10 }}>
             <Pagination
               total={teachersQuery.data?.count}
@@ -162,11 +162,11 @@ const TeacherHome = (props: Props) => {
               onChange={onChange}
             />
           </Row>
-        )}
+        )} */}
 
         <TeacherFilterModal visible={filterModal} setVisible={setFilterModal} />
         <TeacherCreateModal visible={createModal} setVisible={setCreateModal} />
-      </Loader>
+      {/* </Loader> */}
     </div>
   );
 };

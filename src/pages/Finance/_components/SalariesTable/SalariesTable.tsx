@@ -3,7 +3,7 @@ import { TableColumnsType } from "antd";
 import { useHistory } from "react-router-dom";
 
 import { Table } from "components/shared";
-import { useTeacherSalariesQuery } from "store/endpoints";
+// import { useTeacherSalariesQuery } from "store/endpoints";
 import { checkValueEmpty, separateNumberThousands } from "utils";
 import { useAppSelector } from "store/hooks";
 import CalculatorModal from "../CalculatorModal";
@@ -13,12 +13,7 @@ export type Props = {};
 const SalariesTable: FC<Props> = () => {
   const [page, setPage] = useState(1)
   const history = useHistory()
-  const { salaryStates } = useAppSelector(state => state.finances)
 
-  const teacherSalariesQuery = useTeacherSalariesQuery({
-    date_from: salaryStates.startDate,
-    date_to: salaryStates.endDate
-  })
 
   function onChange(page: number) {
     setPage(page)
@@ -77,7 +72,7 @@ const SalariesTable: FC<Props> = () => {
 
   return (
     <div>
-      <Table
+      {/* <Table
         columns={columns}
         dataSource={teacherSalariesQuery.data || []}
         loading={teacherSalariesQuery.isFetching}
@@ -89,7 +84,7 @@ const SalariesTable: FC<Props> = () => {
           onChange: (e) => onChange(e),
           showSizeChanger: false
         }}
-      />
+      /> */}
 
       <CalculatorModal />
     </div>

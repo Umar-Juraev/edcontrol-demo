@@ -7,7 +7,6 @@ import { useHistory, useParams } from "react-router-dom";
 import { useDeleteGroupMutation } from "store/endpoints";
 import { Button, PopConfirm } from "components/shared";
 import GroupDetailsImg from "images/group-photo-details.png";
-import { WeekDaysTypes } from "types";
 import { separateNumberThousands } from "utils";
 import { useAppSelector } from "store/hooks";
 import {
@@ -26,7 +25,7 @@ interface GroupCardProps {
   name?: string;
   teacher?: string;
   course?: string;
-  days?: WeekDaysTypes[];
+  days?: any;
   startTime?: string;
   startDate?: string;
   endDate?: string;
@@ -64,7 +63,7 @@ const GroupDetailsCard: FC<GroupCardProps> = ({
     {
       icon: <CalendarIcon />,
       value: `${days
-        ?.map((item: WeekDaysTypes) => item.short)
+        ?.map((item: any) => item.short)
         .join(", ")} - ${startTime}`,
     },
     { icon: <TeacherIcon />, value: teacher },

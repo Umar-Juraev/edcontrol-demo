@@ -5,7 +5,6 @@ import CourseCard from "components/Cards/CourseCard";
 import { Empty, Pagination } from "components/shared";
 import GroupCardSkeleton from "components/Skeleton/GroupCardSkeleton";
 import UserCardSkeleton from "components/Skeleton/UserCardSkeleton";
-import { useCoursesQuery } from "store/endpoints";
 
 import classes from "./CoursesMain.module.scss";
 
@@ -14,7 +13,7 @@ export type Props = {};
 const CoursesMain = (props: Props) => {
   const [page, setPage] = useState(1);
 
-  const coursesQuery = useCoursesQuery({ page });
+  // const coursesQuery = useCoursesQuery({ page });
 
   function onChange(page: number) {
     setPage(page);
@@ -26,14 +25,14 @@ const CoursesMain = (props: Props) => {
         gutter={[{ sm: 0, md: 5, lg: 20 }, 20]}
         style={{ margin: "24px 0 0 0" }}
       >
-        {coursesQuery.isLoading && (
+        {/* {coursesQuery.isLoading && (
           <>
             <GroupCardSkeleton lengthParagraph={4} />
             <GroupCardSkeleton lengthParagraph={4} />
             <GroupCardSkeleton lengthParagraph={4} />
           </>
-        )}
-        {coursesQuery.data?.results.length ? (
+        )} */}
+        {/* {coursesQuery.data?.results.length ? (
           coursesQuery.data?.results?.map((item) => (
             <Col key={item.id} sm={24} md={12} lg={12} xl={8} xxl={6}>
               <CourseCard
@@ -51,10 +50,10 @@ const CoursesMain = (props: Props) => {
           !coursesQuery.isLoading && <Col span={24}>
             <Empty description="Kurslar mavjud emas" />
           </Col>
-        )}
+        )} */}
       </Row>
 
-      {!coursesQuery.isLoading && (
+      {/* {!coursesQuery.isLoading && (
         <Row justify="end" style={{ marginTop: 10 }}>
           <Pagination
             total={coursesQuery.data?.count}
@@ -63,7 +62,7 @@ const CoursesMain = (props: Props) => {
             onChange={onChange}
           />
         </Row>
-      )}
+      )} */}
     </div>
   );
 };

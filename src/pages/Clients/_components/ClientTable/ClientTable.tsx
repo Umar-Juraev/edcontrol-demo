@@ -7,17 +7,10 @@ import { useHistory } from "react-router-dom";
 
 import { Table, Badge, PopConfirm, Button } from "components/shared";
 import { checkObjectValueExist, separatePhoneNumber } from "utils";
-import {
-  useClientsFullQuery,
-  useClientsQuery,
-  useStatusesQuery,
-  useUpdateClientMutation,
-} from "store/endpoints";
 import { setClientId } from "store/slices/getId";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { ThreeDotsIcon } from "components/svg";
 import HistoryModal from "../HistoryModal";
-import { ClientsDTO } from "types";
 
 import classes from "../../Clients.module.scss";
 import "slick-carousel/slick/slick-theme.css";
@@ -25,7 +18,7 @@ import "slick-carousel/slick/slick.css";
 
 interface Props {
   setVisible: (bool: boolean) => void;
-  setSelectedClient: (data: ClientsDTO) => void;
+  setSelectedClient: any
 }
 
 const ClientTable: FC<Props> = ({ setVisible, setSelectedClient }) => {
@@ -49,43 +42,43 @@ const ClientTable: FC<Props> = ({ setVisible, setSelectedClient }) => {
   checkObjectValueExist(queryKeys);
 
   const queryStatus = active ? status : "";
-  const clientsQuery = useClientsQuery({ page, status: queryStatus });
-  const full = useClientsFullQuery();
-  const statusesQuery = useStatusesQuery();
+  // const clientsQuery = useClientsQuery({ page, status: queryStatus });
+  // const full = useClientsFullQuery();
+  // const statusesQuery = useStatusesQuery();
 
-  const [updateClientMutation, { isLoading }] = useUpdateClientMutation();
+  // const [updateClientMutation, { isLoading }] = useUpdateClientMutation();
 
-  useEffect(() => {
-    clientsQuery.refetch();
-  }, [clients]);
+  // useEffect(() => {
+  //   clientsQuery.refetch();
+  // }, [clients]);
 
   function onChange(page: number) {
     setPage(page);
     history.push(`/admin/clients?page=${page}`);
   }
 
-  const onUpdate = (values: any, id: number) => {
-    const clientValues = {
-      branch: values.branch.id,
-      full_name: values.full_name,
-      phone_number: values.phone_number,
-      direction: values.direction.id,
-      source: values.source.id,
-      status: id,
-    };
-    checkObjectValueExist({ clientValues });
+  // const onUpdate = (values: any, id: number) => {
+  //   const clientValues = {
+  //     branch: values.branch.id,
+  //     full_name: values.full_name,
+  //     phone_number: values.phone_number,
+  //     direction: values.direction.id,
+  //     source: values.source.id,
+  //     status: id,
+  //   };
+  //   checkObjectValueExist({ clientValues });
 
-    const mutationPromise = updateClientMutation({
-      id: values.id,
-      ...clientValues,
-    }).unwrap();
+  //   const mutationPromise = updateClientMutation({
+  //     id: values.id,
+  //     ...clientValues,
+  //   }).unwrap();
 
-    toast.promise(mutationPromise, {
-      loading: `yangilanmoqda...`,
-      success: `muvaffaqiyatli yangilandi`,
-      error: ({ data }) => JSON.stringify(data),
-    });
-  };
+  //   toast.promise(mutationPromise, {
+  //     loading: `yangilanmoqda...`,
+  //     success: `muvaffaqiyatli yangilandi`,
+  //     error: ({ data }) => JSON.stringify(data),
+  //   });
+  // };
 
   const handleClick = (id: any) => {
     setHistoryModal(true);
@@ -185,7 +178,7 @@ const ClientTable: FC<Props> = ({ setVisible, setSelectedClient }) => {
               }}
               title={
                 <Col>
-                  {statusesQuery.data?.slice(0, -1).map((item) => {
+                  {/* {statusesQuery.data?.slice(0, -1).map((item) => {
                     return (
                       <Col
                         key={item.id}
@@ -194,7 +187,7 @@ const ClientTable: FC<Props> = ({ setVisible, setSelectedClient }) => {
                         <Button className="popButton">{item.name}</Button>
                       </Col>
                     );
-                  })}
+                  })} */}
                 </Col>
               }
             >
@@ -237,7 +230,7 @@ const ClientTable: FC<Props> = ({ setVisible, setSelectedClient }) => {
   return (
     <section className={classes.section}>
       <Slider {...settings}>
-        {statusesQuery.data?.slice(0, -1).map((item) => (
+        {/* {statusesQuery.data?.slice(0, -1).map((item) => (
           <Badge
             key={item.id}
             text={item.name}
@@ -250,16 +243,16 @@ const ClientTable: FC<Props> = ({ setVisible, setSelectedClient }) => {
               setStatus(item.id);
             }}
           />
-        ))}
+        ))} */}
       </Slider>
       <br />
       <Table
         columns={columns}
-        dataSource={clientsQuery.data?.results.filter(item => item.status.name !== 'Student') || []}
-        loading={clientsQuery.isFetching}
+        // dataSource={clientsQuery.data?.results.filter(item => item.status.name !== 'Student') || []}
+        // loading={clientsQuery.isFetching}
         scroll={{ x: 980 }}
         pagination={{
-          total: clientsQuery.data?.count,
+          // total: clientsQuery.data?.count,
           pageSize: 10,
           current: page,
           onChange: (e) => onChange(e),

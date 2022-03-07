@@ -11,7 +11,7 @@ import {
 } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Bar } from 'react-chartjs-2';
-import { useIncomeStatisticsQuery, usePaymentStatisticsQuery } from 'store/endpoints';
+// import { useIncomeStatisticsQuery, usePaymentStatisticsQuery } from 'store/endpoints';
 import { separateNumberThousands } from 'utils';
 
 ChartJS.register(
@@ -29,28 +29,28 @@ type Props = {
 }
 
 const BarChart: FC<Props> = ({ isAnnual }) => {
-    const { data: statisticsData } = usePaymentStatisticsQuery()
+    // const { data: statisticsData } = usePaymentStatisticsQuery()
     // console.log(statisticsData)
 
-    const chartData =
-        isAnnual
-            ? statisticsData?.payment_by_years.map((item) => item.payment)
-            : statisticsData?.payment_by_years[0].payment_by_months.map(
-                (item) => item.payment
-            );
+    // const chartData =
+    //     isAnnual
+    //         ? statisticsData?.payment_by_years.map((item) => item.payment)
+    //         : statisticsData?.payment_by_years[0].payment_by_months.map(
+    //             (item) => item.payment
+    //         );
 
-    const labels =
-        isAnnual
-            ? statisticsData?.payment_by_years.map((item) => `${item.year.toString()} yil`)
-            : statisticsData?.payment_by_years[0].payment_by_months.map(
-                (item) => item.payment !== null ? `${item.month.toString()}` : ''
-            );
+    // const labels =
+    //     isAnnual
+    //         ? statisticsData?.payment_by_years.map((item) => `${item.year.toString()} yil`)
+    //         : statisticsData?.payment_by_years[0].payment_by_months.map(
+    //             (item) => item.payment !== null ? `${item.month.toString()}` : ''
+    //         );
 
     // console.log(Math.max(...(chartData || [])))
 
     return (
         <>
-            <Bar
+            {/* <Bar
                 data={{
                     labels: labels || [''],
                     datasets: [
@@ -118,7 +118,7 @@ const BarChart: FC<Props> = ({ isAnnual }) => {
                         }
                     },
                 }}
-            />
+            /> */}
         </>
     )
 }

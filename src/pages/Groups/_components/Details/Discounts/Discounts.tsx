@@ -5,9 +5,7 @@ import { TableColumnsType, Row, Col } from "antd";
 
 import { separatePhoneNumber } from "utils";
 import { Table, Button } from "components/shared";
-import { usePupilsFullQuery, useUpdatePupilMutation } from "store/endpoints";
 import { Input } from "components/shared/FormElements";
-import { PupilsDTO } from "types";
 import { MoneysIcon } from "components/svg";
 
 import classes from "./Discounts.module.scss";
@@ -18,18 +16,7 @@ const Discounts: FC<Props> = () => {
   const [input, setInput] = useState<number>()
   const { id } = useParams<{ id: any }>();
 
-  const pupilsQuery = usePupilsFullQuery({ group: id })
-  const [updatePupilMutation] = useUpdatePupilMutation();
-
-  const onUpdate = (pupil: PupilsDTO) => {
-    const mutationPromise = updatePupilMutation({ id: pupil.id, discount_price: input }).unwrap();
-
-    toast.promise(mutationPromise, {
-      loading: `yangilanmoqda...`,
-      success: `muvaffaqiyatli yangilandi`,
-      error: ({ data }) => JSON.stringify(data),
-    });
-  }
+  // const pupilsQuery = usePupilsFullQuery({ group: id })
 
   const columns: TableColumnsType = [
     {
@@ -83,7 +70,6 @@ const Discounts: FC<Props> = () => {
         <Button
           type="ghost"
           className={classes.save_btn}
-          onClick={() => onUpdate(record)}
         >
           Saqlash
         </Button>
@@ -92,13 +78,13 @@ const Discounts: FC<Props> = () => {
   ];
   return (
     <div>
-      <Table
+      {/* <Table
         columns={columns}
         loading={pupilsQuery.isFetching}
         dataSource={pupilsQuery.data || []}
         scroll={{ x: 960 }}
         pagination={false}
-      />
+      /> */}
     </div>
   );
 };

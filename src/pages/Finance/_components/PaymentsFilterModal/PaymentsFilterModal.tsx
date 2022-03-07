@@ -7,8 +7,6 @@ import {
   FormElements,
   Modal,
 } from "components/shared";
-import { useProvidersQuery, useGroupsFullQuery } from "store/endpoints";
-import { DirectionsDTO, TeachersDTO } from "types";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import {
   setOpenPaymentFilterModal,
@@ -29,10 +27,9 @@ const PaymentsFilterModal: FC<Props> = () => {
   const dispatch = useAppDispatch();
 
   const [selectedDirection, setSelectedDirection] =
-    useState<DirectionsDTO | null>();
-  const [selectedTeacher, setSelectedTeacher] = useState<TeachersDTO | null>();
+    useState<any | null>();
+  const [selectedTeacher, setSelectedTeacher] = useState<any | null>();
 
-  const providersQuery = useProvidersQuery();
 
   const onCloseModal = () => {
     dispatch(setOpenPaymentFilterModal(false));
@@ -70,12 +67,7 @@ const PaymentsFilterModal: FC<Props> = () => {
         <Form.Item name="provider" label="To'lov turi:">
           <FormElements.Select
             fullWidth
-            loading={providersQuery.isFetching}
-            options={providersQuery.data?.map((item) => ({
-              key: item?.id,
-              title: item.name,
-              value: item?.id,
-            }))}
+           
           />
         </Form.Item>
 
@@ -119,8 +111,7 @@ const PaymentsFilterModal: FC<Props> = () => {
           </Col>
           <Col span={12}>
             <Button
-              loading={providersQuery.isLoading }
-              disabled={providersQuery.isLoading }
+            
               type="primary"
               htmlType="submit"
               fullWidth

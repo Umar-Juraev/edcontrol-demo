@@ -6,19 +6,17 @@ import moment from "moment";
 
 import { PopConfirm, Table, Tooltip } from "components/shared";
 import { checkObjectValueExist, checkValueEmpty, separateNumberThousands } from "utils";
-import { usePaymentsQuery, useUpdatePaymentMutation } from "store/endpoints";
 import { useAppSelector } from "store/hooks";
 import { PrintIcon, UndoIcon } from "components/svg";
 import PaymentsFilterModal from "../PaymentsFilterModal";
 import PaymentUpdateModal from "../PaymentUpdateModal";
-import { PaymentsDTO } from "types";
 
 export type Props = {};
 
 const PaymentsTable: FC<Props> = () => {
   const [page, setPage] = useState(1);
   const [updateModal, setUpdateModal] = useState(false)
-  const [selectedPayment, setSelectedPayment] = useState<PaymentsDTO>()
+  const [selectedPayment, setSelectedPayment] = useState()
   const history = useHistory();
 
   const { currentUser } = useAppSelector(state => state.persistedData)
@@ -34,26 +32,10 @@ const PaymentsTable: FC<Props> = () => {
   }
   checkObjectValueExist(queryKeys)
 
-  const { data, isFetching } = usePaymentsQuery(queryKeys);
-  const [updateMutation] = useUpdatePaymentMutation()
+  // const { data, isFetching } = usePaymentsQuery(queryKeys);
+  // const [updateMutation] = useUpdatePaymentMutation()
 
-  const currentParams = history.location.search?.split("&");
-  const tabParams = currentParams[0]?.split("=")[1];
-  
-  function onChange(page: number) {
-    setPage(page);
-    history.push(`/admin/finance?tab=${tabParams}`);
-  }
 
-  const onUpdate = (record: any) => {
-    const mutationPromise = updateMutation({ id: record.id, is_canceled: true }).unwrap()
-    toast
-      .promise(mutationPromise, {
-        loading: `to'lov bekor qilinmoqda...`,
-        success: `muvaffaqiyatli bekor qilindi`,
-        error: (({ data }) => JSON.stringify(data))
-      })
-  };
 
   const columns: TableColumnsType = [
     {
@@ -123,7 +105,6 @@ const PaymentsTable: FC<Props> = () => {
             <PopConfirm
               disabled={record.is_canceled}
               title="Haqiqatan ham toʻlovni bekor qilmoqchimisiz?"
-              onConfirm={() => onUpdate(record)}
             >
               <div className={`tooltipIconBg undo ${record.is_canceled && 'canceled'}`} >
                 <UndoIcon />
@@ -137,7 +118,7 @@ const PaymentsTable: FC<Props> = () => {
 
   return (
     <div>
-      <Table
+      {/* <Table
         columns={columns}
         dataSource={data?.results}
         loading={isFetching}
@@ -157,7 +138,7 @@ const PaymentsTable: FC<Props> = () => {
         visible={updateModal}
         setVisible={setUpdateModal}
         data={selectedPayment}
-      />
+      /> */}
     </div>
   );
 };

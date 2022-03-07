@@ -2,8 +2,8 @@ import { FC, useRef } from "react";
 import Slider from "react-slick";
 
 import { Row, Col } from "antd";
-import { DirectionsDTO, TeachersDTO } from "types";
-import { useDirectionsQuery, useTeachersFullQuery } from "store/endpoints";
+// import { DirectionsDTO, TeachersDTO } from "types";
+// import { useDirectionsQuery, useTeachersFullQuery } from "store/endpoints";
 import { ArrowLeft, ArrowRight } from "components/svg";
 import { Badge } from "..";
 
@@ -14,9 +14,9 @@ import "slick-carousel/slick/slick.css";
 export type Props = {
   title?: string;
   type?: `direction` | `teacher` | `student`;
-  selectedDirection?: DirectionsDTO | null;
-  selectedTeacher?: TeachersDTO | null;
-  setSelectedDirection: (item?: DirectionsDTO) => void;
+  selectedDirection?: any | null;
+  selectedTeacher?: any | null;
+  setSelectedDirection: (item?: any) => void;
   setSelectedTeacher?: any;
 };
 
@@ -30,8 +30,8 @@ const FilterCarouselCard: FC<Props> = ({
 }) => {
   const sliderRef = useRef<Slider>(null);
 
-  const directionsQuery = useDirectionsQuery();
-  const teachersQuery = useTeachersFullQuery();
+  // const directionsQuery = useDirectionsQuery();
+  // const teachersQuery = useTeachersFullQuery();
 
   const settings = {
     dots: false,
@@ -69,7 +69,7 @@ const FilterCarouselCard: FC<Props> = ({
       </Row>
 
       <Slider {...settings} ref={sliderRef}>
-        {type === "direction" &&
+        {/* {type === "direction" &&
           directionsQuery.data?.map((direction) => (
             <Row key={direction.id} onClick={() => setSelectedDirection(direction)} >
               <Col >
@@ -80,8 +80,8 @@ const FilterCarouselCard: FC<Props> = ({
                 />
               </Col>
             </Row>
-          ))}
-
+          ))} */}
+{/* 
         {type === "teacher" &&
           teachersQuery.data?.map((teacher) => (
             <div
@@ -113,7 +113,7 @@ const FilterCarouselCard: FC<Props> = ({
                 </p>
               </div>
             </div>
-          ))}
+          ))} */}
       </Slider>
     </div>
   );

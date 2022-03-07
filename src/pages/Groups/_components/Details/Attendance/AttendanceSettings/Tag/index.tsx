@@ -13,7 +13,6 @@ import {
 } from "store/slices/attendance";
 
 import { SettingMoveIcon } from "components/svg";
-import { useUpdateLessonMutation } from "store/endpoints";
 import toast from "react-hot-toast";
 import { PopConfirm } from "components/shared";
 import classes from "../../Attendance.module.scss";
@@ -69,7 +68,6 @@ const Tag: FC<TagProps> = ({
     id: timeId
   } = useAppSelector((state) => state.attendance);
 
-  const [updateLessonMutation] = useUpdateLessonMutation();
 
   const classNames = cn(
     (actions === "SelectMonth" && classes.SelectMonth) ||
@@ -91,22 +89,7 @@ const Tag: FC<TagProps> = ({
     }
   };
 
-  function handleCanceledData() {
-    const values = {
-      is_canceled: item ? false : true
-    };
-    const mutationPromise = updateLessonMutation({ id: timeId, ...values });
 
-    toast
-      .promise(mutationPromise, {
-        loading: `dars kuni o'zgartirilmoqda...`,
-        success: `dars muvaffaqqiyatli o'zgartirildi`,
-        error: ({ data }) => JSON.stringify(data),
-      })
-      .then(() => {
-        lessonsQuery.refetch();
-      });
-  }
   return (
     <>
       {data?.map((item) => {
@@ -127,8 +110,7 @@ const Tag: FC<TagProps> = ({
             <PopConfirm
               disabled={!canceled && true}
               title={item.is_canceled ? `Bekor qilish olib tashlansinmi ?` : `Bekor qilishga ishonchingiz komilmi?`}
-              onConfirm={() => handleCanceledData()
-              }
+              
             >
               <button
                 className={classes.btn}

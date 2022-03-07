@@ -6,7 +6,6 @@ import { useParams, useHistory } from "react-router-dom";
 import { useAppSelector } from "store/hooks";
 import { separateNumberThousands } from "utils"
 import { Button, PopConfirm } from "components/shared";
-import { useDeleteCourseMutation } from "store/endpoints";
 import GroupDetailsImg from "images/group-photo-details.png";
 import { PriceIcon, ClockIcon, TimeIcon, StudentIcon } from "components/svg"
 
@@ -40,7 +39,6 @@ const CourseDetailsCard: FC<GroupCardProps> = ({
   const SUPER_USER = currentUser.data?.role == 1000
   const CEO = currentUser.data?.role == 999
 
-  const [deleteCourseMutation, { isLoading: deleteLoading }] = useDeleteCourseMutation()
 
   const CardData = [
     { icon: <PriceIcon />, value: `${separateNumberThousands(price)} so'm` },
@@ -49,16 +47,6 @@ const CourseDetailsCard: FC<GroupCardProps> = ({
     { icon: <StudentIcon />, value: `${usersCount}` },
   ];
 
-  const onDelete = () => {
-    const mutationPromise = deleteCourseMutation({ id }).unwrap()
-    toast
-      .promise(mutationPromise, {
-        loading: `o'chirilmoqda...`,
-        success: `muvaffaqiyatli o'chirildi`,
-        error: (({ data }) => JSON.stringify(data))
-      })
-      .then(() => history.goBack())
-  };
 
   return (
     <div className={classes.group_card}>
@@ -97,8 +85,8 @@ const CourseDetailsCard: FC<GroupCardProps> = ({
                     className={classes.btn_skeleton}
                   />
                 ) : (
-                  <PopConfirm title="O'chirishga ishonchingiz komilmi?" onConfirm={() => onDelete()} >
-                    <Button size="large" danger fullWidth loading={deleteLoading}>O'chirish</Button>
+                  <PopConfirm title="O'chirishga ishonchingiz komilmi?"  >
+                    <Button size="large" danger fullWidth >O'chirish</Button>
                   </PopConfirm>
                 )}
               </div>

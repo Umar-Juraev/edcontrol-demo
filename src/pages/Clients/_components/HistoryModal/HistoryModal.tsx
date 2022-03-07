@@ -4,7 +4,7 @@ import { Col, TableColumnsType } from "antd";
 
 import { Badge, Modal, Table } from "components/shared";
 import { useAppSelector } from "store/hooks";
-import { useClientsByIdQuery } from "store/endpoints";
+// import { useClientsByIdQuery } from "store/endpoints";
 
 import classes from "./HistoryModal.module.scss";
 
@@ -14,9 +14,8 @@ export type Props = {
 };
 
 const HistoryModal: FC<Props> = ({ visible, setVisible }) => {
-  const { clientId } = useAppSelector((state) => state.idSlicesRoot);
+  // const { clientId } = useAppSelector((state) => state.idSlicesRoot);
 
-  const { data, isFetching } = useClientsByIdQuery({ id: clientId });
 
   const columns: TableColumnsType = [
     {
@@ -44,7 +43,7 @@ const HistoryModal: FC<Props> = ({ visible, setVisible }) => {
       title: "Mijoz ismi",
       dataIndex: `full_name`,
       key: `full_name`,
-      render: () => <div>{data?.full_name}</div>,
+      render: () => <div>umar</div>,
     },
   ];
 
@@ -56,12 +55,11 @@ const HistoryModal: FC<Props> = ({ visible, setVisible }) => {
       onCancel={() => setVisible(false)}
     >
 
-      <Table
+      {/* <Table
         columns={columns}
         dataSource={data?.logs || []}
-        loading={isFetching}
         pagination={false}
-      />
+      /> */}
     </Modal>
   );
 };

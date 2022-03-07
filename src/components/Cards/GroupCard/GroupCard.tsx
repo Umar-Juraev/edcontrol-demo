@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { Card, Skeleton, Row, Col } from "antd";
 
 import { Badge, Button } from "components/shared";
-import { WeekDaysTypes } from "types";
 import { BadgeColorsType } from "utils/types";
 import {
   TeacherIcon,
@@ -26,7 +25,7 @@ type Props = {
   name?: string;
   teacher?: string;
   photo?: string;
-  days?: WeekDaysTypes[];
+  days?: any;
   startTime?: string;
   startDate?: string;
   endDate?: string;
@@ -54,7 +53,7 @@ const GroupCard: FC<Props> = ({
     {
       icon: <CalendarIcon />,
       name: `${days
-        ?.map((item: WeekDaysTypes) => item.short)
+        ?.map((item: any) => item.short)
         .join(", ")} - ${startTime}`,
     },
     {

@@ -1,7 +1,6 @@
 import { FC, useState } from "react";
 import { Col, Row } from "antd";
 
-import { ClientsDTO } from "types";
 import ClientTable from "./_components/ClientTable";
 import CreateModalClient from "./_components/CreateModalClient";
 import { Button } from "components/shared";
@@ -17,7 +16,7 @@ const Clients: FC<Props> = () => {
   const [createModal, setCreateModal] = useState(false);
   const [filterModal, setFilterModal] = useState(false);
   const [createStudentModal, setCreateStudentModal] = useState(false)
-  const [selectedClient, setSelectedClient] = useState<ClientsDTO>()
+  const [selectedClient, setSelectedClient] = useState<any>()
 
   return (
     <main>

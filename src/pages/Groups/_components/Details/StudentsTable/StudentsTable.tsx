@@ -5,7 +5,6 @@ import { Col, Popconfirm, Row, TableColumnsType } from "antd";
 
 import { separateNumberThousands, separatePhoneNumber } from "utils";
 import { Button, Table } from "components/shared";
-import { useDeletePupilMutation, usePupilsFullQuery } from "store/endpoints";
 import PaymentModal from "../PaymentModal";
 import Point from "images/more-outline.svg";
 
@@ -19,23 +18,9 @@ const StudentsTable: FC<Props> = () => {
 
   const { id } = useParams<{ id: any }>();
 
-  const pupilsQuery = usePupilsFullQuery({ group: id })
-  const [deletePupilMutation] = useDeletePupilMutation()
+  // const pupilsQuery = usePupilsFullQuery({ group: id })
 
-  const onDeleteStudent = () => {
-    const mutationPromise = deletePupilMutation({ id: selectedUser?.id }).unwrap()
 
-    toast
-      .promise(mutationPromise, {
-        loading: `talaba guruhdan o'chirilmoqda...`,
-        success: `muvaffaqqiyatli o'chirildi`,
-        error: ({ data }) => JSON.stringify(data),
-      })
-      .then(() => {
-        setVisible(false);
-        pupilsQuery.refetch()
-      });
-  };
 
   const columns: TableColumnsType = [
     {
@@ -100,7 +85,6 @@ const StudentsTable: FC<Props> = () => {
             <Popconfirm
               title="Ushbu o'quvchi guruhdan olib tashlansinmi?"
               placement="topRight"
-              onConfirm={() => onDeleteStudent()}
             >
               <Button
                 fullWidth
@@ -127,7 +111,7 @@ const StudentsTable: FC<Props> = () => {
 
   return (
     <div>
-      <Table
+      {/* <Table
         columns={columns}
         dataSource={pupilsQuery.data?.filter((pupil) => !pupil.user.is_removed) || []}
         noHead
@@ -139,7 +123,7 @@ const StudentsTable: FC<Props> = () => {
         visible={visible}
         setVisible={setVisible}
         user={selectedUser?.user}
-      />
+      /> */}
     </div>
   );
 };

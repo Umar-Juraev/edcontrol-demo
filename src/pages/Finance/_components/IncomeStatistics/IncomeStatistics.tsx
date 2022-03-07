@@ -3,7 +3,6 @@ import { Row, Col } from "antd";
 
 import CardStats from "components/Cards/CardStats";
 import { Badge, Button, FormElements } from "components/shared";
-import { usePaymentStatisticsQuery } from "store/endpoints";
 import { separateNumberThousands } from "utils";
 
 import Income from "images/income.svg";
@@ -16,25 +15,28 @@ import BarChart from "./BarChart";
 const IncomeStatistics = () => {
   const [isAnnual, setIsAnnual] = useState<boolean>(false);
 
-  const { data: statisticsData } = usePaymentStatisticsQuery()
+  // const { data: statisticsData } = usePaymentStatisticsQuery()
 
   const cardData = [
     {
       title: `Umumiy daromad`,
       icon: Income,
-      value: `${separateNumberThousands(statisticsData?.total_payments)} so'm`,
+      // value: `${separateNumberThousands(statisticsData?.total_payments)} so'm`,
+      value: <div>umar</div>,
       col: 8,
     },
     {
       title: `Yillik daromad`,
       icon: AnnualIncome,
-      value: `${separateNumberThousands(statisticsData?.annual_payments)} so'm`,
+      // value: `${separateNumberThousands(statisticsData?.annual_payments)} so'm`,
+      value: <div>umar</div>,
       col: 8,
     },
     {
       title: `Oylik daromad`,
       icon: MonthlyIncome,
-      value: `${separateNumberThousands(statisticsData?.monthly_payments)} so'm`,
+      // value: `${separateNumberThousands(statisticsData?.monthly_payments)} so'm`,
+      value: <div>umar</div>,
       col: 8,
     },
   ];
@@ -44,7 +46,7 @@ const IncomeStatistics = () => {
         <Row
           gutter={[{ sm: 0, md: 5, lg: 20 }, 20]}
         >
-          {cardData.map(({  title, value, icon, col }) => (
+          {cardData.map(({ title, value, icon, col }) => (
             <Col key={title} xs={24} span={col} sm={24} md={24} lg={12} xl={8}>
               <CardStats
                 image={icon}

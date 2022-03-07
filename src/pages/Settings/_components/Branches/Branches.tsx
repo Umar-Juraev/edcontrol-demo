@@ -2,11 +2,9 @@ import { useState } from "react";
 import { TableColumnsType, Row, Col } from "antd";
 import toast from "react-hot-toast";
 
-import { BranchesDTO } from "types";
 import { checkValueEmpty, separatePhoneNumber } from "utils";
 import { useAppSelector } from "store/hooks";
 import { Button, PopConfirm, Table } from "components/shared";
-import { useBranchesQuery, useDeleteBranchMutation } from "store/endpoints";
 import UpdateBranchModal from "../UpdateBranchModal";
 
 import classes from '../../Settings.module.scss'
@@ -14,27 +12,19 @@ import classes from '../../Settings.module.scss'
 const Branches = () => {
   const [page, setPage] = useState(1);
   const [updateModal, setUpdateModal] = useState(false)
-  const [selectedBranch, setSelectedBranch] = useState<BranchesDTO>()
+  const [selectedBranch, setSelectedBranch] = useState()
 
   const { currentUser } = useAppSelector(state => state.persistedData)
   const SUPER_USER = currentUser.data?.role == 1000
   const CEO = currentUser.data?.role == 999
 
-  const branchQuery = useBranchesQuery();
-  const [deleteMutation] = useDeleteBranchMutation()
 
   function onChange(page: number) {
     setPage(page);
   }
 
   const onDelete = (record: any) => {
-    const mutationPromise = deleteMutation({ id: record.id }).unwrap()
-    toast
-      .promise(mutationPromise, {
-        loading: `filial o'chirilmoqda...`,
-        success: `muvaffaqiyatli o'chirildi`,
-        error: (({ data }) => JSON.stringify(data))
-      })
+
   };
 
   const columns: TableColumnsType = [
@@ -118,7 +108,7 @@ const Branches = () => {
 
   return (
     <div>
-      <Table
+      {/* <Table
         columns={columns}
         dataSource={branchQuery.data?.results || []}
         loading={branchQuery.isFetching}
@@ -129,12 +119,12 @@ const Branches = () => {
           current: page,
           onChange: (e) => onChange(e),
         }}
-      />
+      /> */}
 
       <UpdateBranchModal
         visible={updateModal}
         setVisible={setUpdateModal}
-        data={selectedBranch}
+       
       />
     </div>
   );

@@ -7,60 +7,20 @@ import {
 } from "components/shared";
 import { Col, Row, Form } from "antd";
 import { useAppDispatch } from "store/hooks";
-import { DirectionsDTO, UsersDTO } from "types";
-import { useSourcesQuery, useStatusesQuery } from "store/endpoints";
-import {
-  setClientFilterDirection,
-  setClientFilterSource,
-  setClientFilterDateAddEnd,
-  setClientFilterDateAddStart,
-  setClientFilterStatus,
-} from "store/slices/clientFilters";
-import moment from "moment";
+
 
 export type Props = {
   visible: boolean;
   setVisible: (bool: boolean) => void;
-  loading?: boolean;
 };
 
-const FilterClientsModal: FC<Props> = ({ visible, setVisible, loading }) => {
-  const [form] = Form.useForm();
+const FilterClientsModal: FC<Props> = ({ visible, setVisible }) => {
   const dispatch = useAppDispatch();
   const [selectedDirection, setSelectedDirection] =
-    useState<DirectionsDTO | null>();
-  const [selectedClient, setSelectedClient] = useState<UsersDTO | null>();
+    useState<any | null>();
+  const [selectedClient, setSelectedClient] = useState<any | null>();
 
-  const courseQuery = useSourcesQuery();
-  const statusQuery = useStatusesQuery();
 
-  const onFinish = (values: any) => {
-    dispatch(setClientFilterDirection(selectedDirection?.id));
-    dispatch(setClientFilterSource(values.source));
-    values.date_add_start &&
-      dispatch(
-        setClientFilterDateAddStart(
-          moment(values.date_add_start).format("YYYY-MM-DD")
-        )
-      );
-    values.date_add_end &&
-      dispatch(
-        setClientFilterDateAddEnd(
-          moment(values.date_add_end).format("YYYY-MM-DD")
-        )
-      );
-    dispatch(setClientFilterStatus(values.status));
-    setVisible(false);
-  };
-  const onReset = () => {
-    dispatch(setClientFilterDirection(""));
-    dispatch(setClientFilterSource(""));
-    dispatch(setClientFilterDateAddStart(null));
-    dispatch(setClientFilterDateAddEnd(null));
-    dispatch(setClientFilterStatus(""));
-    form.resetFields();
-    setVisible(false);
-  };
 
   return (
     <Modal
@@ -69,7 +29,7 @@ const FilterClientsModal: FC<Props> = ({ visible, setVisible, loading }) => {
       onOk={() => setVisible(false)}
       onCancel={() => setVisible(false)}
     >
-      <Form form={form} onFinish={onFinish} layout="vertical">
+      <Form  layout="vertical">
         <FilterUsersCarousel
           title="Yo`nalishlar:"
           type="direction"
@@ -81,12 +41,7 @@ const FilterClientsModal: FC<Props> = ({ visible, setVisible, loading }) => {
         <Form.Item name="source" label="Manba">
           <FormElements.Select
             showSearch
-            loading={courseQuery.isFetching}
-            options={courseQuery.data?.map((item) => ({
-              title: item.name,
-              value: item.id,
-              key: item.id,
-            }))}
+           
           />
         </Form.Item>
 
@@ -106,18 +61,13 @@ const FilterClientsModal: FC<Props> = ({ visible, setVisible, loading }) => {
         <Form.Item name="status" label="Holat">
           <FormElements.Select
             showSearch
-            loading={statusQuery.isFetching}
-            options={statusQuery.data?.map((item) => ({
-              title: item.name,
-              value: item.id,
-              key: item.id,
-            }))}
+          
           />
         </Form.Item>
 
         <Row gutter={8}>
           <Col span={12}>
-            <Button danger fullWidth size="large" onClick={() => onReset()}>
+            <Button danger fullWidth size="large" >
               Qaytarish
             </Button>
           </Col>
@@ -127,8 +77,7 @@ const FilterClientsModal: FC<Props> = ({ visible, setVisible, loading }) => {
               htmlType="submit"
               fullWidth
               size="large"
-              loading={loading}
-              disabled={loading}
+
             >
               Saqlash
             </Button>

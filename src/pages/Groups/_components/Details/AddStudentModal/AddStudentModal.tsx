@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 
 import { checkObjectValueExist } from "utils";
 import { Button, FormElements, Modal } from "components/shared";
-import { usePupilsQuery, useCreatePupilMutation, useStudentsFullQuery } from "store/endpoints";
 
 export type Props = {
   visible: boolean;
@@ -13,36 +12,6 @@ export type Props = {
 };
 
 const AddStudentModal: FC<Props> = ({ visible, setVisible }) => {
-  const { id } = useParams<{ id: any }>();
-
-  const studentsQuery = useStudentsFullQuery();
-  const pupilsQuery = usePupilsQuery({ group: id })
-  const [createMutation, { isLoading }] = useCreatePupilMutation()
-
-  const onFinish = (values: any) => {
-
-    const pupilValues = {
-      ...values,
-      user: values.user,
-      group: id
-    }
-    checkObjectValueExist(pupilValues)
-
-    const mutationPromise = createMutation(pupilValues).unwrap()
-
-    toast
-      .promise(mutationPromise, {
-        loading: `qo'shilmoqda...`,
-        success: `muvaffaqiyatli qo'shildi`,
-        error: (({ data }) => JSON.stringify(data))
-      })
-      .then(() => {
-        setVisible(false);
-        studentsQuery.refetch();
-        pupilsQuery.refetch();
-      });
-  };
-
   return (
     <Modal
       title="Talaba qo'shish"
@@ -51,19 +20,13 @@ const AddStudentModal: FC<Props> = ({ visible, setVisible }) => {
       onCancel={() => setVisible(false)}
     >
       <Form
-        onFinish={onFinish}
         layout="vertical"
       >
         <Form.Item name="user" label="Talaba:" rules={[{ required: true }]}>
           <FormElements.Select
             fullWidth
             showSearch
-            loading={studentsQuery.isFetching}
-            options={studentsQuery.data?.map((item) => ({
-              title: item.full_name,
-              value: item.id,
-              key: item.id,
-            }))}
+          
           />
         </Form.Item>
 
@@ -72,8 +35,7 @@ const AddStudentModal: FC<Props> = ({ visible, setVisible }) => {
           htmlType="submit"
           fullWidth
           size="large"
-          loading={isLoading}
-          disabled={isLoading}
+       
         >
           Tasdiqlash
         </Button>

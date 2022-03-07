@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Row } from "antd";
 import { ArrowRight } from "components/svg";
 import { Link, useHistory } from "react-router-dom";
@@ -15,7 +15,7 @@ type Info = {
 type Item = {
     type: string;
     name: string;
-    img: string;
+    img?: string;
     id: number
     info?: Info[]
 }
@@ -25,7 +25,7 @@ type Props = {
     isFetching: boolean;
     setVisible: (bool: boolean) => void
 }
-const RenderItem = ({ data, isFetching, setVisible }: Props) => {
+const RenderItem = React.memo(({ data, isFetching, setVisible }: Props) => {
     const [title, setTitle] = useState({
         title: '',
         path: ''
@@ -139,6 +139,6 @@ const RenderItem = ({ data, isFetching, setVisible }: Props) => {
             }
         </Col >
     );
-};
+})
 
 export default RenderItem

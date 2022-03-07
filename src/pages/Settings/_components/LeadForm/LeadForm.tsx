@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom";
 
 import { EditIcon, UserIcon } from "components/svg";
 import { FormElements, Button } from "components/shared";
-import { useCreateClientMutation, useDirectionsQuery, useSourcesQuery, useStatusesQuery } from "store/endpoints";
 import { checkObjectValueExist, parsePhoneNumber } from "utils";
 import { useAppSelector } from "store/hooks";
 
@@ -14,29 +13,28 @@ const LeadForm = () => {
   const { currentUser } = useAppSelector((state) => state.persistedData);
   const history = useHistory()
 
-  const source = useSourcesQuery();
-  const directions = useDirectionsQuery();
-  const status = useStatusesQuery();
-  const [createMutation, { isLoading }] = useCreateClientMutation();
+  // const source = useSourcesQuery();
+  // const directions = useDirectionsQuery();
+  // const status = useStatusesQuery();
 
-  const onFinish = (values: any) => {
+  // const onFinish = (values: any) => {
 
-    const clientValues = {
-      ...values,
-      phone_number: parsePhoneNumber(values.phone_number),
-      branch: currentUser.data?.branch?.id,
-    };
-    checkObjectValueExist(clientValues);
+  //   const clientValues = {
+  //     ...values,
+  //     phone_number: parsePhoneNumber(values.phone_number),
+  //     branch: currentUser.data?.branch?.id,
+  //   };
+  //   checkObjectValueExist(clientValues);
 
-    const mutationPromise = createMutation(clientValues).unwrap();
-    toast
-      .promise(mutationPromise, {
-        loading: `mijoz qo'shilmoqda...`,
-        success: `muvaffaqqiyatli qo'shildi`,
-        error: ({ data }) => JSON.stringify(data),
-      })
-      .then(() =>history.push('/admin/clients'))
-  };
+  //   const mutationPromise = createMutation(clientValues).unwrap();
+  //   toast
+  //     .promise(mutationPromise, {
+  //       loading: `mijoz qo'shilmoqda...`,
+  //       success: `muvaffaqqiyatli qo'shildi`,
+  //       error: ({ data }) => JSON.stringify(data),
+  //     })
+  //     .then(() =>history.push('/admin/clients'))
+  // };
 
   return (
     <section className={classes.lead_form}>
@@ -53,7 +51,6 @@ const LeadForm = () => {
       </div>
       <Col span={20} className={classes.rightSection}>
         <Form
-          onFinish={onFinish}
         >
           <Row>
             <Col span={24}>
@@ -85,12 +82,7 @@ const LeadForm = () => {
                 <FormElements.Select
                   showSearch
                   placeholder="Manbani tanlang"
-                  loading={source.isFetching}
-                  options={source.data?.map((item) => ({
-                    title: item.name,
-                    value: item.id,
-                    key: item.id,
-                  }))}
+                
                 />
               </Form.Item>
             </Col>
@@ -103,12 +95,7 @@ const LeadForm = () => {
                 <FormElements.Select
                   showSearch
                   placeholder="Yo'nalishni tanlang"
-                  loading={directions.isFetching}
-                  options={directions.data?.map((item) => ({
-                    title: item.name,
-                    value: item.id,
-                    key: item.id,
-                  }))}
+              
                 />
               </Form.Item>
             </Col>
@@ -121,12 +108,7 @@ const LeadForm = () => {
                 <FormElements.Select
                   showSearch
                   placeholder="Statusni tanlang"
-                  loading={status.isFetching}
-                  options={status.data?.map((item) => ({
-                    title: item.name,
-                    value: item.id,
-                    key: item.id,
-                  }))}
+               
                 />
               </Form.Item>
             </Col>
@@ -137,7 +119,6 @@ const LeadForm = () => {
                   type="primary"
                   htmlType="submit"
                   size="large"
-                  loading={isLoading}
                   fullWidth
                 >
                   Jo'natish

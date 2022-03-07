@@ -3,7 +3,6 @@ import { Col, Row } from "antd";
 import { useHistory } from "react-router-dom";
 
 import { AddIcon, FIlterIcon } from "components/svg";
-import { useStudentsQuery } from "store/endpoints";
 import UserCardInfo from "components/Cards/UserCardInfo";
 import {
   Button,
@@ -44,23 +43,7 @@ const StudentsHome = (props: Props) => {
 
   checkObjectValueExist(queryKeys);
 
-  const studentsQuery = useStudentsQuery({ is_removed: false, ...queryKeys });
 
-  const currentParams = history.location.search?.split("&");
-  const pageParams = currentParams[0]?.split("=")[1];
-  const searchParams = currentParams[1]?.split("=")[1];
-
-  useEffect(() => {
-    studentsQuery.refetch();
-  }, [students]);
-
-  useEffect(() => {
-    pageParams && setPage(Number(pageParams));
-  }, [pageParams]);
-
-  useEffect(() => {
-    searchParams && setText(decodeURI(searchParams));
-  }, [searchParams]);
 
   function onChange(page: number) {
     setPage(page);
@@ -71,7 +54,6 @@ const StudentsHome = (props: Props) => {
     history.push(`/admin/students?page=${page}&search=${text}`);
     setPage(1);
     setDebouncedText(value);
-    studentsQuery.refetch();
   }
 
   return (
@@ -89,7 +71,7 @@ const StudentsHome = (props: Props) => {
           <FormElements.Search
             value={text}
             onSearch={onSearch}
-            loading={studentsQuery.isFetching}
+            // loading={studentsQuery.isFetching}
             onChange={(e) => setText(e.target.value)}
             placeholder="Talaba nomi bo'yicha qidirish"
           />
@@ -111,7 +93,7 @@ const StudentsHome = (props: Props) => {
               type="primary"
               addMode
               icon={<AddIcon />}
-              loading={studentsQuery.isLoading}
+              // loading={studentsQuery.isLoading}
               style={{ height: 50, padding: "13px 32px" }}
               onClick={() => setCreateModal((prev) => !prev)}
             >
@@ -121,17 +103,17 @@ const StudentsHome = (props: Props) => {
         </Row>
       </Row>
 
-      <Loader spinning={studentsQuery.isFetching}>
+      <Loader spinning={false}>
         <section style={{ minHeight: 420 }}>
           <Row gutter={[0, 10]}>
-            {studentsQuery.isLoading && (
+            {/* {studentsQuery.isLoading && (
               <>
                 <UserCardSkeleton dataNone />
                 <UserCardSkeleton dataNone />
                 <UserCardSkeleton dataNone />
               </>
-            )}
-            {studentsQuery.data?.count
+            )} */}
+            {/* {studentsQuery.data?.count
               ? studentsQuery.data?.results?.map((item) => (
                 <UserCardInfo
                   key={item?.id}
@@ -152,10 +134,10 @@ const StudentsHome = (props: Props) => {
                 <Col span={24}>
                   <Empty description="Talabalar mavjud emas" />
                 </Col>
-              )}
+              )} */}
           </Row>
         </section>
-        {!studentsQuery.isLoading && (
+        {/* {!studentsQuery.isLoading && (
           <Row justify="end" style={{ marginTop: 10 }}>
             <Pagination
               total={studentsQuery.data?.count}
@@ -164,7 +146,7 @@ const StudentsHome = (props: Props) => {
               onChange={onChange}
             />
           </Row>
-        )}
+        )} */}
 
         <StudentsFilterModal
           visible={filterModal}

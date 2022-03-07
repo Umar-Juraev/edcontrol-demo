@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom";
 import toast from "react-hot-toast";
 import { Button, Table, PopConfirm, Pagination } from "components/shared";
 
-import { useRoomsQuery, useDeleteRoomMutation } from "store/endpoints";
 import UpdateRoomModal from "../UpdateRoomModal";
 import CreateRoomModal from "../CreateRoomModal";
 
@@ -26,34 +25,20 @@ const Payment: FC<Props> = ({ createRoom, setCreateRoom }) => {
   const SUPER_USER = currentUser.data?.role == 1000
   const CEO = currentUser.data?.role == 999
 
-  const roomsQuery = useRoomsQuery({ page })
+  // const roomsQuery = useRoomsQuery({ page })
 
   function onChange(page: number) {
     setPage(page)
     history.push(`/admin/rooms?page=${page}`)
   }
 
-  const [deleteMutation] = useDeleteRoomMutation()
 
   const onEdit = (record: any) => {
     setUpdateModal(true)
     setSelectedRoom(record)
   }
 
-  const onDelete = (record: any) => {
-    const mutationPromise = deleteMutation({ id: record.id }).unwrap()
-    toast
-      .promise(mutationPromise, {
-        loading: `o'chirilmoqda...`,
-        success: `muvaffaqiyatli o'chirildi`,
-        error: (({ data }) => JSON.stringify(data))
-      })
-      .then(() => {
-        roomsQuery.refetch()
-        setPage(1)
-        roomsQuery.refetch()
-      });
-  };
+
 
 
   const columns: TableColumnsType = [
@@ -108,7 +93,7 @@ const Payment: FC<Props> = ({ createRoom, setCreateRoom }) => {
           </Col>
           {(CEO || SUPER_USER) &&  (
             <Col span={12}>
-              <PopConfirm title="Xona o'chirilsinmi?" onConfirm={() => onDelete(record)} >
+              <PopConfirm title="Xona o'chirilsinmi?" >
                 <Button size="large" danger fullWidth>O'chirish</Button>
               </PopConfirm>
             </Col>
@@ -120,13 +105,13 @@ const Payment: FC<Props> = ({ createRoom, setCreateRoom }) => {
 
   return (
     <div >
-      <Table
+      {/* <Table
         columns={columns}
         dataSource={roomsQuery.data?.results}
         pagination={false}
         scroll={{ x:  680 }}
         loading={roomsQuery.isFetching}
-      />
+      /> */}
 
       <CreateRoomModal
         visible={createRoom}
@@ -140,12 +125,12 @@ const Payment: FC<Props> = ({ createRoom, setCreateRoom }) => {
       />
 
       <Row justify="end" style={{ marginTop: 10 }}>
-        <Pagination
+        {/* <Pagination
           total={roomsQuery.data?.count}
           pageSize={10}
           current={page}
           onChange={onChange}
-        />
+        /> */}
       </Row>
     </div>
   );

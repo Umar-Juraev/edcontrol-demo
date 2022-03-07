@@ -2,8 +2,6 @@ import { Col, Row } from "antd";
 import { Badge } from "components/shared";
 import moment from "moment";
 import { useEffect, useState } from "react";
-import { useRoomsQuery } from "store/endpoints";
-import { useSchedulesQuery } from "store/endpoints/schedule";
 import { useAppSelector } from "store/hooks";
 import { LessonTimesByWeekTypes } from "utils/types";
 
@@ -16,36 +14,12 @@ const ScheduleTable = (props: Props) => {
   const [selectedWeekdays, setSelectedWeekdays] = useState<LessonTimesByWeekTypes[]>([])
   const [selectedDay, setSelectedDay] = useState<LessonTimesByWeekTypes>();
 
-  const roomsQuery = useRoomsQuery();
+  // const roomsQuery = useRoomsQuery();
 
   const { currentUser } = useAppSelector((state) => state.persistedData);
 
-  const schedulesQuery = useSchedulesQuery({
-    branch: currentUser.data?.branch.id,
-    date_from: "2022-01-01",
-    date_to: "2022-02-20"
-  })
-
-  useEffect(() => {
-    schedulesQuery.data?.map((item) => {
-      item.room_id === selectedRoom && setSelectedWeekdays(item.lesson_times_by_weekdays)
-    })
-  }, [schedulesQuery.data, selectedRoom])
 
 
-  // const hours = Array.from(
-  //   { length: 48 },
-
-  //   (_, hour) => {
-  //     return {
-  //       time: moment({
-  //         hour: Math.floor(hour / 2),
-  //         minutes: hour % 2 === 0 ? 0 : 30,
-  //       }).format("HH:mm"),
-  //       width: 85,
-  //     };
-  //   }
-  // );
 
   const filtredDayData = selectedDay?.lesson_times?.map(item => ({
     name: item.group_name,
@@ -62,7 +36,7 @@ const ScheduleTable = (props: Props) => {
   return (
     <section>
       <Row gutter={8} wrap={false} className={classes.statusesBox}>
-        {roomsQuery?.data?.results.map((item) => (
+        {/* {roomsQuery?.data?.results.map((item) => (
           <Col key={item.id}>
             <Badge
               text={item.name}
@@ -70,7 +44,7 @@ const ScheduleTable = (props: Props) => {
               onClick={() => setSelectedRoom(item.id)}
             />
           </Col>
-        ))}
+        ))} */}
       </Row>
       <div className={classes.schedule}>
         <div className={classes.schedule__boxLeft}>

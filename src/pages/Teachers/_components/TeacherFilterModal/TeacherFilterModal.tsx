@@ -1,14 +1,14 @@
 import { FC, useState } from "react";
 import { Row, Col, Form } from "antd";
 import { GENDER_TYPE } from "constants/states";
-import { DirectionsDTO } from "types";
+// import { DirectionsDTO } from "types";
 import { Button, FormElements, Modal } from "components/shared";
 import FilterCarouselCard from "components/shared/FilterCarouselCard";
 import { useAppDispatch } from "store/hooks";
-import {
-  useRegionsQuery,
-  useDistrictsQuery,
-} from "store/endpoints";
+// import {
+//   useRegionsQuery,
+//   useDistrictsQuery,
+// } from "store/endpoints";
 import {
   setTeacherFilterDirection,
   setTeacherFilterDistrict,
@@ -26,11 +26,11 @@ const TeacherFilterModal: FC<Props> = ({ visible, setVisible, loading }) => {
   const [regionId, setRegionId] = useState<number>();
 
   const [selectedDirection, setSelectedDirection] =
-    useState<DirectionsDTO | null>();
+    useState< any | null>();
   const dispatch = useAppDispatch();
 
-  const regionsQuery = useRegionsQuery();
-  const districtsQuery = useDistrictsQuery({ region: regionId });
+  // const regionsQuery = useRegionsQuery();
+  // const districtsQuery = useDistrictsQuery({ region: regionId });
 
   const onFinish = (values: any) => {
     selectedDirection?.id &&
@@ -94,24 +94,24 @@ const TeacherFilterModal: FC<Props> = ({ visible, setVisible, loading }) => {
 
         <Form.Item name="region" label="Viloyat">
           <FormElements.Select
-            loading={regionsQuery.isFetching}
-            onSelect={(e) => setRegionId(e)}
-            options={regionsQuery.data?.map((item) => ({
-              title: item.name,
-              value: item.id,
-              key: item.id,
-            }))}
+            // loading={regionsQuery.isFetching}
+            // onSelect={(e) => setRegionId(e)}
+            // options={regionsQuery.data?.map((item) => ({
+            //   title: item.name,
+            //   value: item.id,
+            //   key: item.id,
+            // }))}
           />
         </Form.Item>
 
         <Form.Item name="district">
           <FormElements.Select
-            loading={districtsQuery.isFetching}
-            options={districtsQuery.data?.map((item) => ({
-              title: item.name,
-              value: item.id,
-              key: item.id,
-            }))}
+            // loading={districtsQuery.isFetching}
+            // options={districtsQuery.data?.map((item) => ({
+            //   title: item.name,
+            //   value: item.id,
+            //   key: item.id,
+            // }))}
           />
         </Form.Item>
 

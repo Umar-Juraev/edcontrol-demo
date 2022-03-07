@@ -4,20 +4,18 @@ import { TableColumnsType } from "antd";
 import { Link, useLocation, useParams } from "react-router-dom";
 
 import { Table } from "components/shared";
-import { useMaterialsQuery } from "store/endpoints/materials";
 import { LeftArrowIcon } from "components/svg";
-import { CoursesDTO } from "types";
 
 import classes from "./Materials.module.scss";
 
 type Props = {
-  course?: CoursesDTO;
+  course?: any
 };
 
 const Materials: FC<Props> = ({ course }) => {
   const { id } = useParams<{ id: any }>();
   const { pathname } = useLocation();
-  const materialsQuery = useMaterialsQuery({ course: course?.id });
+  // const materialsQuery = useMaterialsQuery({ course: course?.id });
 
   const columns: TableColumnsType = [
     {
@@ -69,12 +67,12 @@ const Materials: FC<Props> = ({ course }) => {
   ];
   return (
     <>
-      <Table
+      {/* <Table
         columns={columns}
         loading={materialsQuery.isLoading}
         scroll={{ x: 960 }}
         dataSource={materialsQuery.data?.results || []}
-      />
+      /> */}
     </>
   );
 };
