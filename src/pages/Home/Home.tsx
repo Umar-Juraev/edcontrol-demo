@@ -15,6 +15,7 @@ import CardStatsSkeleton from "components/Skeleton/CardStatsSkeleton";
 import GroupCardSkeleton from "components/Skeleton/GroupCardSkeleton";
 
 import classes from "./Home.module.scss";
+import { useEffect } from "react";
 
 export type Props = {};
 
@@ -59,6 +60,11 @@ const Home = (props: Props) => {
     },
   ];
 
+
+  useEffect(() => {
+    fetch('db.json').then(res => console.log(res)
+    )
+  }, [])
 
 
   return (
