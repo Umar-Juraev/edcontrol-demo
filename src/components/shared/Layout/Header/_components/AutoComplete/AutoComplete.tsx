@@ -64,7 +64,7 @@ const AutoComplete = ({ }: Props) => {
       <div className={"autoComplete__search"}>
         <FormElements.Input
           onClick={() => setVisible(true)}
-          placeholder="Guruh, o'qituvchi, o'quvchi yoki klient nomini kiriting"
+          placeholder="Enter the name of the group, teacher, student, or client"
           onChange={useCallback((e) => {
             setText(e.target.value);
           }, [])}
@@ -80,7 +80,7 @@ const AutoComplete = ({ }: Props) => {
             return <RenderItem data={item} setVisible={setVisible} isFetching={globalSearchQuery.isFetching} />
           })
           :
-          <Col className={`autoComplete__isEmpty`}>Ma'lumot yoq.</Col>
+          <Col className={`autoComplete__isEmpty`}>No information.</Col>
         }
       </div>
 

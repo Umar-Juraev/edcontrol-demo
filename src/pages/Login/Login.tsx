@@ -31,13 +31,12 @@ const Login: FC = (props) => {
             autoComplete="off"
             className={classes.form}
           >
-            <h1>Kirish</h1>
-            {/* <p>С возвращением, по тебе скучали!</p> */}
+            <h1>Login</h1>
             <Row>
               <Col span={24}>
                 <Form.Item
                   name="phone"
-                  rules={[{ required: true, message: "iltimos telefon raqam kiriting" }]}
+                  rules={[{ required: true, message: "phone number is required" }]}
                 >
                   <FormElements.PhoneInput style={{ width: "100%" }} />
                 </Form.Item>
@@ -46,12 +45,12 @@ const Login: FC = (props) => {
               <Col span={24}>
                 <Form.Item
                   name="password"
-                  rules={[{ required: true, message: "iltimos parolni kiriting" }]}
+                  rules={[{ required: true, message: "password is required" }]}
                 >
                   <FormElements.Input
                     prefix={<PasswordIcon />}
                     isPassword
-                    placeholder="Parolni kiriting"
+                    placeholder="enter password"
                   />
                 </Form.Item>
               </Col>
@@ -65,7 +64,7 @@ const Login: FC = (props) => {
                     loading={false}
                     fullWidth
                   >
-                    Tasdiqlash
+                    Submit
                   </Button>
                 </Form.Item>
               </Col>

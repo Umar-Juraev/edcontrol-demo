@@ -24,41 +24,36 @@ const Home = (props: Props) => {
 
   const cardData = [
     {
-      title: `Guruhlar`,
+      title: `Groups`,
       icon: GroupIcon,
-      value: <div>hello</div>,
-      // value: statisticsQuery.data?.total_groups_count,
+      value: '50',
       path: "/admin/groups",
       col: 6,
     },
     {
-      title: `O'qituvchilar`,
+      title: `Teachers`,
       icon: StudentIcon,
-      value: <div>hello</div>,
-      // value: statisticsQuery.data?.total_teachers_count,
+      value: '120',
       path: "/admin/teachers",
       col: 6,
     },
     {
       title: `Talabalar`,
       icon: TeacherIcon,
-      value: <div>hello</div>,
-      // value: statisticsQuery.data?.total_pupils_count,
+      value: '600',
       path: "/admin/students",
       col: 6,
     },
     {
-      title: `Mijozlar`,
+      title: `Clients`,
       icon: ClientIcon,
-      value: <div>hello</div>,
-      // value: statisticsQuery.data?.total_clients_count,
+      value: '300',
       path: "/admin/clients",
       col: 6,
     }, {
-      title: `Qarzdorlar`,
+      title: `Debtors`,
       icon: Income,
-      value: <div>hello</div>,
-      // value: studentsQuery.data?.length,
+      value: '30',
       path: "/admin/finance?tab=5",
       col: 7,
     },
@@ -68,7 +63,7 @@ const Home = (props: Props) => {
 
   return (
     <div className={classes.home_page}>
-      <h2 className={classes.page_title}>Umumiy Statistika</h2>
+      <h2 className={classes.page_title}>General Statistics</h2>
       <div className={classes.card_stats_container}>
         {/* {statisticsQuery.isFetching && (
           <div className={classes.statusBox}>
@@ -81,21 +76,22 @@ const Home = (props: Props) => {
         )} */}
 
         <div className={classes.statusBox}>
-          {/* {!statisticsQuery.isFetching &&
+          {
+            // !statisticsQuery.isFetching &&
             cardData?.map(({ title, value, icon, path }) => (
               <CardStats
                 image={icon}
                 value={value}
                 types={title}
-                isLoading={statisticsQuery.isLoading}
+                // isLoading={statisticsQuery.isLoading}
                 pathName={path}
               />
-            ))} */}
+            ))}
         </div>
       </div>
 
       <div className={classes.active_groups}>
-        <h2 className={classes.active_groups_title}>Faol guruhlar</h2>
+        <h2 className={classes.active_groups_title}>Active groups</h2>
         <Row
           gutter={[{ sm: 0, md: 5, lg: 20 }, 20]}
           style={{ margin: "24px 0 0 0" }}
@@ -137,7 +133,7 @@ const Home = (props: Props) => {
 
       <div className={classes.active_groups}>
         <h2 className={classes.active_groups_title}>
-          Eng yaxshi o'qituvchilar
+          The best teachers
         </h2>
         <Row
           gutter={[{ sm: 0, md: 5, lg: 20 }, 20]}

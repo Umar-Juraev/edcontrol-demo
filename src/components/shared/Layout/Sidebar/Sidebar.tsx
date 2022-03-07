@@ -31,7 +31,7 @@ const Sidebar: FC<Props> = ({ hide }) => {
   const menuItems = [
     {
       key: 1,
-      label: `Bosh sahifa`,
+      label: `Home`,
       icon: (
         <HomeIcon
           color={location.pathname === "/admin/home" ? "#377DFF" : "#B0B7C3"}
@@ -41,7 +41,7 @@ const Sidebar: FC<Props> = ({ hide }) => {
     },
     {
       key: 2,
-      label: `Guruhlar`,
+      label: `Groups`,
       icon: (
         <GroupIcon
           color={
@@ -53,7 +53,7 @@ const Sidebar: FC<Props> = ({ hide }) => {
     },
     {
       key: 3,
-      label: `O'qituvchilar`,
+      label: `Teachers`,
       icon: (
         <TeacherIcon
           color={
@@ -67,7 +67,7 @@ const Sidebar: FC<Props> = ({ hide }) => {
     },
     {
       key: 4,
-      label: `Talabalar`,
+      label: `Students`,
       icon: (
         <StudentIcon
           color={
@@ -81,7 +81,7 @@ const Sidebar: FC<Props> = ({ hide }) => {
     },
     {
       key: 5,
-      label: `Moliya`,
+      label: `Finance`,
       icon: (
         <FinanceIcon
           color={
@@ -95,7 +95,7 @@ const Sidebar: FC<Props> = ({ hide }) => {
     },
     {
       key: 8,
-      label: `Xonalar`,
+      label: `Rooms`,
       icon: (
         <RoomIcon
           color={
@@ -107,7 +107,7 @@ const Sidebar: FC<Props> = ({ hide }) => {
     },
     {
       key: 9,
-      label: `Mijozlar`,
+      label: `Clients`,
       icon: (
         <ClientsIcon
           color={
@@ -126,6 +126,7 @@ const Sidebar: FC<Props> = ({ hide }) => {
       window.addEventListener("resize", updateDimensions);
       return () => window.removeEventListener("resize", updateDimensions);
   }, []); 
+
   return (
     <Sider
       width="250px"
@@ -175,7 +176,7 @@ const Sidebar: FC<Props> = ({ hide }) => {
             <span>
               <SettingsIcon color={location.pathname.includes("/admin/settings") ? "#377DFF" : "#B0B7C3"} />
             </span>
-            {!hide && <li className={classes.li}>Sozlamalar</li>}
+            {!hide && <li className={classes.li}>Settings</li>}
           </NavLink>
         
         <span className={classes.innerWidth}>{`${width} px`}</span>
