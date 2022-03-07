@@ -19,6 +19,7 @@
     "chartjs-plugin-datalabels": "^2.0.0",
     "classnames": "^2.3.1",
     "dayjs": "^1.10.7",
+    "heroku": "^7.59.3",
     "i": "^0.3.7",
     "json-server": "^0.17.0",
     "lodash": "^4.17.21",
