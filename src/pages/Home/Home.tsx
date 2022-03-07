@@ -61,10 +61,10 @@ const Home = (props: Props) => {
   ];
 
 
-  useEffect(() => {
-    fetch('db.json').then(res => console.log(res)
-    )
-  }, [])
+  // useEffect(() => {
+  //   fetch('db.json').then(res => console.log(res)
+  //   )
+  // }, [])
 
 
   return (
