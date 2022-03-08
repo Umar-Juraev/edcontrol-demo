@@ -31,7 +31,6 @@ const TeacherGroups = (props: Props) => {
       <Loader spinning={false}>
         <Row
           gutter={[{ sm: 0, md: 5, lg: 20 }, 20]}
-          style={{ margin: "24px 0 0 0" }}
         >
           {/* {groupsQuery.isLoading && (
             <>
@@ -65,7 +64,7 @@ const TeacherGroups = (props: Props) => {
         </Row>
 
         {!groupsQuery.isLoading && (
-          <Row justify="end" style={{ marginTop: 10 }}>
+          <Row justify="end" >
             <Pagination
               total={groupsQuery.data?.count}
               pageSize={10}

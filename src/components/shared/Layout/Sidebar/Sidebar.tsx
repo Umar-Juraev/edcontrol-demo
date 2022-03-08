@@ -25,9 +25,9 @@ type Props = {
 
 const Sidebar: FC<Props> = ({ hide }) => {
   const location = useLocation();
-  const [width, setWidth]   = useState(window.innerWidth);
+  const [width, setWidth] = useState(window.innerWidth);
   // const { currentUser } = useAppSelector(state => state.persistedData)
-  
+
   const menuItems = [
     {
       key: 1,
@@ -120,12 +120,12 @@ const Sidebar: FC<Props> = ({ hide }) => {
   ];
 
   const updateDimensions = () => {
-      setWidth(window.innerWidth);
+    setWidth(window.innerWidth);
   }
   useEffect(() => {
-      window.addEventListener("resize", updateDimensions);
-      return () => window.removeEventListener("resize", updateDimensions);
-  }, []); 
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
 
   return (
     <Sider
@@ -147,8 +147,8 @@ const Sidebar: FC<Props> = ({ hide }) => {
         <div>
           {menuItems?.map(({ icon, key, label, path }) => (
             <NavLink
-              exact
               key={key}
+              exact
               to={path}
               style={{ width: hide ? "auto" : "200px" }}
               className={(isActive) =>
@@ -163,22 +163,22 @@ const Sidebar: FC<Props> = ({ hide }) => {
           ))}
         </div>
 
-          <NavLink
-            exact
-            to="/admin/settings?tab=1"
-            style={{ width: hide ? "auto" : "200px" }}
-            className={(isActive) =>
-              location.pathname.includes("/admin/settings") || isActive
-                ? `${classes.link} ${classes.active}`
-                : classes.link
-            }
-          >
-            <span>
-              <SettingsIcon color={location.pathname.includes("/admin/settings") ? "#377DFF" : "#B0B7C3"} />
-            </span>
-            {!hide && <li className={classes.li}>Settings</li>}
-          </NavLink>
-        
+        <NavLink
+          exact
+          to="/admin/settings?tab=1"
+          style={{ width: hide ? "auto" : "200px" }}
+          className={(isActive) =>
+            location.pathname.includes("/admin/settings") || isActive
+              ? `${classes.link} ${classes.active}`
+              : classes.link
+          }
+        >
+          <span>
+            <SettingsIcon color={location.pathname.includes("/admin/settings") ? "#377DFF" : "#B0B7C3"} />
+          </span>
+          {!hide && <li className={classes.li}>Settings</li>}
+        </NavLink>
+
         <span className={classes.innerWidth}>{`${width} px`}</span>
       </ul>
     </Sider>

@@ -23,7 +23,7 @@ const CoursesMain = (props: Props) => {
     <div>
       <Row
         gutter={[{ sm: 0, md: 5, lg: 20 }, 20]}
-        style={{ margin: "24px 0 0 0" }}
+      
       >
         {/* {coursesQuery.isLoading && (
           <>
@@ -54,7 +54,7 @@ const CoursesMain = (props: Props) => {
       </Row>
 
       {/* {!coursesQuery.isLoading && (
-        <Row justify="end" style={{ marginTop: 10 }}>
+        <Row justify="end" >
           <Pagination
             total={coursesQuery.data?.count}
             pageSize={10}

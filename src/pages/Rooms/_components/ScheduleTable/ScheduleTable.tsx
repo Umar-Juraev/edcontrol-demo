@@ -50,14 +50,14 @@ const ScheduleTable = (props: Props) => {
         <div className={classes.schedule__boxLeft}>
           <div className={classes.schedule__boxLeft__innerBox}>
             <Badge
-              style={{ margin: "0 0 16px 0" }}
+              
               text="Shu haftada"
               fullWidth
             />
             {selectedWeekdays.map((item, i) => {
               return (
                 <Badge
-                  style={{ margin: "0 0 16px 0" }}
+                  
                   key={i}
                   text={item.weekday_name}
                   fullWidth
@@ -69,7 +69,7 @@ const ScheduleTable = (props: Props) => {
           </div>
         </div>
         <div className={classes.schedule__boxRight}>
-          <Row gutter={12} wrap={false} style={{ margin: " 0 0 16px 0 " }}>
+          <Row gutter={12} wrap={false} >
             {/* {hours.map((item: any) => {
               return (
                 <Badge
@@ -87,7 +87,7 @@ const ScheduleTable = (props: Props) => {
                   className={item.classname}
                   text={`${moment(item.start).format('HH:mm')}
                    ${item.end}`}
-                  style={{ margin: "0 6px" }}
+                 
                 />
               );
             })}

@@ -12,6 +12,7 @@ import getIdSlices from "./slices/getId";
 import clientFilterSlice from "./slices/clientFilters";
 import schaduleSlice from "./slices/schedule";
 import teachersFilterSlice from "./slices/teacherFilter";
+import authSlice from "./slices/auth";
 
 import { groupsApi } from "./endpoints";
 
@@ -37,6 +38,7 @@ const store = configureStore({
     clientFilter: clientFilterSlice.reducer,
     teacherFilter: teachersFilterSlice.reducer,
     schadule: schaduleSlice.reducer,
+    auth:authSlice.reducer,
   },
   // devTools: process.env.NODE_ENV !== 'production',
   middleware: (getDefaultMiddleware) =>

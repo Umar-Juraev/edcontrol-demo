@@ -154,7 +154,7 @@ const TeacherHome = (props: Props) => {
           </Row>
         </section>
         {/* {!teachersQuery.isLoading && (
-          <Row justify="end" style={{ marginTop: 10 }}>
+          <Row justify="end" >
             <Pagination
               total={teachersQuery.data?.count}
               pageSize={10}

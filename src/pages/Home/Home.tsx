@@ -72,8 +72,9 @@ const Home = (props: Props) => {
         <div className={classes.statusBox}>
           {
             // !isLoading() &&
-            cardData?.map(({ title, value, icon, path }) => (
+            cardData?.map(({ title, value, icon, path, }, i) => (
               <CardStats
+                key={i}
                 image={icon}
                 value={value}
                 types={title}
@@ -88,7 +89,7 @@ const Home = (props: Props) => {
         <h2 className={classes.active_groups_title}>Active groups</h2>
         <Row
           gutter={[{ sm: 0, md: 5, lg: 20 }, 20]}
-          style={{ margin: "24px 0 0 0" }}
+
         >
           {/* {statisticsQuery.isFetching && (
             <>
@@ -127,7 +128,7 @@ const Home = (props: Props) => {
         </h2>
         <Row
           gutter={[{ sm: 0, md: 5, lg: 20 }, 20]}
-          style={{ margin: "24px 0 0 0" }}
+
         >
           {
             teacherAPI.results.slice(0, 3).map((item) => (

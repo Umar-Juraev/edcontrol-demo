@@ -48,7 +48,7 @@ const UsersCard: FC<UsersCardProps> = ({
         </Col>
       </Row>
 
-      <Row style={{ marginTop: 24 }}>
+      <Row>
         <Col span={24}>
           <Link to={`/admin/teachers/${pathname}`}>
             <Button fullWidth type="primary" size="large">

@@ -52,7 +52,7 @@ const FilterUser: FC<Props> = ({
 
   return (
     <div style={{ marginTop: 16 }}>
-      <Row justify="space-between" align="middle" style={{ marginBottom: 12 }}>
+      <Row justify="space-between" align="middle" >
         <span className={classes.label}>{title}</span>
         <Row>
           <span

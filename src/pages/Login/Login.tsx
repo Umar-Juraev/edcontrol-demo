@@ -3,14 +3,12 @@ import { Form, Row, Col } from "antd";
 
 import { PasswordIcon } from "components/svg";
 import { Button, FormElements } from "components/shared";
-import { useAppDispatch } from "store/hooks";
 import Logo from "assets/ed-control-logo-text.svg";
 
 import classes from "./Login.module.scss";
 import { useHistory } from "react-router-dom";
 
 const Login: FC = (props) => {
-  const dispatch = useAppDispatch()
   const history = useHistory()
 
   const onFinish = (values: any) => {

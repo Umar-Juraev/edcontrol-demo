@@ -21,7 +21,7 @@ const NewMessageModal: FC<Props> = ({ visible, setVisible }) => {
           autoSize={{ minRows: 10, maxRows: 15 }}
         />
         <Button
-          style={{ margin: "20px 0 0 0" }}
+        
           fullWidth
           type="primary"
           htmlType="submit"

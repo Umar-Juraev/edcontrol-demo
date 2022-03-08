@@ -124,7 +124,7 @@ const Payment: FC<Props> = ({ createRoom, setCreateRoom }) => {
         data={selectedRoom}
       />
 
-      <Row justify="end" style={{ marginTop: 10 }}>
+      <Row justify="end" >
         {/* <Pagination
           total={roomsQuery.data?.count}
           pageSize={10}

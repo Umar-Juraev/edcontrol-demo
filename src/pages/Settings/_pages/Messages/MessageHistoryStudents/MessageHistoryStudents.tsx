@@ -61,7 +61,7 @@ const MessageHistory = (props: Props) => {
                 }
             </Row>
             {!postsQuery.isLoading && (
-                <Row justify="end" style={{ marginTop: 10 }}>
+                <Row justify="end" >
                     <Pagination
                         total={postsQuery.data?.count}
                         pageSize={10}

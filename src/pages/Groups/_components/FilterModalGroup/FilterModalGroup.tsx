@@ -18,6 +18,7 @@ import {
   setGroupFilterRoom,
   setGroupFilterTeacher
 } from "store/slices/filters";
+import { DirectionsDTO, TeachersDTO } from "types";
 
 export type Props = {
   visible: boolean;
@@ -29,13 +30,10 @@ const FilterModalGroup: FC<Props> = ({ visible, setVisible, loading }) => {
   const [form] = Form.useForm();
 
   const [selectedDirection, setSelectedDirection] =
-    useState<any | null>();
+    useState<DirectionsDTO | null>();
 
-  const [selectedTeacher, setSelectedTeacher] = useState<any | null>();
+  const [selectedTeacher, setSelectedTeacher] = useState<TeachersDTO | null>();
   const dispatch = useAppDispatch();
-
-  // const weekDaysQuery = useWeekdaysQuery();
-  // const roomsQuery = useRoomsFullQuery();
 
   return (
     <Modal
@@ -78,20 +76,6 @@ const FilterModalGroup: FC<Props> = ({ visible, setVisible, loading }) => {
          
           />
         </Form.Item>
-
-        {/* <Row align="bottom" gutter={8}>
-          <Col span={12}>
-            <Form.Item name="lessons_start_date" label="Davomiyligi:">
-              <FormElements.DatePicker />
-            </Form.Item>
-          </Col>
-          <Col span={12}>
-            <Form.Item name="lessons_end_date">
-              <FormElements.DatePicker />
-            </Form.Item>
-          </Col>
-        </Row> */}
-
         <Row gutter={8}>
           <Col span={12}>
             <Button danger fullWidth size="large" >

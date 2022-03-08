@@ -10,6 +10,7 @@ import { Badge } from "..";
 import classes from "./FilterCarouselCard.module.scss";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import { teacherAPI } from "fakeAPI/fakeAPI";
 
 export type Props = {
   title?: string;
@@ -52,7 +53,7 @@ const FilterCarouselCard: FC<Props> = ({
 
   return (
     <div style={{ margin: "16px 0" }}>
-      <Row justify="space-between" align="middle" style={{ marginBottom: 12 }}>
+      <Row justify="space-between" align="middle" >
         <span className={classes.label}>{title}</span>
         <Row>
           <span
@@ -80,10 +81,10 @@ const FilterCarouselCard: FC<Props> = ({
                 />
               </Col>
             </Row>
-          ))} */}
-{/* 
+          ))} */} 
+
         {type === "teacher" &&
-          teachersQuery.data?.map((teacher) => (
+         teacherAPI.results?.map((teacher) => (
             <div
               className={
                 selectedTeacher?.id !== teacher.id
@@ -113,7 +114,7 @@ const FilterCarouselCard: FC<Props> = ({
                 </p>
               </div>
             </div>
-          ))} */}
+          ))}
       </Slider>
     </div>
   );

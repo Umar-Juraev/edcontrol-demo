@@ -20,7 +20,6 @@ const FilterBtn = ({ custome }: Props) => {
   return (
     <Row>
       <button
-        style={{ margin: " 0 4px 0 0" }}
         className={classes.button}
         onClick={() => gotoPrev()}
       >

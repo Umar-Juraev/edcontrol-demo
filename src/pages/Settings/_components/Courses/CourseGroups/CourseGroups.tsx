@@ -19,7 +19,7 @@ const CourseGroups = (props: Props) => {
     <div className={classes.root}>
       <Row
         gutter={[{ sm: 0, md: 5, lg: 20 }, 20]}
-        style={{ margin: "24px 0 0 0" }}
+   
       >
         {groupsQuery.isFetching && (
           <>

@@ -57,7 +57,7 @@ const Employees = (props: Props) => {
         </Row>
 
         {/* {!employeesQuery.isLoading && (
-          <Row justify="end" style={{ marginTop: 10 }}>
+          <Row justify="end" >
             <Pagination
               total={employeesQuery.data?.count}
               pageSize={10}

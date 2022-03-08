@@ -19,7 +19,6 @@ const StudentGroups = (props: Props) => {
       <Loader spinning={groupsQuery.isFetching}>
         <Row
           gutter={[{ sm: 0, md: 5, lg: 20 }, 20]}
-          style={{ margin: "24px 0 0 0" }}
         >
           {groupsQuery.isLoading && (
             <>

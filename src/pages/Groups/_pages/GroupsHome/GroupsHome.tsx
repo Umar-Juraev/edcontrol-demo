@@ -18,6 +18,9 @@ import { checkObjectValueExist } from "utils";
 import { AddIcon, FIlterIcon } from "components/svg";
 import GroupCardSkeleton from "components/Skeleton/GroupCardSkeleton";
 
+import { groupsAPI, teacherAPI, studentAPI, clientsAPI } from "../../../../fakeAPI/fakeAPI";
+
+
 
 import classes from "./GroupsHome.module.scss";
 
@@ -66,25 +69,19 @@ const GroupsHome = (props: Props) => {
 
   function onChange(page: number) {
     setPage(page);
-    history.push(`/admin/groups?page=${page}&search=${debouncedText}`);
+    history.push(`/admin/groups?page=${page}`);
   }
-  function onSearch(value: string) {
-    history.push(`/admin/groups?page=${page}&search=${text}`);
-    setPage(1);
-    setDebouncedText(value);
-    groupsQuery.refetch();
-  }
+
   return (
     <div className={classes.root}>
       <Row align="middle" justify="space-between" className={classes.nav}>
-        <h1>Guruhlar</h1>
+        <h1>Groups</h1>
         <Col span={8}>
           <FormElements.Search
             value={text}
-            onSearch={onSearch}
             loading={groupsQuery.isFetching}
             onChange={(e) => setText(e.target.value)}
-            placeholder="Guruh nomi bo'yicha qidirish"
+            placeholder="Search by group name"
           />
         </Col>
         <Row gutter={8}>
@@ -96,7 +93,7 @@ const GroupsHome = (props: Props) => {
               icon={<FIlterIcon />}
               onClick={() => setFilterModal((prev) => !prev)}
             >
-              Filter qilish
+              Filter
             </Button>
           </Col>
           <Col>
@@ -108,7 +105,7 @@ const GroupsHome = (props: Props) => {
               loading={groupsQuery.isLoading}
               onClick={() => setCreateModal(true)}
             >
-              Guruh qo'shish
+             Add a group
             </Button>
           </Col>
         </Row>
@@ -117,17 +114,19 @@ const GroupsHome = (props: Props) => {
       <Loader spinning={groupsQuery.isFetching}>
         <Row
           gutter={[{ sm: 0, md: 5, lg: 20 }, 20]}
-          style={{ margin: "24px 0 0 0" }}
+
         >
-          {groupsQuery.isLoading && (
+          {!groupsAPI.results.length && (
             <>
               <GroupCardSkeleton lengthParagraph={5} />
               <GroupCardSkeleton lengthParagraph={5} />
               <GroupCardSkeleton lengthParagraph={5} />
             </>
           )}
-          {groupsQuery.data?.count
-            ? groupsQuery.data?.results?.map((group) => (
+          {
+            // groupsQuery.data?.count
+            //   ? 
+            groupsAPI.results.map((group) => (
               <Col key={group.id} sm={24} md={12} lg={12} xl={8} xxl={6}>
                 <GroupCard
                   href={`/admin/groups/${group.id}`}
@@ -143,17 +142,18 @@ const GroupsHome = (props: Props) => {
                 />
               </Col>
             ))
-            : !groupsQuery.isLoading && (
-              <Col span={24}>
-                <Empty description="Guruhlar mavjud emas" />
-              </Col>
-            )}
+            //   : !groupsQuery.isLoading && (
+            // <Col span={24}>
+            //   <Empty description="Guruhlar mavjud emas" />
+            // </Col>
+            //   )
+          }
         </Row>
 
         {!groupsQuery.isLoading && (
-          <Row justify="end" style={{ marginTop: 10 }}>
+          <Row justify="end" >
             <Pagination
-              total={groupsQuery.data?.count}
+              total={groupsAPI.count}
               pageSize={10}
               current={page}
               onChange={onChange}
@@ -165,7 +165,6 @@ const GroupsHome = (props: Props) => {
         <FilterModalGroup
           visible={filterModal}
           setVisible={setFilterModal}
-          loading={groupsQuery.isFetching}
         />
       </Loader>
     </div>

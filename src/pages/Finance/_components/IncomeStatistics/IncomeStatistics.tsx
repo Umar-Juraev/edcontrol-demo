@@ -61,12 +61,12 @@ const IncomeStatistics = () => {
       </div>
 
       <Row className={classes.chart_card} gutter={16}>
-        <Col span={4} style={{ marginTop: 60 }}>
+        <Col span={4} >
           <Badge text="100 000 000 сум" />
         </Col>
         <Col span={20}>
           <Row
-            style={{ marginLeft: 20 }}
+         
             justify="space-between"
             align="middle"
           >
