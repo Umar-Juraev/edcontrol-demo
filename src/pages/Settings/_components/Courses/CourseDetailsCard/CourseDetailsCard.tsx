@@ -85,7 +85,7 @@ const CourseDetailsCard: FC<GroupCardProps> = ({
                     className={classes.btn_skeleton}
                   />
                 ) : (
-                  <PopConfirm title="O'chirishga ishonchingiz komilmi?"  >
+                  <PopConfirm title="Are you sure you want to delete it?"  >
                     <Button size="large" danger fullWidth >O'chirish</Button>
                   </PopConfirm>
                 )}

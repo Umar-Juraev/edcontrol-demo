@@ -1,29 +1,24 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { TableColumnsType } from "antd";
 import moment from "moment";
 import { useHistory } from "react-router-dom";
 
 import { Button, Table } from "components/shared";
-// import { usePostsQuery } from "store/endpoints";
 import { checkValueEmpty, separatePhoneNumber } from "utils";
 import { ReadMoreIcon } from "components/svg";
+import { postsAPI } from "fakeAPI/fakeAPI";
 
 export type Props = {};
 
 const CostsTable: FC<Props> = () => {
   const history = useHistory()
 
-
-
-  // const postsQuery = usePostsQuery({ page })
-
-
   const columns: TableColumnsType = [
     {
       title: '№',
       dataIndex: `id`,
       key: `id`,
-      render: (value, record, index) => <div> {index} </div>,
+      render: ( index) => <div> {index} </div>,
     },
     {
       title: 'Xabar',
@@ -71,7 +66,7 @@ const CostsTable: FC<Props> = () => {
       dataIndex: `other`,
       key: `other`,
       width: `7%`,
-      render: (value) => (
+      render: () => (
         <Button
           icon={<ReadMoreIcon />}
           singleIconMode
@@ -84,17 +79,15 @@ const CostsTable: FC<Props> = () => {
 
   return (
     <div>
-      {/* <Table
+      <Table
         columns={columns}
-        dataSource={postsQuery.data?.results || []}
-        loading={postsQuery.isFetching}
+        dataSource={postsAPI.results || []}
         pagination={{
-          total: postsQuery.data?.count,
+          total: postsAPI.count,
           pageSize: 10,
-          current: page,
-          onChange: (e) => onChange(e)
+          current: 1,
         }}
-      /> */}
+      />
     </div>
   );
 };

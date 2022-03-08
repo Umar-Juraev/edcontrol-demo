@@ -1,10 +1,8 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import { Form } from "antd";
-import toast from "react-hot-toast";
 
 import { FormElements, Button, Modal } from "components/shared";
 import { BuildingIcon, LocationIcon } from "components/svg";
-import { parsePhoneNumber } from "utils";
 
 export type Props = {
   visible: boolean;
@@ -15,20 +13,20 @@ const UpdateBranchModal: FC<Props> = ({ visible, setVisible }) => {
  
   return (
     <Modal
-      title="Yangi filial"
+      title="New branch"
       visible={visible}
       onOk={() => setVisible(false)}
       onCancel={() => setVisible(false)}
     >
       <Form  layout="vertical">
-        <Form.Item label="Rasm yuklash">
+        <Form.Item label="Upload image">
           <FormElements.Upload dragger />
         </Form.Item>
 
         <Form.Item
           name="name"
-          label="Filial nomi:"
-          rules={[{ required: true, message: "Filial nomi majburiy" }]}
+          label="Branch name:"
+          rules={[{ required: true, message: "Branch name required" }]}
         >
           <FormElements.Input suffix={<BuildingIcon />} />
         </Form.Item>
@@ -36,25 +34,24 @@ const UpdateBranchModal: FC<Props> = ({ visible, setVisible }) => {
         <Form.Item
           name="phone_number"
           label="Telefon raqam:"
-          rules={[{ required: true, message: "Telefon raqam majburiy" }]}
+          rules={[{ required: true, message: "Phone number is required" }]}
         >
           <FormElements.PhoneInput />
         </Form.Item>
 
-        <Form.Item name="region" label="Viloyat" >
+        <Form.Item name="region" label="Region" >
           <FormElements.Select
-            placeholder="Toshkent shahri"
           
           />
         </Form.Item>
 
-        <Form.Item name="district" label="Tuman" rules={[{ required: true, message: "Tuman majburiy" }]}>
+        <Form.Item name="district" label="District" rules={[{ required: true, message: "Tuman majburiy" }]}>
           <FormElements.Select
          
           />
         </Form.Item>
 
-        <Form.Item name="address" label="Manzil">
+        <Form.Item name="address" label="Address">
           <FormElements.Input suffix={<LocationIcon />} />
         </Form.Item>
 
@@ -65,7 +62,7 @@ const UpdateBranchModal: FC<Props> = ({ visible, setVisible }) => {
           size="large"
         
         >
-          Yangi filial qo'shish
+         Add a new branch
         </Button>
       </Form>
     </Modal>

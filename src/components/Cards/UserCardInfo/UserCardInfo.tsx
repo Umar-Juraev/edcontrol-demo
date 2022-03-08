@@ -30,14 +30,15 @@ type UserCardProps = {
   birthDay?: string;
   groupsCount?: number;
   price?: number;
-  location?: string;
   details?: boolean;
   pathname: string;
   setUpdateModal: (value: boolean) => void;
   onDelete?: () => void;
   deleteLoading?: boolean;
   dataNone?: boolean;
-  photo?: string;
+  photo?: string 
+  location?: string
+
 };
 
 const UserCardInfo: FC<UserCardProps> = ({
@@ -69,7 +70,8 @@ const UserCardInfo: FC<UserCardProps> = ({
     { icon: DataIcon, value: moment(birthDay).format("DD MMMM YYYY") },
     { icon: GroupICon, value: `${groupsCount} ta guruh` },
     { value: `${separateNumberThousands(price)} so'm`, icon: BalanceIcon },
-    { value: checkValueEmpty(location), icon: LocationIcon },
+    { value: location, icon: LocationIcon },
+    
   ];
 
   return (
@@ -151,7 +153,7 @@ const UserCardInfo: FC<UserCardProps> = ({
             {(CEO || SUPER_USER) && (
               <div className={classes.btn}>
                 <PopConfirm
-                  title="O'chirishga ishonchingiz komilmi?"
+                  title="Are you sure you want to delete it?"
                   onConfirm={() => onDelete && onDelete()}
                 >
                   <Button size="large" danger fullWidth loading={deleteLoading}>

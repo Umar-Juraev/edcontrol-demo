@@ -12,58 +12,60 @@ import TeacherHistoryLogs from "pages/Teachers/_components/Details/TeacherHistor
 import TeacherMoreAbout from "pages/Teachers/_components/Details/TeacherMoreAbout";
 
 import classes from "./TeacherDetails.module.scss";
+import { teacherAPI } from "fakeAPI/fakeAPI";
+import { useParams } from "react-router-dom";
 
 type Props = {};
 
 const TeacherDetails: FC<Props> = () => {
   const [updateModal, setUpdateModal] = useState(false);
+  const { id } = useParams<{ id: any }>();
 
+
+  const teacherData = teacherAPI.results.filter(item => item.id === +id)[0]
 
   const tabs = [
     {
       key: 0,
-      title: `Guruhlar`,
+      title: `Groups`,
       panel: <TeacherGroups />
     },
     {
       key: 1,
-      title: `To'lovlar tarixi`,
+      title: `Payment history`,
       panel: <TeacherPaymentHistoryTable />
     },
     {
       key: 2,
-      title: `Hodisalar tarixi`,
-      panel: <TeacherHistoryLogs 
-      // data={teacherData?.logs} 
+      title: `History of events`,
+      panel: <TeacherHistoryLogs
+        data={teacherData?.logs}
       />
     },
     {
       key: 3,
-      title: `Ko'proq ma'lumot`,
-      panel: <TeacherMoreAbout 
-      // user={teacherData} 
-      />
+      title: `More info`,
+      panel: <TeacherMoreAbout />
     }
   ];
 
   const breadCrumb = [
-    { id: 1, title: "O'qituvchilar", path: "/admin/teachers" },
-    { id: 2, title: 'umar juraev'
-      // teacherData?.full_name
-
-     }
+    { id: 1, title: "teachers", path: "/admin/teachers" },
+    { id: 2, title: teacherData.full_name }
   ];
+
+console.log(teacherData);
+
 
   return (
     <div className={classes.student_details}>
       <Row>
         <Col span={24}>
           <BreadCrumb breadCrumb={breadCrumb}
-          //  isFetching={isFetching}
-           />
+          />
         </Col>
       </Row>
-      {/* {!isFetching ? (
+      
         <UserCardInfo
           key={teacherData?.id}
           image={teacherData?.photo?.file}
@@ -77,19 +79,14 @@ const TeacherDetails: FC<Props> = () => {
           phone={teacherData?.phone_number}
           details={true}
           setUpdateModal={setUpdateModal}
-          onDelete={onDelete}
-          deleteLoading={deleteLoading}
         />
-      ) : (
-        <UserCardSkeleton detailsUsers />
-      )} */}
+
 
       <Tabs data={tabs} />
 
       <UpdateModalTeacher
         visible={updateModal}
         setVisible={setUpdateModal}
-        // data={teacherData}
       />
     </div>
   );

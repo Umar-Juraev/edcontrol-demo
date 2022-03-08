@@ -1,25 +1,20 @@
-import React, { useState } from 'react';
 import { Col, Row } from 'antd';
-import { CheckboxChangeEvent } from 'antd/lib/checkbox';
 
 import { BreadCrumb, Button, CheckBox, FormElements, Loader, Pagination } from 'components/shared';
 import { SelectUserIcon } from 'components/svg';
 import userImage from "images/group-teacher-photo.png";
 
 import classes from './NewMessage.module.scss';
-import toast from 'react-hot-toast';
+import { studentAPI } from 'fakeAPI/fakeAPI';
+import { useState } from 'react';
 
 export type Props = {};
 
 const NewMessage = (props: Props) => {
-    // const studentsQuery = useStudentsQuery({ is_removed: false, page });
-
-
-
-
+    const [checkedAll, setCheckedAll] = useState<boolean>(false)
     const breadCrumb = [
-        { id: 1, title: "Xabarlar tarixi", path: "/admin/settings" },
-        { id: 2, title: "Yangi xabar" },
+        { id: 1, title: "Message history", path: "/admin/settings" },
+        { id: 2, title: "New message" },
     ];
 
     return (
@@ -33,11 +28,11 @@ const NewMessage = (props: Props) => {
             <Row gutter={20} justify="space-between">
                 <Col className={classes.newMessageCard} span={10}>
                     <div>
-                        <h3 className={classes.title}>Yangi xabar</h3>
+                        <h3 className={classes.title}>New message</h3>
                         <FormElements.TextArea
-                            placeholder="Yangi xabaringizni yozing"
+                            placeholder="type new message"
                             rows={10}
-               
+
                             maxLength={160}
                         />
                         <Button
@@ -45,7 +40,7 @@ const NewMessage = (props: Props) => {
                             size="large"
                             fullWidth
                         >
-                            Xabar jo'natish
+                            Send message
                         </Button>
                     </div>
                 </Col>
@@ -56,39 +51,35 @@ const NewMessage = (props: Props) => {
                             <span className={classes.title}>Talabalar</span>
                         </Col>
                         <Col >
-                            <Button icon={<SelectUserIcon />} iconMode>
-                                Hammasini belgilash
+                            <Button onClick={() => setCheckedAll(!checkedAll)} icon={<SelectUserIcon />} iconMode>
+                                {checkedAll ?
+                                    'Uncheck all' : 'check all'
+                                }
                             </Button>
                         </Col>
                     </Row>
 
-                    {/* <Loader
-                        spinning={studentsQuery.isFetching}
-                        style={studentsQuery.isFetching ? { marginTop: 50 } : undefined}
-                    >
-                        {studentsQuery.data?.results.map((item) => (
-                            <Row key={item.id} className={classes.usersCard}>
-                                <Col className={classes.userInfoSection}>
-                                    <img src={item.photo?.file ?? userImage} alt="" />
-                                    <span>{item.full_name}</span>
-                                </Col>
+                    {studentAPI.results.map((item) => (
+                        <Row key={item.id} className={classes.usersCard}>
+                            <Col className={classes.userInfoSection}>
+                                <img src={item.photo?.file ?? userImage} alt="" />
+                                <span>{item.full_name}</span>
+                            </Col>
 
-                                <Col className={classes.checkboxSection}>
-                                    <CheckBox
-                                        value={item.id}
-                                        onChange={(e: CheckboxChangeEvent) => handleChangeCheck(e, item)} />
-                                </Col>
-                            </Row>
-                        ))}
-                    </Loader> */}
-                    {/* <div className={classes.pagination_wrapper}>
+                            <Col className={classes.checkboxSection}>
+                                <CheckBox
+                                    value={item.id}
+                                    checked={checkedAll}
+                                />
+                            </Col>
+                        </Row>
+                    ))}
+                    <div className={classes.pagination_wrapper}>
                         <Pagination
-                            total={studentsQuery.data?.count}
+                            total={studentAPI.count}
                             pageSize={10}
-                            current={page}
-                            onChange={handleChangePage}
                         />
-                    </div> */}
+                    </div>
                 </Col>
             </Row >
         </div >

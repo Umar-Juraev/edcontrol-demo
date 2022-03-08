@@ -8,7 +8,6 @@ import Employees from "./_pages/Employees";
 import Branches from "./_components/Branches";
 import LeadForm from "./_components/LeadForm";
 import CoursesMain from "./_pages/CoursesMain";
-import UsersArchive from "./_components/UsersArchive";
 import MessageHistory from "./_pages/Messages/MessageHistory";
 import CreateCourseModal from "./_components/Courses/CreateCourseModal";
 import CreateEmployeeModal from "./_components/Employees/CreateEmployeeModal";
@@ -31,32 +30,27 @@ const Settings = (props: Props) => {
   const tabs = [
     {
       key: 1,
-      title: `Xabarlar tarixi`,
+      title: `Message history`,
       panel: <MessageHistory />,
     },
     {
       key: 2,
-      title: `Xodimlar`,
+      title: `Staff`,
       panel: <Employees />,
     },
     {
       key: 3,
-      title: `Kurslar`,
+      title: `Courses`,
       panel: <CoursesMain />,
     },
     {
       key: 4,
-      title: `Arxiv`,
-      panel: <UsersArchive />,
-    },
-    {
-      key: 5,
-      title: `Boshqarish formasi`,
+      title: `Form of control`,
       panel: <LeadForm />,
     },
     {
-      key: 6,
-      title: `Filiallar`,
+      key: 5,
+      title: `Branches`,
       panel: <Branches />,
     },
   ];
@@ -78,7 +72,7 @@ const Settings = (props: Props) => {
           icon={<AddIcon />}
           onClick={() => setCreateEmployee((prev) => !prev)}
         >
-          Xodim qo'shish
+         Add staff
         </Button>
       );
     } else if (history.location.search.includes("tab=3")) {
@@ -90,7 +84,7 @@ const Settings = (props: Props) => {
           icon={<AddIcon />}
           onClick={() => setCreateCourse((prev) => !prev)}
         >
-          Kurs qo'shish
+          Add a course
         </Button>
       );
     }
@@ -108,7 +102,7 @@ const Settings = (props: Props) => {
         Yangi Xabar
       </Button>
     );
-  } else if (history.location.search.includes("tab=6")) {
+  } else if (history.location.search.includes("tab=5")) {
     tabExtraContent = (
       <Button
         iconMode
@@ -116,7 +110,7 @@ const Settings = (props: Props) => {
         icon={<BuildingIcon />}
         onClick={() => setCreateBranch(true)}
       >
-        Yangi Filial
+        New Branch
       </Button>
     );
   }
@@ -124,7 +118,7 @@ const Settings = (props: Props) => {
   return (
     <div>
       <Row align="middle" justify="space-between" className={classes.nav}>
-        <h1>Sozlamalar</h1>
+        <h1>Settings</h1>
         {AddButtonRender()}
       </Row>
 

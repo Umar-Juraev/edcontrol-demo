@@ -3,7 +3,6 @@ import { Table } from "components/shared";
 import { LogsTypes } from "utils/types";
 import { TableColumnsType } from "antd";
 import moment from "moment";
-import { useParams } from "react-router-dom";
 import { checkValueEmpty } from "utils";
 
 type Props = {
@@ -17,6 +16,7 @@ const StudentHistoryMesseges: FC<Props> = ({ data, setVisible }) => {
       title: "№",
       dataIndex: `index`,
       key: `index`,
+      width: 10,
       render: (value, record: any, index) => (
         <div className="indexWrapper">{index + 1}</div>
       ),
@@ -25,6 +25,7 @@ const StudentHistoryMesseges: FC<Props> = ({ data, setVisible }) => {
       title: "Hodisa",
       dataIndex: `text`,
       key: `text`,
+      width: 60,
       render: (value) => (
         <div onClick={() => setVisible(true)}> {checkValueEmpty(value)} </div>
       ),
@@ -33,6 +34,8 @@ const StudentHistoryMesseges: FC<Props> = ({ data, setVisible }) => {
       title: "Sana",
       dataIndex: `created_time`,
       key: `created_time`,
+      width: 10,
+
       render: (value, record: any) => (
         <div>{moment(value).format("DD MMMM YYYY - HH:mm")}</div>
       ),
@@ -41,11 +44,15 @@ const StudentHistoryMesseges: FC<Props> = ({ data, setVisible }) => {
       title: "Hodisa muallifi",
       dataIndex: `employee`,
       key: `employee`,
+      width: 10,
+
     },
     {
       title: "Telefon raqam",
       dataIndex: `phone_number`,
       key: `phone_number`,
+      width: 10,
+
       render: () => <div>number</div>,
     },
   ];

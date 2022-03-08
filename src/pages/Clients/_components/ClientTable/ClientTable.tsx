@@ -6,8 +6,7 @@ import { Col, Row, TableColumnsType } from "antd";
 import { useHistory } from "react-router-dom";
 
 import { Table, Badge, PopConfirm, Button } from "components/shared";
-import { checkObjectValueExist, separatePhoneNumber } from "utils";
-import { setClientId } from "store/slices/getId";
+import { separatePhoneNumber } from "utils";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { ThreeDotsIcon } from "components/svg";
 import HistoryModal from "../HistoryModal";
@@ -15,6 +14,7 @@ import HistoryModal from "../HistoryModal";
 import classes from "../../Clients.module.scss";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import { clientsAPI, statusesAPI } from "fakeAPI/fakeAPI";
 
 interface Props {
   setVisible: (bool: boolean) => void;
@@ -28,61 +28,16 @@ const ClientTable: FC<Props> = ({ setVisible, setSelectedClient }) => {
   const [historyModal, setHistoryModal] = useState(false);
   const history = useHistory();
   const dispatch = useAppDispatch();
-
-  const { clients } = useAppSelector((state) => state.clientFilter);
-
-  const queryKeys = {
-    page,
-    course__direction: clients.direction,
-    source: clients.source,
-    status: clients.status,
-    // date_add_start: moment(clients.date_add_start).format("DD-MMMM-YYYY"),
-    // date_add_end: moment(clients.date_add_end).format("DD-MMMM-YYYY"),
-  };
-  checkObjectValueExist(queryKeys);
-
-  const queryStatus = active ? status : "";
-  // const clientsQuery = useClientsQuery({ page, status: queryStatus });
-  // const full = useClientsFullQuery();
-  // const statusesQuery = useStatusesQuery();
-
-  // const [updateClientMutation, { isLoading }] = useUpdateClientMutation();
-
-  // useEffect(() => {
-  //   clientsQuery.refetch();
-  // }, [clients]);
+  
 
   function onChange(page: number) {
     setPage(page);
     history.push(`/admin/clients?page=${page}`);
   }
 
-  // const onUpdate = (values: any, id: number) => {
-  //   const clientValues = {
-  //     branch: values.branch.id,
-  //     full_name: values.full_name,
-  //     phone_number: values.phone_number,
-  //     direction: values.direction.id,
-  //     source: values.source.id,
-  //     status: id,
-  //   };
-  //   checkObjectValueExist({ clientValues });
-
-  //   const mutationPromise = updateClientMutation({
-  //     id: values.id,
-  //     ...clientValues,
-  //   }).unwrap();
-
-  //   toast.promise(mutationPromise, {
-  //     loading: `yangilanmoqda...`,
-  //     success: `muvaffaqiyatli yangilandi`,
-  //     error: ({ data }) => JSON.stringify(data),
-  //   });
-  // };
 
   const handleClick = (id: any) => {
     setHistoryModal(true);
-    dispatch(setClientId(id));
   };
 
   const handleOpenCreateModal = (data: any) => {
@@ -115,6 +70,8 @@ const ClientTable: FC<Props> = ({ setVisible, setSelectedClient }) => {
       },
     ],
   };
+
+
 
   const columns: TableColumnsType = [
     {
@@ -178,16 +135,15 @@ const ClientTable: FC<Props> = ({ setVisible, setSelectedClient }) => {
               }}
               title={
                 <Col>
-                  {/* {statusesQuery.data?.slice(0, -1).map((item) => {
+                  {statusesAPI.slice(0, -1).map((item) => {
                     return (
                       <Col
                         key={item.id}
-                        onClick={() => onUpdate(record, item.id)}
                       >
                         <Button className="popButton">{item.name}</Button>
                       </Col>
                     );
-                  })} */}
+                  })}
                 </Col>
               }
             >
@@ -230,7 +186,7 @@ const ClientTable: FC<Props> = ({ setVisible, setSelectedClient }) => {
   return (
     <section className={classes.section}>
       <Slider {...settings}>
-        {/* {statusesQuery.data?.slice(0, -1).map((item) => (
+        {statusesAPI.slice(0, -1).map((item) => (
           <Badge
             key={item.id}
             text={item.name}
@@ -243,16 +199,15 @@ const ClientTable: FC<Props> = ({ setVisible, setSelectedClient }) => {
               setStatus(item.id);
             }}
           />
-        ))} */}
+        ))}
       </Slider>
       <br />
       <Table
         columns={columns}
-        // dataSource={clientsQuery.data?.results.filter(item => item.status.name !== 'Student') || []}
-        // loading={clientsQuery.isFetching}
+        dataSource={clientsAPI.results.filter(item => item.status.name !== 'Student') || []}
         scroll={{ x: 980 }}
         pagination={{
-          // total: clientsQuery.data?.count,
+          total: clientsAPI.count,
           pageSize: 10,
           current: page,
           onChange: (e) => onChange(e),

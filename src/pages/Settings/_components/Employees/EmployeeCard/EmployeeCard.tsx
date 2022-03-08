@@ -7,7 +7,6 @@ import { GENDER_STEPS, USER_ROLE_STATES } from "constants/states";
 import { checkValueEmpty, separatePhoneNumber } from "utils";
 import { genderTypes, UserRoleCodeTypes } from "utils/types";
 import { RoleAvatarIcon } from "components/svg";
-import { useAppSelector } from "store/hooks";
 
 import GenderIcon from "images/gender.svg";
 import PhoneICon from "images/phone.svg";
@@ -26,10 +25,7 @@ type UserCardProps = {
   birthDay?: string;
   location?: string;
   role?: string | number;
-  onDelete: () => void;
-  onClick: (value?: any) => void;
   setUpdateModal: (value: boolean) => void;
-  deleteLoading?: boolean;
 };
 
 const UserCardInfo: FC<UserCardProps> = ({
@@ -40,15 +36,8 @@ const UserCardInfo: FC<UserCardProps> = ({
   location,
   phone,
   role,
-  onClick,
-  onDelete,
   setUpdateModal,
-  deleteLoading,
 }) => {
-  const { currentUser } = useAppSelector((state) => state.persistedData);
-  const SUPER_USER = currentUser.data?.role == 1000;
-  const CEO = currentUser.data?.role == 999;
-
   const employeeData = [
     {
       icon: GenderIcon,
@@ -111,31 +100,27 @@ const UserCardInfo: FC<UserCardProps> = ({
             <Button
               type="ghost"
               onClick={() => {
-                onClick();
                 setUpdateModal(true);
               }}
             >
-              O'zgartirish
+              Change
             </Button>
           </div>
-          {(CEO || SUPER_USER) && (
+    
             <div className={classes.btn}>
               <PopConfirm
-                title="O'chirishga ishonchingiz komilmi?"
-                onConfirm={() => onDelete()}
+                title="Are you sure you want to delete it?"
               >
                 <Button
                   size="large"
                   danger
                   fullWidth
-                  loading={deleteLoading}
-                  onClick={() => onClick()}
                 >
-                  O'chirish
+                Delete
                 </Button>
               </PopConfirm>
             </div>
-          )}
+      
         </>
       </Col>
     </Row>

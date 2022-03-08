@@ -9,6 +9,7 @@ import FilterClientsModal from "./_components/FilterClientsModal";
 
 import classes from "./Clients.module.scss";
 import ClientStudentCreateModal from "./_components/ClientStudentCreateModal";
+import { ClientsDTO } from "types";
 
 interface Props { }
 
@@ -16,7 +17,7 @@ const Clients: FC<Props> = () => {
   const [createModal, setCreateModal] = useState(false);
   const [filterModal, setFilterModal] = useState(false);
   const [createStudentModal, setCreateStudentModal] = useState(false)
-  const [selectedClient, setSelectedClient] = useState<any>()
+  const [selectedClient, setSelectedClient] = useState<ClientsDTO | null>()
 
   return (
     <main>

@@ -1,14 +1,11 @@
 import { FC } from "react";
 import moment from "moment";
-import toast from "react-hot-toast";
 import { Row, Col } from "antd";
 import { useHistory, useParams } from "react-router-dom";
 
-import { useDeleteGroupMutation } from "store/endpoints";
 import { Button, PopConfirm } from "components/shared";
 import GroupDetailsImg from "images/group-photo-details.png";
 import { separateNumberThousands } from "utils";
-import { useAppSelector } from "store/hooks";
 import {
   BookIcon,
   CalendarIcon,
@@ -47,16 +44,9 @@ const GroupDetailsCard: FC<GroupCardProps> = ({
   room,
   price,
   setUpdateModal,
-  isLoading,
 }) => {
   const { id } = useParams<{ id: any }>();
   const history = useHistory();
-  const { currentUser } = useAppSelector((state) => state.persistedData);
-  const SUPER_USER = currentUser.data?.role == 1000;
-  const CEO = currentUser.data?.role == 999;
-
-  const [deleteGroupMutation, { isLoading: deleteLoading }] =
-    useDeleteGroupMutation();
 
   const cardData = [
     { icon: <CourseIcon />, value: course },
@@ -76,17 +66,6 @@ const GroupDetailsCard: FC<GroupCardProps> = ({
       ).format("DD.MM.YYYY")}`,
     },
   ];
-
-  const onDelete = () => {
-    const mutationPromise = deleteGroupMutation({ id }).unwrap();
-    toast
-      .promise(mutationPromise, {
-        loading: `o'chirilmoqda...`,
-        success: `muvaffaqiyatli o'chirildi`,
-        error: ({ data }) => JSON.stringify(data),
-      })
-      .then(() => history.goBack());
-  };
 
   return (
     <div className={classes.group_card}>
@@ -120,21 +99,18 @@ const GroupDetailsCard: FC<GroupCardProps> = ({
         <div className={classes.card_btns}>
           <div className={classes.btn}>
             <Button type="ghost" onClick={() => setUpdateModal(true)}>
-              O'zgartirish
+          Change
             </Button>
           </div>
-          {(CEO || SUPER_USER) && (
             <div className={classes.btn}>
               <PopConfirm
-                title="O'chirishga ishonchingiz komilmi?"
-                onConfirm={() => onDelete && onDelete()}
+                title="Are you sure you want to delete it?"
               >
-                <Button size="large" danger fullWidth loading={deleteLoading}>
-                  O'chirish
+                <Button size="large" danger fullWidth >
+                Delete
                 </Button>
               </PopConfirm>
             </div>
-          )}
         </div>
       </div>
     </div>

@@ -21,6 +21,7 @@ import StudentPaymentModal from "pages/Students/_components/Details/PaymentModal
 import CommentModal from "pages/Students/_components/Details/CommentModal";
 import ShowMessageModal from "pages/Students/_components/Details/ShowMessageModal/ShowMessageModal";
 import NewMessageModal from "pages/Students/_components/Details/NewMessageModal";
+import { studentAPI } from "fakeAPI/fakeAPI";
 
 type Props = {};
 
@@ -34,71 +35,52 @@ const StudentDetails: FC<Props> = () => {
   const { id } = useParams<{ id: any }>();
   const history = useHistory();
 
-  // const { data: studentData, isFetching } = useStudentByIdQuery({ id });
-  // const [updateStudentMutation, { isLoading: updateLoading }] =
-  //   useUpdateStudentMutation();
-
-  // const onDelete = () => {
-  //   const mutationPromise = updateStudentMutation({
-  //     id,
-  //     is_removed: true,
-  //   }).unwrap();
-  //   toast
-  //     .promise(mutationPromise, {
-  //       loading: `o'chirilmoqda...`,
-  //       success: `muvaffaqiyatli o'chirildi`,
-  //       error: ({ data }) => JSON.stringify(data),
-  //     })
-  //     .then(() => history.goBack());
-  // };
+  const studentData = studentAPI.results.filter(item => item.id === +id)[0]
 
   const tabs = [
     {
       key: 1,
-      title: `Guruhlar`,
+      title: `Groups`,
       panel: <StudentGroups />,
     },
     {
       key: 2,
-      title: `To'lovlar`,
+      title: `Payments`,
       panel: <StudentPaymentTable setVisible={setCommnetModal} />,
     },
     {
       key: 3,
-      title: `Hodisalar tarixi`,
-      panel: <StudentHistoryLogs 
-      // data={studentData?.logs} 
+      title: `History of events`,
+      panel: <StudentHistoryLogs
+        data={studentData?.logs}
       />,
     },
     {
       key: 4,
-      title: `Ko'proq ma'lumot`,
+      title: `More info`,
       panel: <StudentMoreAbout
-      //  user={studentData} 
       />,
     },
-    // {
-    //   key: 5,
-    //   title: `Holat tarixi`,
-    //   panel: <StudentHistoryStatus data={studentData?.logs} />,
-    // },
-    // {
-    //   key: 6,
-    //   title: `Xabarlar tarixi`,
-    //   panel: (
-    //     <StudentHistoryMesseges
-    //       setVisible={setShowMessageModal}
-    //       data={studentData?.logs}
-    //     />
-    //   ),
-    // },
+    {
+      key: 5,
+      title: `Status history`,
+      panel: <StudentHistoryStatus data={studentData?.logs} />,
+    },
+    {
+      key: 6,
+      title: `Message history`,
+      panel: (
+        <StudentHistoryMesseges
+          setVisible={setShowMessageModal}
+          data={studentData?.logs}
+        />
+      ),
+    },
   ];
 
   const breadCrumb = [
-    { id: 1, title: "Talabalar", path: "/admin/students" },
-    { id: 2, title: 'umar juraev'
-      // studentData?.full_name
-     },
+    { id: 1, title: "Students", path: "/admin/students" },
+    { id: 2, title: studentData?.full_name },
   ];
 
   let tabExtraContent;
@@ -110,7 +92,7 @@ const StudentDetails: FC<Props> = () => {
         icon={<TopUpBalanceIcon />}
         onClick={() => setPaymentModal(true)}
       >
-        Hisobni to'ldirish
+       Replenish the account
       </Button>
     );
   }
@@ -122,7 +104,7 @@ const StudentDetails: FC<Props> = () => {
         icon={<TopUpBalanceIcon />}
         onClick={() => setNewMessageModal(true)}
       >
-        Yangi xabar
+        New message
       </Button>
     );
   }
@@ -131,30 +113,26 @@ const StudentDetails: FC<Props> = () => {
     <div className={classes.student_details}>
       <Row>
         <Col span={24}>
-          <BreadCrumb breadCrumb={breadCrumb}  />
+          <BreadCrumb breadCrumb={breadCrumb} />
         </Col>
       </Row>
-{/* 
-      {!isFetching ? (
-        <UserCardInfo
-          key={studentData?.id}
-          image={studentData?.photo?.file}
-          fullName={studentData?.full_name}
-          birthDay={studentData?.birth_date}
-          gender={studentData?.gender}
-          groupsCount={studentData?.groups_count}
-          price={studentData?.balance}
-          location={studentData?.district.name}
-          pathname={`/admin/students/${studentData?.id}`}
-          phone={studentData?.phone_number}
-          details={true}
-          setUpdateModal={setUpdateModal}
-          onDelete={onDelete}
-          deleteLoading={updateLoading}
-        />
-      ) : (
-        <UserCardSkeleton detailsUsers />
-      )} */}
+
+
+      <UserCardInfo
+        key={studentData?.id}
+        image={studentData?.photo?.file}
+        fullName={studentData?.full_name}
+        birthDay={studentData?.birth_date}
+        gender={studentData?.gender}
+        groupsCount={studentData?.groups_count}
+        price={studentData?.balance}
+        location={studentData?.district.name}
+        pathname={`/admin/students/${studentData?.id}`}
+        phone={studentData?.phone_number}
+        details={true}
+        setUpdateModal={setUpdateModal}
+      />
+
 
       <Tabs
         data={tabs}

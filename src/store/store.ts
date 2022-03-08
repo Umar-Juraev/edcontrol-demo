@@ -8,7 +8,7 @@ import currentUserSlice from "./slices/user";
 import attendanceSlice from "./slices/attendance";
 import filtersSlice from "./slices/filters";
 import financesSlice from "./slices/finances";
-import getIdSlices from "./slices/getId";
+import getItemSlices from "./slices/getItem";
 import clientFilterSlice from "./slices/clientFilters";
 import schaduleSlice from "./slices/schedule";
 import teachersFilterSlice from "./slices/teacherFilter";
@@ -34,7 +34,7 @@ const store = configureStore({
     attendance: attendanceSlice.reducer,
     filters: filtersSlice.reducer,
     finances: financesSlice.reducer,
-    idSlicesRoot: getIdSlices.reducer,
+    itemSlicesRoot: getItemSlices.reducer,
     clientFilter: clientFilterSlice.reducer,
     teacherFilter: teachersFilterSlice.reducer,
     schadule: schaduleSlice.reducer,

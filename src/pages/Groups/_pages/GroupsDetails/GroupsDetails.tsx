@@ -15,6 +15,7 @@ import Attendance from "../../_components/Details/Attendance";
 import Materials from "../../_components/Details/Materials/Materials";
 import Discounts from "../../_components/Details/Discounts/index";
 import HistoryJournal from "../../_components/Details/HistoryJournal/index";
+import { groupsAPI } from "fakeAPI/fakeAPI";
 
 export type Props = {};
 
@@ -23,24 +24,23 @@ const GroupsDetails = (props: Props) => {
   const [addStudentModal, setAddStudentModal] = useState(false);
   const { id } = useParams<{ id: any }>();
   const history = useHistory();
-
-  const { data: groupData, isFetching } = useGroupByIdQuery({ id });
+  const groupData = groupsAPI.results.filter(item => item.id === +id)[0]
 
   const tabs = [
-    { key: 1, title: `Talabalar`, panel: <StudentsTable /> },
-    { key: 2, title: `Davomat`, panel: <Attendance /> },
+    { key: 1, title: `Students`, panel: <StudentsTable /> },
+    { key: 2, title: `Attendance`, panel: <Attendance /> },
     {
       key: 3,
-      title: `Materiallar`,
-      panel: <Materials course={groupData?.course} />,
+      title: `Materials`,
+      panel: <Materials course={groupData.course} />,
     },
-    { key: 4, title: `Chegirmalar`, panel: <Discounts /> },
-    { key: 5, title: `Jurnallar tarixi`, panel: <HistoryJournal /> },
+    { key: 4, title: `Discounts`, panel: <Discounts /> },
+    { key: 5, title: `History of magazines`, panel: <HistoryJournal /> },
   ];
 
   const breadCrumb = [
-    { id: 1, title: "Guruhlar", path: "/admin/groups" },
-    { id: 2, title: `${groupData?.name}` },
+    { id: 1, title: "Groups", path: "/admin/groups" },
+    { id: 2, title: `${groupData.name}` },
   ];
 
   let tabExtraContent;
@@ -50,7 +50,7 @@ const GroupsDetails = (props: Props) => {
   ) {
     tabExtraContent = (
       <Button size="large" iconMode onClick={() => setAddStudentModal(true)}>
-        Talaba qo'shish
+        Add a student
       </Button>
     );
   }
@@ -59,27 +59,23 @@ const GroupsDetails = (props: Props) => {
     <div className={classes.group_details_page}>
       <Row>
         <Col span={24}>
-          <BreadCrumb breadCrumb={breadCrumb} isFetching={isFetching} />
+          <BreadCrumb breadCrumb={breadCrumb} />
         </Col>
       </Row>
-
-      {!isFetching ? (
-        <GroupDetailsCard
-          image={groupData?.photo?.file}
-          name={groupData?.name}
-          days={groupData?.days}
-          teacher={groupData?.teacher.full_name}
-          startDate={groupData?.lessons_start_date}
-          endDate={groupData?.lessons_end_date}
-          startTime={groupData?.lesson_start_time}
-          room={groupData?.room.name}
-          course={groupData?.course.name}
-          price={groupData?.course.price}
-          setUpdateModal={setUpdateModal}
-        />
-      ) : (
-        <UserCardSkeleton col={6} detailsUsers />
-      )}
+      <GroupDetailsCard
+        key={groupData.id}
+        image={groupData?.photo?.file}
+        name={groupData?.name}
+        days={groupData?.days}
+        teacher={groupData?.teacher.full_name}
+        startDate={groupData?.lessons_start_date}
+        endDate={groupData?.lessons_end_date}
+        startTime={groupData?.lesson_start_time}
+        room={groupData?.room.name}
+        course={groupData?.course.name}
+        price={groupData?.course.price}
+        setUpdateModal={setUpdateModal}
+      />
 
       <Tabs
         data={tabs}
@@ -96,7 +92,6 @@ const GroupsDetails = (props: Props) => {
       <UpdateModalGroup
         visible={updateModal}
         setVisible={setUpdateModal}
-        data={groupData}
       />
     </div>
   );

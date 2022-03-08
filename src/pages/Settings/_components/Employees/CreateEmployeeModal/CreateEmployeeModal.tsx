@@ -1,10 +1,5 @@
-import React, { FC, useState } from "react";
-import moment from "moment";
+import { FC } from "react";
 import { Form } from "antd";
-import toast from "react-hot-toast";
-
-import { checkObjectValueExist, parsePhoneNumber } from "utils";
-import { useAppSelector } from "store/hooks";
 import { Modal, FormElements, Button } from "components/shared";
 import { GENDER_TYPE, ROLE_TYPES } from "constants/states";
 
@@ -14,11 +9,11 @@ export type Props = {
 };
 
 const CreateEmployeeModal: FC<Props> = ({ visible, setVisible }) => {
-  
+
 
   return (
     <Modal
-      title="Yangi xodim qo'shish"
+      title="Add a new employee"
       visible={visible}
       onCancel={() => setVisible(false)}
     >
@@ -26,30 +21,30 @@ const CreateEmployeeModal: FC<Props> = ({ visible, setVisible }) => {
         name="basic"
         layout="vertical"
       >
-        <Form.Item label="Rasm yuklash">
-          <FormElements.Upload dragger  />
+        <Form.Item label="image upload">
+          <FormElements.Upload dragger />
         </Form.Item>
 
         <Form.Item
           name="full_name"
-          label="Xodim to'liq ismi"
-          rules={[{ required: true, message: `Ism majburiy` }]}
+          label="The full name of the employee"
+          rules={[{ required: true, message: `name is required` }]}
         >
           <FormElements.Input />
         </Form.Item>
 
         <Form.Item
           name="phone_number"
-          label="Telefon raqami:"
-          rules={[{ required: true, message: "telefon raqam majburiy" }]}
+          label="Phone number:"
+          rules={[{ required: true, message: "phone number is required" }]}
         >
           <FormElements.PhoneInput />
         </Form.Item>
 
         <Form.Item
           name="birth_date"
-          label="Tug'ilgan sana"
-          rules={[{ required: true, message: "tug'ilgan sana majburiy" }]}
+          label="Date of birth"
+          rules={[{ required: true, message: "date of birth is required" }]}
         >
           <FormElements.DatePicker format="DD MMMM YYYY" />
         </Form.Item>
@@ -67,8 +62,8 @@ const CreateEmployeeModal: FC<Props> = ({ visible, setVisible }) => {
 
         <Form.Item
           name="role"
-          label="Xodim roli"
-          rules={[{ required: true, message: `Roli majburiy` }]}
+          label="Employee role"
+          rules={[{ required: true, message: `role is  required` }]}
         >
           <FormElements.Select
             showSearch
@@ -78,26 +73,24 @@ const CreateEmployeeModal: FC<Props> = ({ visible, setVisible }) => {
 
         <Form.Item
           name="password"
-          label="Paroli"
-          rules={[{ required: true, message: `Parol majburiy` }]}
+          label="password"
+          rules={[{ required: true, message: `password is  required` }]}
         >
           <FormElements.Input />
         </Form.Item>
 
-        <Form.Item name="region" label="Viloyat" >
+        <Form.Item name="region" label="region" >
           <FormElements.Select
-            placeholder="Toshkent shahri"
-            
           />
         </Form.Item>
 
-        <Form.Item name="district" label="Tuman" rules={[{ required: true, message: "Tuman majburiy" }]}>
+        <Form.Item name="district" label="District" rules={[{ required: true, message: "District is required" }]}>
           <FormElements.Select
-            
+
           />
         </Form.Item>
 
-        <Form.Item name="address" label="Manzil">
+        <Form.Item name="address" label="Address">
           <FormElements.Input />
         </Form.Item>
 
@@ -108,7 +101,7 @@ const CreateEmployeeModal: FC<Props> = ({ visible, setVisible }) => {
           size="large"
 
         >
-          Tasdiqlash
+          Confirm
         </Button>
       </Form>
     </Modal>

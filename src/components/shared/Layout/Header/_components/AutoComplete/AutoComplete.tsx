@@ -77,7 +77,7 @@ const AutoComplete = React.memo(({ }: Props) => {
       <div className={`autoComplete__content ${visible ? 'open' : 'close'}`}>
         {
           filtredData.map((item) => {
-            return <RenderItem data={item} setVisible={setVisible} isFetching={true} />
+            return <RenderItem data={item} setVisible={setVisible}  />
           })
         }
       </div>

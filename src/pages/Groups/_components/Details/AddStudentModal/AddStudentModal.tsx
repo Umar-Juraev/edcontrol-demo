@@ -1,9 +1,6 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { Form } from "antd";
-import toast from "react-hot-toast";
-import { useParams } from "react-router-dom";
 
-import { checkObjectValueExist } from "utils";
 import { Button, FormElements, Modal } from "components/shared";
 
 export type Props = {

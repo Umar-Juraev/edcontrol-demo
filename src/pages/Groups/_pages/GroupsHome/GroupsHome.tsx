@@ -116,7 +116,7 @@ const GroupsHome = (props: Props) => {
           gutter={[{ sm: 0, md: 5, lg: 20 }, 20]}
 
         >
-          {!groupsAPI.results.length && (
+          {groupsAPI.results.length <=0 && (
             <>
               <GroupCardSkeleton lengthParagraph={5} />
               <GroupCardSkeleton lengthParagraph={5} />
@@ -124,8 +124,6 @@ const GroupsHome = (props: Props) => {
             </>
           )}
           {
-            // groupsQuery.data?.count
-            //   ? 
             groupsAPI.results.map((group) => (
               <Col key={group.id} sm={24} md={12} lg={12} xl={8} xxl={6}>
                 <GroupCard
@@ -142,11 +140,6 @@ const GroupsHome = (props: Props) => {
                 />
               </Col>
             ))
-            //   : !groupsQuery.isLoading && (
-            // <Col span={24}>
-            //   <Empty description="Guruhlar mavjud emas" />
-            // </Col>
-            //   )
           }
         </Row>
 

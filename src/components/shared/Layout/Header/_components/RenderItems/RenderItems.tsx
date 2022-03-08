@@ -22,10 +22,9 @@ type Item = {
 
 type Props = {
     data: Item[] | undefined;
-    isFetching: boolean;
     setVisible: (bool: boolean) => void
 }
-const RenderItem = React.memo(({ data, isFetching, setVisible }: Props) => {
+const RenderItem = React.memo(({ data, setVisible }: Props) => {
     const [title, setTitle] = useState({
         title: '',
         path: ''
@@ -87,12 +86,12 @@ const RenderItem = React.memo(({ data, isFetching, setVisible }: Props) => {
                 })
             }
         })
-    }, [isFetching])
+    }, [])
 
 
     return (
         <Col className="autoComplete__item">
-            {!isFetching && data?.length !== 0 &&
+            {data?.length !== 0 &&
                 <Col>
                     <h3 className="autoComplete__item__title">{title.title}</h3>
                     <Row
@@ -108,7 +107,7 @@ const RenderItem = React.memo(({ data, isFetching, setVisible }: Props) => {
                 </Col>
             }
             {
-                !isFetching ?
+                data?.length !== 0 ?
                     data?.slice(0, 3)?.map((item: Item, i) => {
                         return (
                             <Row key={i} wrap={false} onClick={() => handleClick(item)} className="autoComplete__item__box">

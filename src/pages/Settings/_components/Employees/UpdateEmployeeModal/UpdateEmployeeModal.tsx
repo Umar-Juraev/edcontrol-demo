@@ -17,7 +17,7 @@ const UpdateEmployeeModal: FC<Props> = ({ visible, setVisible }) => {
 
   return (
     <Modal
-      title="Xodim ma'lumotini o'zgartirish"
+      title="Change employee information"
       visible={visible}
       onOk={() => setVisible(false)}
       onCancel={() => setVisible(false)}
@@ -26,35 +26,35 @@ const UpdateEmployeeModal: FC<Props> = ({ visible, setVisible }) => {
 
         layout="vertical"
       >
-        <Form.Item label="Rasm yuklash">
+        <Form.Item label="Image upload">
           <FormElements.Upload dragger />
         </Form.Item>
 
         <Form.Item
           name="full_name"
-          label="Xodim to'liq ismi"
-          rules={[{ required: true, message: `Ism majburiy` }]}
+          label="The full name of the employee"
+          rules={[{ required: true, message: `name is required` }]}
         >
           <FormElements.Input />
         </Form.Item>
 
         <Form.Item
           name="phone_number"
-          label="Telefon raqami:"
-          rules={[{ required: true, message: "telefon raqam majburiy" }]}
+          label="Phone number:"
+          rules={[{ required: true, message: "phone number required" }]}
         >
           <FormElements.PhoneInput />
         </Form.Item>
 
         <Form.Item
           name="birth_date"
-          label="Tug'ilgan sana"
-          rules={[{ required: true, message: "tug'ilgan sana majburiy" }]}
+          label="date of birth"
+          rules={[{ required: true, message: "date of birth is required" }]}
         >
           <FormElements.DatePicker format="DD MMMM YYYY" />
         </Form.Item>
 
-        <Form.Item name="gender" label="Jinsi">
+        <Form.Item name="gender" label="Gender">
           <FormElements.Select
             showSearch
             options={GENDER_TYPE.map((item: any) => ({

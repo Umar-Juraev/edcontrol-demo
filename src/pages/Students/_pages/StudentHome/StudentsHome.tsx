@@ -18,6 +18,7 @@ import UserCardSkeleton from "components/Skeleton/UserCardSkeleton";
 import StudentsFilterModal from "../../_components/StudentFilterModal/StudentsFilterModal";
 import { useAppSelector } from "store/hooks";
 import { checkObjectValueExist } from "utils";
+import { studentAPI } from "fakeAPI/fakeAPI";
 
 type Props = {};
 
@@ -46,15 +47,9 @@ const StudentsHome = (props: Props) => {
 
 
   function onChange(page: number) {
-    setPage(page);
     history.push(`/admin/students?page=${page}&search=${debouncedText}`);
   }
 
-  function onSearch(value: string) {
-    history.push(`/admin/students?page=${page}&search=${text}`);
-    setPage(1);
-    setDebouncedText(value);
-  }
 
   return (
     <div className={classes.students_page}>
@@ -65,15 +60,13 @@ const StudentsHome = (props: Props) => {
         className={classes.nav}
         gutter={12}
       >
-        <h1>Talabalar</h1>
+        <h1>Students</h1>
 
         <Col span={8}>
           <FormElements.Search
             value={text}
-            onSearch={onSearch}
-            // loading={studentsQuery.isFetching}
             onChange={(e) => setText(e.target.value)}
-            placeholder="Talaba nomi bo'yicha qidirish"
+            placeholder="Search by student name"
           />
         </Col>
         <Row gutter={8}>
@@ -85,7 +78,7 @@ const StudentsHome = (props: Props) => {
               icon={<FIlterIcon />}
               onClick={() => setFilterModal((prev) => !prev)}
             >
-              Filter qilish
+         Filtering
             </Button>
           </Col>
           <Col>
@@ -93,11 +86,10 @@ const StudentsHome = (props: Props) => {
               type="primary"
               addMode
               icon={<AddIcon />}
-              // loading={studentsQuery.isLoading}
               style={{ height: 50, padding: "13px 32px" }}
               onClick={() => setCreateModal((prev) => !prev)}
             >
-              Talaba qo'shish
+              Add a student
             </Button>
           </Col>
         </Row>
@@ -106,47 +98,42 @@ const StudentsHome = (props: Props) => {
       <Loader spinning={false}>
         <section style={{ minHeight: 420 }}>
           <Row gutter={[0, 10]}>
-            {/* {studentsQuery.isLoading && (
+            {studentAPI.results.length <= 0 && (
               <>
                 <UserCardSkeleton dataNone />
                 <UserCardSkeleton dataNone />
                 <UserCardSkeleton dataNone />
               </>
-            )} */}
-            {/* {studentsQuery.data?.count
-              ? studentsQuery.data?.results?.map((item) => (
-                <UserCardInfo
-                  key={item?.id}
-                  image={item.photo?.file}
-                  fullName={item?.full_name}
-                  birthDay={item?.birth_date}
-                  gender={item?.gender}
-                  groupsCount={item?.groups_count}
-                  price={item?.balance}
-                  location={item?.district.name}
-                  pathname={`/admin/students/${item.id}`}
-                  phone={item?.phone_number}
-                  setUpdateModal={() => { }}
-                  dataNone
-                />
-              ))
-              : !studentsQuery.isLoading && (
-                <Col span={24}>
-                  <Empty description="Talabalar mavjud emas" />
-                </Col>
-              )} */}
+            )}
+            {studentAPI.results.map((item) => (
+              <UserCardInfo
+                key={item?.id}
+                image={item.photo?.file}
+                fullName={item?.full_name}
+                birthDay={item?.birth_date}
+                gender={item?.gender}
+                groupsCount={item?.groups_count}
+                price={item?.balance}
+                location={"Tashkent Uzbekistan"}
+                pathname={`/admin/students/${item.id}`}
+                phone={item?.phone_number}
+                setUpdateModal={() => { }}
+                dataNone
+              />
+            ))
+            }
           </Row>
         </section>
-        {/* {!studentsQuery.isLoading && (
-          <Row justify="end" >
-            <Pagination
-              total={studentsQuery.data?.count}
-              pageSize={10}
-              current={page}
-              onChange={onChange}
-            />
-          </Row>
-        )} */}
+
+        <Row justify="end" >
+          <Pagination
+            total={studentAPI.count}
+            pageSize={10}
+            current={page}
+            onChange={onChange}
+          />
+        </Row>
+
 
         <StudentsFilterModal
           visible={filterModal}

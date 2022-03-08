@@ -1,7 +1,6 @@
-import React, { FC, useEffect, useState } from "react";
+import  { FC, useState } from "react";
 import { Col, Row, TableColumnsType } from "antd";
 import { useHistory } from "react-router-dom";
-import toast from "react-hot-toast";
 import { Button, Table, PopConfirm, Pagination } from "components/shared";
 
 import UpdateRoomModal from "../UpdateRoomModal";
@@ -9,6 +8,7 @@ import CreateRoomModal from "../CreateRoomModal";
 
 import classes from "./RoomsTable.module.scss";
 import { useAppSelector } from "store/hooks";
+import { roomsAPI } from "fakeAPI/fakeAPI";
 
 export type Props = {
   createRoom: boolean;
@@ -25,7 +25,7 @@ const Payment: FC<Props> = ({ createRoom, setCreateRoom }) => {
   const SUPER_USER = currentUser.data?.role == 1000
   const CEO = currentUser.data?.role == 999
 
-  // const roomsQuery = useRoomsQuery({ page })
+  
 
   function onChange(page: number) {
     setPage(page)
@@ -105,13 +105,12 @@ const Payment: FC<Props> = ({ createRoom, setCreateRoom }) => {
 
   return (
     <div >
-      {/* <Table
+      <Table
         columns={columns}
-        dataSource={roomsQuery.data?.results}
+        dataSource={roomsAPI.results}
         pagination={false}
         scroll={{ x:  680 }}
-        loading={roomsQuery.isFetching}
-      /> */}
+      />
 
       <CreateRoomModal
         visible={createRoom}
@@ -125,12 +124,12 @@ const Payment: FC<Props> = ({ createRoom, setCreateRoom }) => {
       />
 
       <Row justify="end" >
-        {/* <Pagination
-          total={roomsQuery.data?.count}
+        <Pagination
+          total={roomsAPI.count}
           pageSize={10}
           current={page}
           onChange={onChange}
-        /> */}
+        />
       </Row>
     </div>
   );

@@ -1,6 +1,5 @@
-import React, { FC, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import toast from "react-hot-toast";
+import { FC, useState } from "react";
+import { Link } from "react-router-dom";
 import { Col, Popconfirm, Row, TableColumnsType } from "antd";
 
 import { separateNumberThousands, separatePhoneNumber } from "utils";
@@ -9,18 +8,12 @@ import PaymentModal from "../PaymentModal";
 import Point from "images/more-outline.svg";
 
 import classes from "./StudentsTable.module.scss";
+import { pupilsAPI } from "fakeAPI/fakeAPI";
 
 export type Props = {};
 
 const StudentsTable: FC<Props> = () => {
   const [visible, setVisible] = useState<boolean>(false);
-  const [selectedUser, setSelectedUser] = useState<any>();
-
-  const { id } = useParams<{ id: any }>();
-
-  // const pupilsQuery = usePupilsFullQuery({ group: id })
-
-
 
   const columns: TableColumnsType = [
     {
@@ -69,7 +62,7 @@ const StudentsTable: FC<Props> = () => {
       dataIndex: `user`,
       key: `user`,
       render: (value, record: unknown) => (
-        <Row align="middle" gutter={10} onClick={() => setSelectedUser(record)}>
+        <Row align="middle" gutter={10}>
           <Col span={10}>
             <Button
               fullWidth
@@ -111,19 +104,17 @@ const StudentsTable: FC<Props> = () => {
 
   return (
     <div>
-      {/* <Table
+      <Table
         columns={columns}
-        dataSource={pupilsQuery.data?.filter((pupil) => !pupil.user.is_removed) || []}
+        dataSource={pupilsAPI.results.filter((pupil) => !pupil.user.is_removed) || []}
         noHead
-        loading={pupilsQuery.isFetching}
         scroll={{ x: 960 }}
         pagination={false}
       />
       <PaymentModal
         visible={visible}
         setVisible={setVisible}
-        user={selectedUser?.user}
-      /> */}
+      />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Row } from "antd";
 import { useHistory } from "react-router-dom";
 
@@ -28,24 +28,24 @@ const Finance = () => {
   const tabs = [
     {
       key: 1,
-      title: `Daromatlar statistikasi`,
+      title: `Income statistics`,
       panel: <IncomeStatistics />,
     },
     {
       key: 2,
-      title: `To'lovlar`,
+      title: `Payments`,
       panel: <PaymentsTable />,
     },
     {
       key: 3,
-      title: `Xarajatlar`,
+      title: `Costs`,
       panel: (
         <CostsTable createCost={createCost} setCreateCost={setCreateCost} />
       ),
     },
     {
       key: 4,
-      title: `Maoshlar`,
+      title: `Salaries`,
       panel: <SalariesTable />,
     },
     {
@@ -65,7 +65,7 @@ const Finance = () => {
           icon={<AddIcon />}
           onClick={() => setCreateCost(true)}
         >
-          Xarajat qo'shish
+          Add cost
         </Button>
       );
     }
@@ -81,7 +81,7 @@ const Finance = () => {
         className={classes.darkButton}
         onClick={() => dispatch(setOpenPaymentFilterModal(true))}
       >
-        Filtrlash
+        Filtering
       </Button>
     );
   } else if (history.location.search.includes("tab=3")) {
@@ -93,7 +93,7 @@ const Finance = () => {
         className={classes.darkButton}
         onClick={() => dispatch(setOpenCostsFilterModal(true))}
       >
-        Filtrlash
+        Filtering
       </Button>
     );
   } else if (history.location.search.includes("tab=4")) {
@@ -105,7 +105,7 @@ const Finance = () => {
         className={classes.darkButton}
         onClick={() => dispatch(setOpenCalculator(true))}
       >
-        Kalkulyator
+        Calculator
       </Button>
     );
   }
@@ -113,7 +113,7 @@ const Finance = () => {
   return (
     <div className={classes.finance}>
       <Row align="middle" justify="space-between" className="nav">
-        <h1>Moliya</h1>
+        <h1>Finance</h1>
         {AddButtonRender()}
       </Row>
 

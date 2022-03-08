@@ -92,7 +92,7 @@ const Branches = () => {
           <Col>
             {(CEO || SUPER_USER) && 
               <PopConfirm
-                title="Filialni o'chirishga ishonchingiz komilmi?"
+                title="are you sure you want to delete it?"
                 onConfirm={() => onDelete(record)}
               >
                 <Button singleIconMode size="large">

@@ -13,7 +13,7 @@ const CreateCourseModal: FC<Props> = ({ visible, setVisible }) => {
 
   return (
     <Modal
-      title="Yangi kurs qo'shish"
+      title="Add a new course"
       visible={visible}
       onCancel={() => setVisible(false)}
     >

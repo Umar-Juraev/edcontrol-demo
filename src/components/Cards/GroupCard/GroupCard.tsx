@@ -94,7 +94,7 @@ const GroupCard: FC<Props> = ({
       <footer className={classes.cardFooter}>
         <Link to={href}>
           <Button type="primary" fullWidth size="large">
-            Batafsil
+            Read more
           </Button>
         </Link>
       </footer>

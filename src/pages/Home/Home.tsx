@@ -7,10 +7,6 @@ import StudentIcon from "images/icon-student.svg";
 import TeacherIcon from "images/icon-teacher.svg";
 import ClientIcon from "images/icon-client.svg";
 import Income from "images/income.svg";
-
-import { Empty } from "components/shared";
-import CardStatsSkeleton from "components/Skeleton/CardStatsSkeleton";
-import GroupCardSkeleton from "components/Skeleton/GroupCardSkeleton";
 import classes from "./Home.module.scss";
 import { groupsAPI, teacherAPI, studentAPI, clientsAPI } from "../../fakeAPI/fakeAPI";
 
@@ -59,26 +55,14 @@ const Home = (props: Props) => {
     <div className={classes.home_page}>
       <h2 className={classes.page_title}>General Statistics</h2>
       <div className={classes.card_stats_container}>
-        {/* {isLoading() && (
-          <div className={classes.statusBox}>
-            <CardStatsSkeleton />
-            <CardStatsSkeleton />
-            <CardStatsSkeleton />
-            <CardStatsSkeleton />
-            <CardStatsSkeleton />
-          </div>
-        )} */}
-
         <div className={classes.statusBox}>
           {
-            // !isLoading() &&
             cardData?.map(({ title, value, icon, path, }, i) => (
               <CardStats
                 key={i}
                 image={icon}
                 value={value}
                 types={title}
-                // isLoading={isLoading()}
                 pathName={path}
               />
             ))}
@@ -91,13 +75,6 @@ const Home = (props: Props) => {
           gutter={[{ sm: 0, md: 5, lg: 20 }, 20]}
 
         >
-          {/* {statisticsQuery.isFetching && (
-            <>
-              <GroupCardSkeleton lengthParagraph={5} />
-              <GroupCardSkeleton lengthParagraph={5} />
-              <GroupCardSkeleton lengthParagraph={5} />
-            </>
-          )} */}
           {groupsAPI.results.slice(0, 3).map((group) => (
             <Col key={group.id} sm={24} md={12} lg={12} xl={8} xxl={6}>
               <GroupCard
@@ -113,11 +90,6 @@ const Home = (props: Props) => {
               />
             </Col>
           ))
-            // : !statisticsQuery.isLoading && (
-            //   <Col span={24}>
-            //     <Empty description="Faol guruhlar mavjud emas" />
-            //   </Col>
-            // )
           }
         </Row>
       </div>
@@ -141,11 +113,6 @@ const Home = (props: Props) => {
                 />
               </Col>
             ))
-            // : !statisticsQuery.isLoading && (
-            //   <Col sm={24} md={12} lg={12} xl={8} xxl={6}>
-            //     <Empty description="Ma'lumot yo'q" />
-            //   </Col>
-            // )
           }
         </Row>
       </div>
