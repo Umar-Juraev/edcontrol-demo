@@ -5,10 +5,6 @@ import { MenuOutlined } from "@ant-design/icons";
 
 import { DropDown } from "components/shared";
 import { NotificationIcon } from "components/svg";
-import { useAppSelector } from "store/hooks";
-import BranchImage from "images/BranchImage.png";
-import manImage from "images/group-teacher-photo.png";
-import womanImage from "images/woman-image.jpg";
 import AutoComplete from "./_components/AutoComplete";
 import { useHistory, useLocation } from "react-router-dom";
 
