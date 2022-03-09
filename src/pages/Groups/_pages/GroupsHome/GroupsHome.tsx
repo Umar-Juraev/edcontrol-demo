@@ -4,7 +4,6 @@ import { Col, Row } from "antd";
 
 import {
   Button,
-  Empty,
   FormElements,
   Loader,
   Pagination,
@@ -18,7 +17,7 @@ import { checkObjectValueExist } from "utils";
 import { AddIcon, FIlterIcon } from "components/svg";
 import GroupCardSkeleton from "components/Skeleton/GroupCardSkeleton";
 
-import { groupsAPI, teacherAPI, studentAPI, clientsAPI } from "../../../../fakeAPI/fakeAPI";
+import { groupsAPI } from "../../../../fakeAPI/fakeAPI";
 
 
 
@@ -38,39 +37,6 @@ const GroupsHome = (props: Props) => {
   const { groups } = useAppSelector((state) => state.filters);
 
 
-  const queryKeys = {
-    page,
-    search: debouncedText,
-    course__direction: groups.direction,
-    teacher: groups.teacher,
-    days: groups.days,
-    room: groups.room,
-    // lessons_start_date: moment(groups.lessonsStartDate).format("DD-MMMM-YYYY"),
-    // lessons_end_date: moment(groups.lessonsEndDate).format("DD-MMMM-YYYY")
-  };
-  checkObjectValueExist(queryKeys);
-
-  const groupsQuery = useGroupsQuery(queryKeys);
-
-  const currentParams = history.location.search?.split("&");
-  const pageParams = currentParams[0]?.split("=")[1];
-  const searchParams = currentParams[1]?.split("=")[1];
-  useEffect(() => {
-    groupsQuery.refetch();
-  }, [groups]);
-
-  useEffect(() => {
-    pageParams && setPage(Number(pageParams));
-  }, [pageParams]);
-
-  useEffect(() => {
-    searchParams && setText(decodeURI(searchParams));
-  }, [searchParams]);
-
-  function onChange(page: number) {
-    setPage(page);
-    history.push(`/admin/groups?page=${page}`);
-  }
 
   return (
     <div className={classes.root}>
@@ -79,7 +45,6 @@ const GroupsHome = (props: Props) => {
         <Col span={8}>
           <FormElements.Search
             value={text}
-            loading={groupsQuery.isFetching}
             onChange={(e) => setText(e.target.value)}
             placeholder="Search by group name"
           />
@@ -102,7 +67,6 @@ const GroupsHome = (props: Props) => {
               size="large"
               addMode
               icon={<AddIcon />}
-              loading={groupsQuery.isLoading}
               onClick={() => setCreateModal(true)}
             >
              Add a group
@@ -111,7 +75,6 @@ const GroupsHome = (props: Props) => {
         </Row>
       </Row>
 
-      <Loader spinning={groupsQuery.isFetching}>
         <Row
           gutter={[{ sm: 0, md: 5, lg: 20 }, 20]}
 
@@ -143,23 +106,19 @@ const GroupsHome = (props: Props) => {
           }
         </Row>
 
-        {!groupsQuery.isLoading && (
           <Row justify="end" >
             <Pagination
               total={groupsAPI.count}
               pageSize={10}
               current={page}
-              onChange={onChange}
             />
           </Row>
-        )}
 
         <CreateModalGroup visible={createModal} setVisible={setCreateModal} />
         <FilterModalGroup
           visible={filterModal}
           setVisible={setFilterModal}
         />
-      </Loader>
     </div>
   );
 };
