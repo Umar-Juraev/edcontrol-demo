@@ -29,12 +29,7 @@ const GroupsHome = (props: Props) => {
   const [filterModal, setFilterModal] = useState(false);
   const [createModal, setCreateModal] = useState(false);
 
-  const [page, setPage] = useState(1);
-  const [text, setText] = useState("");
-  const [debouncedText, setDebouncedText] = useState("");
-  const history = useHistory();
 
-  const { groups } = useAppSelector((state) => state.filters);
 
 
 
@@ -44,8 +39,6 @@ const GroupsHome = (props: Props) => {
         <h1>Groups</h1>
         <Col span={8}>
           <FormElements.Search
-            value={text}
-            onChange={(e) => setText(e.target.value)}
             placeholder="Search by group name"
           />
         </Col>
@@ -110,7 +103,6 @@ const GroupsHome = (props: Props) => {
             <Pagination
               total={groupsAPI.count}
               pageSize={10}
-              current={page}
             />
           </Row>
 
