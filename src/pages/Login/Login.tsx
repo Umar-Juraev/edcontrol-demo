@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Form, Row, Col } from "antd";
 
 import { PasswordIcon } from "components/svg";
@@ -8,13 +8,14 @@ import Logo from "assets/ed-control-logo-text.svg";
 import classes from "./Login.module.scss";
 import { useHistory } from "react-router-dom";
 
+
 const Login: FC = (props) => {
   const history = useHistory()
 
-  const onFinish = (values: any) => {
-    history.push('/admin/home')
-  };
 
+  const onFinish = (values: any) => {
+      history.push('/admin/home')
+  };
   return (
     <>
       <Row>
@@ -62,7 +63,8 @@ const Login: FC = (props) => {
                     loading={false}
                     fullWidth
                   >
-                    Submit
+                              Just click to enter
+
                   </Button>
                 </Form.Item>
               </Col>

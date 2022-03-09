@@ -23,12 +23,9 @@ type Props = {
 };
 
 const LayoutHeader: FC<Props> = ({ hide, setHide }) => {
-  // const { currentUser } = useAppSelector((state) => state.persistedData);
-  // const [width, setWidth] = useState(window.innerWidth);
   const history= useHistory()
 
   const onLogout = async () => {
-    await localStorage.removeItem("token");
     await toast.success("tizimdan chiqildi");
     await setTimeout(() => {
       history.push('/login')
@@ -61,27 +58,13 @@ const LayoutHeader: FC<Props> = ({ hide, setHide }) => {
           <div className={classes.notificationCont}>
             <NotificationIcon />
           </div>
-          {/* <DropDown
+          <DropDown
             onLogout={onLogout}
             item={{
-              img: currentUser.data?.photo
-                ? currentUser.data?.photo?.file
-                : currentUser.data?.gender === "male"
-                  ? manImage
-                  : womanImage,
-              full_name: currentUser.data?.full_name,
+              img: '',
+              full_name: 'test user'
             }}
-          /> */}
-          {/* <DropDown
-            onLogout={onLogout}
-            item={{
-              img: currentUser.data?.branch?.photo
-                ? currentUser.data?.branch?.photo.file
-                : BranchImage,
-              full_name: currentUser.data?.branch.name,
-            }}
-            stayStatic
-          /> */}
+          />
         </Row>
       </Row>
     </Header>

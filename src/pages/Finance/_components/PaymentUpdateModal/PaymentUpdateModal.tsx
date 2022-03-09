@@ -17,7 +17,7 @@ const PaymentUpdateModal: FC<Props> = ({ visible, setVisible, data }) => {
   
   return (
     <Modal
-      title="To'lov ma'lumotlarini o'zgartirish"
+      title="Change of payment information"
       visible={visible}
       onOk={() => setVisible(false)}
       onCancel={() => setVisible(false)}
@@ -27,31 +27,31 @@ const PaymentUpdateModal: FC<Props> = ({ visible, setVisible, data }) => {
         layout="vertical"
       >
 
-        <Form.Item name="user" label="To'lovchi shaxs:" rules={[{ required: true, message: `shaxs majburiy` }]} >
+        <Form.Item name="user" label="Payer:" rules={[{ required: true, message: `Payer is required` }]} >
           <FormElements.Select
             showSearch
           />
         </Form.Item>
 
-        <Form.Item name="amount" label="To'lov summasi:" rules={[{ required: true, message: 'summa majburiy' }]}>
+        <Form.Item name="amount" label="Payment amount:" rules={[{ required: true, message: 'Payment amount is required' }]}>
           <FormElements.Input />
         </Form.Item>
 
-        <Form.Item name="provider" label="To'lov turi:" rules={[{ required: true, message: `to'lov turi majburiy` }]} >
+        <Form.Item name="provider" label="Type of payment:" rules={[{ required: true, message: `Type of payment is required` }]} >
           <FormElements.Select
             showSearch
           />
         </Form.Item>
 
-        <Form.Item name="employee" label="Xodim:" >
+        <Form.Item name="employee" label="Employee:" >
           <FormElements.Input disabled />
         </Form.Item>
 
-        <Form.Item name="is_canceled" label="Bekor qilinganmi" >
+        <Form.Item name="is_canceled" label="Canceled" >
           <FormElements.Select options={BooleanOptions} />
         </Form.Item>
 
-        <Form.Item name="comment" label="Izoh:" >
+        <Form.Item name="comment" label="Note:" >
           <FormElements.Input />
         </Form.Item>
 
@@ -61,7 +61,7 @@ const PaymentUpdateModal: FC<Props> = ({ visible, setVisible, data }) => {
           fullWidth
           size="large"
         >
-          Tasdiqlash
+        Confirm
         </Button>
       </Form>
     </Modal >

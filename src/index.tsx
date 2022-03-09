@@ -22,7 +22,7 @@ ReactDOM.render(
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <Toaster position="top-right" />
-          <Route path='/' exact render={() => true ? <Redirect to='/admin/home' /> : <Redirect to='/login' />} />
+          <Route path='/' exact render={() => <Redirect to='/login' />} />
           <Route path="/login" component={LoginPage} exact />
           <Route path="/admin" component={App} exact />
           <PrivateRoute path="/admin" component={App} />

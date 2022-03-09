@@ -32,6 +32,12 @@
     gap: 12px;
     height: 50px;
 
+    .img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: #d5d8df;
+    }
     img {
       width: 36px;
       height: 36px;
@@ -45,7 +51,6 @@
       line-height: 100% !important;
       @media (max-width: 845px) {
         font-size: 12px;
-
       }
     }
   }

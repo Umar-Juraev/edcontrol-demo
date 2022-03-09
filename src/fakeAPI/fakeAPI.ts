@@ -11243,3 +11243,1710 @@ export const lessonByGroupAPI ={
     }
   ]
 }
+
+
+export const paymentsAPI = {
+  count: 9,
+  next: null,
+  previous: null,
+  results: [
+    {
+      id: 9,
+      user: {
+        id: 36,
+        full_name: "Maddoh 1",
+        phone_number: "+998948917238",
+        birth_date: "2022-02-26",
+        gender: "male",
+        photo: {
+          id: 76,
+          file: "https://test.edcontrol-api.uz/media/uploads/photos/2022/02/26/245937456_1258274974690886_1462629223544585129_n.jpg"
+        },
+        district: {
+          id: 3,
+          region_id: 3,
+          name: "Shayxontoxur",
+          created_time: "2022-02-12T18:38:05.866076",
+          last_updated_time: "2022-02-12T18:38:05.866100"
+        },
+        address: "noma'lum",
+        branch: {
+          id: 1,
+          name: "Asosiy filial",
+          photo: null,
+          phone_number: "+998994022741",
+          district: {
+            id: 3,
+            region_id: 3,
+            name: "Shayxontoxur",
+            created_time: "2022-02-12T18:38:05.866076",
+            last_updated_time: "2022-02-12T18:38:05.866100"
+          },
+          address: "Beruniy. 10-uy",
+          logs: [
+            {
+              id: 3351,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>+998994012741</b> qiymati <b>+998994022741</b>ga o'zgartirildi.",
+              created_time: "2022-03-02T23:38:53.839491"
+            },
+            {
+              id: 4,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>994012741</b> qiymati <b>+998994012741</b>ga o'zgartirildi.",
+              created_time: "2022-02-13T12:24:37.453111"
+            }
+          ],
+          created_time: "2022-02-12T18:38:57.470064",
+          last_updated_time: "2022-03-02T23:38:53.845701"
+        },
+        is_removed: false,
+        balance: -890000,
+        extra_phone_numbers: [],
+        groups_count: 2,
+        logs: [
+          {
+            id: 3292,
+            employee: "Admin test",
+            text: "Yangi foydalanuvchi qo'shildi, ID36",
+            created_time: "2022-02-26T15:35:46.462461"
+          }
+        ],
+        created_time: "2022-02-26T15:35:46.459494",
+        last_updated_time: "2022-03-08T02:01:01.522902"
+      },
+      amount: 360000,
+      provider: {
+        id: 1,
+        name: "payme",
+        created_time: "2022-02-13T12:46:38.340827",
+        last_updated_time: "2022-02-13T12:46:38.340866"
+      },
+      employee: {
+        id: 1,
+        full_name: "Admin test",
+        phone_number: "+998994012741",
+        password: "Test12345",
+        birth_date: "2000-01-01",
+        gender: "male",
+        photo: null,
+        district: {
+          id: 3,
+          region_id: 3,
+          name: "Shayxontoxur",
+          created_time: "2022-02-12T18:38:05.866076",
+          last_updated_time: "2022-02-12T18:38:05.866100"
+        },
+        address: "Uy",
+        branch: {
+          id: 1,
+          name: "Asosiy filial",
+          photo: null,
+          phone_number: "+998994022741",
+          district: {
+            id: 3,
+            region_id: 3,
+            name: "Shayxontoxur",
+            created_time: "2022-02-12T18:38:05.866076",
+            last_updated_time: "2022-02-12T18:38:05.866100"
+          },
+          address: "Beruniy. 10-uy",
+          logs: [
+            {
+              id: 3351,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>+998994012741</b> qiymati <b>+998994022741</b>ga o'zgartirildi.",
+              created_time: "2022-03-02T23:38:53.839491"
+            },
+            {
+              id: 4,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>994012741</b> qiymati <b>+998994012741</b>ga o'zgartirildi.",
+              created_time: "2022-02-13T12:24:37.453111"
+            }
+          ],
+          created_time: "2022-02-12T18:38:57.470064",
+          last_updated_time: "2022-03-02T23:38:53.845701"
+        },
+        is_removed: false,
+        role: "1000",
+        extra_phone_numbers: [],
+        created_time: "2022-02-12T18:42:24.303298",
+        last_updated_time: "2022-03-08T02:01:01.364935"
+      },
+      comment: null,
+      is_canceled: false,
+      logs: [
+        {
+          id: 3469,
+          employee: "Admin test",
+          text: "Yangi to'lov qo'shildi, ID9",
+          created_time: "2022-03-06T23:33:20.901921"
+        }
+      ],
+      created_time: "2022-03-06T23:33:20.898901",
+      last_updated_time: "2022-03-06T23:33:20.898936"
+    },
+    {
+      id: 8,
+      user: {
+        id: 10,
+        full_name: "Sarvar Islomov",
+        phone_number: "+998979077777",
+        birth_date: "2000-01-01",
+        gender: "male",
+        photo: null,
+        district: {
+          id: 3,
+          region_id: 3,
+          name: "Shayxontoxur",
+          created_time: "2022-02-12T18:38:05.866076",
+          last_updated_time: "2022-02-12T18:38:05.866100"
+        },
+        address: "332 qatortol",
+        branch: {
+          id: 1,
+          name: "Asosiy filial",
+          photo: null,
+          phone_number: "+998994022741",
+          district: {
+            id: 3,
+            region_id: 3,
+            name: "Shayxontoxur",
+            created_time: "2022-02-12T18:38:05.866076",
+            last_updated_time: "2022-02-12T18:38:05.866100"
+          },
+          address: "Beruniy. 10-uy",
+          logs: [
+            {
+              id: 3351,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>+998994012741</b> qiymati <b>+998994022741</b>ga o'zgartirildi.",
+              created_time: "2022-03-02T23:38:53.839491"
+            },
+            {
+              id: 4,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>994012741</b> qiymati <b>+998994012741</b>ga o'zgartirildi.",
+              created_time: "2022-02-13T12:24:37.453111"
+            }
+          ],
+          created_time: "2022-02-12T18:38:57.470064",
+          last_updated_time: "2022-03-02T23:38:53.845701"
+        },
+        is_removed: false,
+        balance: -460000,
+        extra_phone_numbers: [],
+        groups_count: 3,
+        logs: [
+          {
+            id: 3329,
+            employee: "Admin test",
+            text: "ID10 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>address maydonining <b>332</b> qiymati <b>332 qatortol</b>ga o'zgartirildi.",
+            created_time: "2022-02-27T16:36:40.365951"
+          },
+          {
+            id: 307,
+            employee: "Admin test",
+            text: "ID10 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>True</b> qiymati <b>False</b>ga o'zgartirildi.",
+            created_time: "2022-02-19T16:56:52.219347"
+          },
+          {
+            id: 306,
+            employee: "Admin test",
+            text: "ID10 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>False</b> qiymati <b>True</b>ga o'zgartirildi.",
+            created_time: "2022-02-19T16:56:41.520577"
+          },
+          {
+            id: 304,
+            employee: "Admin test",
+            text: "ID10 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>True</b> qiymati <b>False</b>ga o'zgartirildi.",
+            created_time: "2022-02-19T16:55:50.243395"
+          },
+          {
+            id: 215,
+            employee: "Admin test",
+            text: "ID10 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>False</b> qiymati <b>True</b>ga o'zgartirildi.",
+            created_time: "2022-02-15T21:33:42.609645"
+          },
+          {
+            id: 214,
+            employee: "Admin test",
+            text: "ID10 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>True</b> qiymati <b>False</b>ga o'zgartirildi.",
+            created_time: "2022-02-15T21:33:31.598516"
+          },
+          {
+            id: 213,
+            employee: "Admin test",
+            text: "ID10 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>False</b> qiymati <b>True</b>ga o'zgartirildi.",
+            created_time: "2022-02-15T21:33:18.978143"
+          },
+          {
+            id: 208,
+            employee: "Admin test",
+            text: "Yangi foydalanuvchi qo'shildi, ID10",
+            created_time: "2022-02-14T17:01:35.056785"
+          }
+        ],
+        created_time: "2022-02-14T17:01:35.052752",
+        last_updated_time: "2022-03-09T02:01:01.481214"
+      },
+      amount: 355000,
+      provider: {
+        id: 3,
+        name: "naqd",
+        created_time: "2022-02-13T12:46:45.214029",
+        last_updated_time: "2022-02-13T12:46:45.214057"
+      },
+      employee: {
+        id: 1,
+        full_name: "Admin test",
+        phone_number: "+998994012741",
+        password: "Test12345",
+        birth_date: "2000-01-01",
+        gender: "male",
+        photo: null,
+        district: {
+          id: 3,
+          region_id: 3,
+          name: "Shayxontoxur",
+          created_time: "2022-02-12T18:38:05.866076",
+          last_updated_time: "2022-02-12T18:38:05.866100"
+        },
+        address: "Uy",
+        branch: {
+          id: 1,
+          name: "Asosiy filial",
+          photo: null,
+          phone_number: "+998994022741",
+          district: {
+            id: 3,
+            region_id: 3,
+            name: "Shayxontoxur",
+            created_time: "2022-02-12T18:38:05.866076",
+            last_updated_time: "2022-02-12T18:38:05.866100"
+          },
+          address: "Beruniy. 10-uy",
+          logs: [
+            {
+              id: 3351,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>+998994012741</b> qiymati <b>+998994022741</b>ga o'zgartirildi.",
+              created_time: "2022-03-02T23:38:53.839491"
+            },
+            {
+              id: 4,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>994012741</b> qiymati <b>+998994012741</b>ga o'zgartirildi.",
+              created_time: "2022-02-13T12:24:37.453111"
+            }
+          ],
+          created_time: "2022-02-12T18:38:57.470064",
+          last_updated_time: "2022-03-02T23:38:53.845701"
+        },
+        is_removed: false,
+        role: "1000",
+        extra_phone_numbers: [],
+        created_time: "2022-02-12T18:42:24.303298",
+        last_updated_time: "2022-03-08T02:01:01.364935"
+      },
+      comment: null,
+      is_canceled: false,
+      logs: [
+        {
+          id: 3353,
+          employee: "Admin test",
+          text: "Yangi to'lov qo'shildi, ID8",
+          created_time: "2022-03-03T08:32:54.401077"
+        }
+      ],
+      created_time: "2022-03-03T08:32:54.397946",
+      last_updated_time: "2022-03-03T08:32:54.397974"
+    },
+    {
+      id: 7,
+      user: {
+        id: 31,
+        full_name: "Abdullayev Gulmirza 12",
+        phone_number: "+998999909999",
+        birth_date: "2001-02-01",
+        gender: "male",
+        photo: null,
+        district: {
+          id: 3,
+          region_id: 3,
+          name: "Shayxontoxur",
+          created_time: "2022-02-12T18:38:05.866076",
+          last_updated_time: "2022-02-12T18:38:05.866100"
+        },
+        address: "SASDVDVAVSdfvsdBSDFBfad daFBA fva ADBFBv",
+        branch: {
+          id: 1,
+          name: "Asosiy filial",
+          photo: null,
+          phone_number: "+998994022741",
+          district: {
+            id: 3,
+            region_id: 3,
+            name: "Shayxontoxur",
+            created_time: "2022-02-12T18:38:05.866076",
+            last_updated_time: "2022-02-12T18:38:05.866100"
+          },
+          address: "Beruniy. 10-uy",
+          logs: [
+            {
+              id: 3351,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>+998994012741</b> qiymati <b>+998994022741</b>ga o'zgartirildi.",
+              created_time: "2022-03-02T23:38:53.839491"
+            },
+            {
+              id: 4,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>994012741</b> qiymati <b>+998994012741</b>ga o'zgartirildi.",
+              created_time: "2022-02-13T12:24:37.453111"
+            }
+          ],
+          created_time: "2022-02-12T18:38:57.470064",
+          last_updated_time: "2022-03-02T23:38:53.845701"
+        },
+        is_removed: false,
+        balance: -1800000,
+        extra_phone_numbers: [],
+        groups_count: 2,
+        logs: [
+          {
+            id: 3346,
+            employee: "Admin test",
+            text: "ID31 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>full_name maydonining <b>Abdullayev Gulmirza</b> qiymati <b>Abdullayev Gulmirza 12</b>ga o'zgartirildi.",
+            created_time: "2022-03-01T21:23:36.868105"
+          },
+          {
+            id: 1619,
+            employee: "Admin test",
+            text: "Yangi foydalanuvchi qo'shildi, ID31",
+            created_time: "2022-02-22T10:52:40.745383"
+          }
+        ],
+        created_time: "2022-02-22T10:52:40.741396",
+        last_updated_time: "2022-03-08T02:01:01.488278"
+      },
+      amount: 3000000,
+      provider: {
+        id: 3,
+        name: "naqd",
+        created_time: "2022-02-13T12:46:45.214029",
+        last_updated_time: "2022-02-13T12:46:45.214057"
+      },
+      employee: {
+        id: 1,
+        full_name: "Admin test",
+        phone_number: "+998994012741",
+        password: "Test12345",
+        birth_date: "2000-01-01",
+        gender: "male",
+        photo: null,
+        district: {
+          id: 3,
+          region_id: 3,
+          name: "Shayxontoxur",
+          created_time: "2022-02-12T18:38:05.866076",
+          last_updated_time: "2022-02-12T18:38:05.866100"
+        },
+        address: "Uy",
+        branch: {
+          id: 1,
+          name: "Asosiy filial",
+          photo: null,
+          phone_number: "+998994022741",
+          district: {
+            id: 3,
+            region_id: 3,
+            name: "Shayxontoxur",
+            created_time: "2022-02-12T18:38:05.866076",
+            last_updated_time: "2022-02-12T18:38:05.866100"
+          },
+          address: "Beruniy. 10-uy",
+          logs: [
+            {
+              id: 3351,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>+998994012741</b> qiymati <b>+998994022741</b>ga o'zgartirildi.",
+              created_time: "2022-03-02T23:38:53.839491"
+            },
+            {
+              id: 4,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>994012741</b> qiymati <b>+998994012741</b>ga o'zgartirildi.",
+              created_time: "2022-02-13T12:24:37.453111"
+            }
+          ],
+          created_time: "2022-02-12T18:38:57.470064",
+          last_updated_time: "2022-03-02T23:38:53.845701"
+        },
+        is_removed: false,
+        role: "1000",
+        extra_phone_numbers: [],
+        created_time: "2022-02-12T18:42:24.303298",
+        last_updated_time: "2022-03-08T02:01:01.364935"
+      },
+      comment: "Hamma kurslari uchun to'lov",
+      is_canceled: false,
+      logs: [
+        {
+          id: 3343,
+          employee: "Admin test",
+          text: "Yangi to'lov qo'shildi, ID7",
+          created_time: "2022-03-01T11:36:49.288332"
+        }
+      ],
+      created_time: "2022-03-01T11:36:49.284837",
+      last_updated_time: "2022-03-01T11:36:49.284864"
+    },
+    {
+      id: 6,
+      user: {
+        id: 34,
+        full_name: "Gulchapchap opa",
+        phone_number: "+998994002741",
+        birth_date: "2000-02-02",
+        gender: "female",
+        photo: null,
+        district: {
+          id: 3,
+          region_id: 3,
+          name: "Shayxontoxur",
+          created_time: "2022-02-12T18:38:05.866076",
+          last_updated_time: "2022-02-12T18:38:05.866100"
+        },
+        address: "SASDVDVAVSdfvsdBSDFBfad daFBA fva ADBFBv",
+        branch: {
+          id: 1,
+          name: "Asosiy filial",
+          photo: null,
+          phone_number: "+998994022741",
+          district: {
+            id: 3,
+            region_id: 3,
+            name: "Shayxontoxur",
+            created_time: "2022-02-12T18:38:05.866076",
+            last_updated_time: "2022-02-12T18:38:05.866100"
+          },
+          address: "Beruniy. 10-uy",
+          logs: [
+            {
+              id: 3351,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>+998994012741</b> qiymati <b>+998994022741</b>ga o'zgartirildi.",
+              created_time: "2022-03-02T23:38:53.839491"
+            },
+            {
+              id: 4,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>994012741</b> qiymati <b>+998994012741</b>ga o'zgartirildi.",
+              created_time: "2022-02-13T12:24:37.453111"
+            }
+          ],
+          created_time: "2022-02-12T18:38:57.470064",
+          last_updated_time: "2022-03-02T23:38:53.845701"
+        },
+        is_removed: false,
+        balance: -3900000,
+        extra_phone_numbers: [],
+        groups_count: 2,
+        logs: [
+          {
+            id: 3190,
+            employee: "Admin test",
+            text: "ID34 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>full_name maydonining <b>Gulchapchap</b> qiymati <b>Gulchapchap opa</b>ga o'zgartirildi.",
+            created_time: "2022-02-26T11:40:09.019833"
+          },
+          {
+            id: 3085,
+            employee: "Admin test",
+            text: "Yangi foydalanuvchi qo'shildi, ID34",
+            created_time: "2022-02-23T11:05:32.796692"
+          }
+        ],
+        created_time: "2022-02-23T11:05:32.792894",
+        last_updated_time: "2022-03-09T02:01:01.488375"
+      },
+      amount: 500000,
+      provider: {
+        id: 2,
+        name: "click",
+        created_time: "2022-02-13T12:46:41.458410",
+        last_updated_time: "2022-02-13T12:46:41.458434"
+      },
+      employee: {
+        id: 1,
+        full_name: "Admin test",
+        phone_number: "+998994012741",
+        password: "Test12345",
+        birth_date: "2000-01-01",
+        gender: "male",
+        photo: null,
+        district: {
+          id: 3,
+          region_id: 3,
+          name: "Shayxontoxur",
+          created_time: "2022-02-12T18:38:05.866076",
+          last_updated_time: "2022-02-12T18:38:05.866100"
+        },
+        address: "Uy",
+        branch: {
+          id: 1,
+          name: "Asosiy filial",
+          photo: null,
+          phone_number: "+998994022741",
+          district: {
+            id: 3,
+            region_id: 3,
+            name: "Shayxontoxur",
+            created_time: "2022-02-12T18:38:05.866076",
+            last_updated_time: "2022-02-12T18:38:05.866100"
+          },
+          address: "Beruniy. 10-uy",
+          logs: [
+            {
+              id: 3351,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>+998994012741</b> qiymati <b>+998994022741</b>ga o'zgartirildi.",
+              created_time: "2022-03-02T23:38:53.839491"
+            },
+            {
+              id: 4,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>994012741</b> qiymati <b>+998994012741</b>ga o'zgartirildi.",
+              created_time: "2022-02-13T12:24:37.453111"
+            }
+          ],
+          created_time: "2022-02-12T18:38:57.470064",
+          last_updated_time: "2022-03-02T23:38:53.845701"
+        },
+        is_removed: false,
+        role: "1000",
+        extra_phone_numbers: [],
+        created_time: "2022-02-12T18:42:24.303298",
+        last_updated_time: "2022-03-08T02:01:01.364935"
+      },
+      comment: null,
+      is_canceled: false,
+      logs: [
+        {
+          id: 3149,
+          employee: "Admin test",
+          text: "Yangi to'lov qo'shildi, ID6",
+          created_time: "2022-02-24T10:55:47.828171"
+        }
+      ],
+      created_time: "2022-02-24T10:55:47.825503",
+      last_updated_time: "2022-02-24T10:55:47.825533"
+    },
+    {
+      id: 5,
+      user: {
+        id: 31,
+        full_name: "Abdullayev Gulmirza 12",
+        phone_number: "+998999909999",
+        birth_date: "2001-02-01",
+        gender: "male",
+        photo: null,
+        district: {
+          id: 3,
+          region_id: 3,
+          name: "Shayxontoxur",
+          created_time: "2022-02-12T18:38:05.866076",
+          last_updated_time: "2022-02-12T18:38:05.866100"
+        },
+        address: "SASDVDVAVSdfvsdBSDFBfad daFBA fva ADBFBv",
+        branch: {
+          id: 1,
+          name: "Asosiy filial",
+          photo: null,
+          phone_number: "+998994022741",
+          district: {
+            id: 3,
+            region_id: 3,
+            name: "Shayxontoxur",
+            created_time: "2022-02-12T18:38:05.866076",
+            last_updated_time: "2022-02-12T18:38:05.866100"
+          },
+          address: "Beruniy. 10-uy",
+          logs: [
+            {
+              id: 3351,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>+998994012741</b> qiymati <b>+998994022741</b>ga o'zgartirildi.",
+              created_time: "2022-03-02T23:38:53.839491"
+            },
+            {
+              id: 4,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>994012741</b> qiymati <b>+998994012741</b>ga o'zgartirildi.",
+              created_time: "2022-02-13T12:24:37.453111"
+            }
+          ],
+          created_time: "2022-02-12T18:38:57.470064",
+          last_updated_time: "2022-03-02T23:38:53.845701"
+        },
+        is_removed: false,
+        balance: -1800000,
+        extra_phone_numbers: [],
+        groups_count: 2,
+        logs: [
+          {
+            id: 3346,
+            employee: "Admin test",
+            text: "ID31 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>full_name maydonining <b>Abdullayev Gulmirza</b> qiymati <b>Abdullayev Gulmirza 12</b>ga o'zgartirildi.",
+            created_time: "2022-03-01T21:23:36.868105"
+          },
+          {
+            id: 1619,
+            employee: "Admin test",
+            text: "Yangi foydalanuvchi qo'shildi, ID31",
+            created_time: "2022-02-22T10:52:40.745383"
+          }
+        ],
+        created_time: "2022-02-22T10:52:40.741396",
+        last_updated_time: "2022-03-08T02:01:01.488278"
+      },
+      amount: 600000,
+      provider: {
+        id: 3,
+        name: "naqd",
+        created_time: "2022-02-13T12:46:45.214029",
+        last_updated_time: "2022-02-13T12:46:45.214057"
+      },
+      employee: {
+        id: 1,
+        full_name: "Admin test",
+        phone_number: "+998994012741",
+        password: "Test12345",
+        birth_date: "2000-01-01",
+        gender: "male",
+        photo: null,
+        district: {
+          id: 3,
+          region_id: 3,
+          name: "Shayxontoxur",
+          created_time: "2022-02-12T18:38:05.866076",
+          last_updated_time: "2022-02-12T18:38:05.866100"
+        },
+        address: "Uy",
+        branch: {
+          id: 1,
+          name: "Asosiy filial",
+          photo: null,
+          phone_number: "+998994022741",
+          district: {
+            id: 3,
+            region_id: 3,
+            name: "Shayxontoxur",
+            created_time: "2022-02-12T18:38:05.866076",
+            last_updated_time: "2022-02-12T18:38:05.866100"
+          },
+          address: "Beruniy. 10-uy",
+          logs: [
+            {
+              id: 3351,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>+998994012741</b> qiymati <b>+998994022741</b>ga o'zgartirildi.",
+              created_time: "2022-03-02T23:38:53.839491"
+            },
+            {
+              id: 4,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>994012741</b> qiymati <b>+998994012741</b>ga o'zgartirildi.",
+              created_time: "2022-02-13T12:24:37.453111"
+            }
+          ],
+          created_time: "2022-02-12T18:38:57.470064",
+          last_updated_time: "2022-03-02T23:38:53.845701"
+        },
+        is_removed: false,
+        role: "1000",
+        extra_phone_numbers: [],
+        created_time: "2022-02-12T18:42:24.303298",
+        last_updated_time: "2022-03-08T02:01:01.364935"
+      },
+      comment: "Test uchun Adroid development guruhi uchun to'lov",
+      is_canceled: true,
+      logs: [
+        {
+          id: 3319,
+          employee: "Admin test",
+          text: "ID5 raqamli to'lov ma'lumotlari o'zgartirildi.<br/><br/>is_canceled maydonining <b>False</b> qiymati <b>True</b>ga o'zgartirildi.",
+          created_time: "2022-02-26T18:40:50.799940"
+        },
+        {
+          id: 3143,
+          employee: "Admin test",
+          text: "Yangi to'lov qo'shildi, ID5",
+          created_time: "2022-02-23T16:21:00.213114"
+        }
+      ],
+      created_time: "2022-02-23T16:21:00.209322",
+      last_updated_time: "2022-02-26T18:40:50.804982"
+    },
+    {
+      id: 4,
+      user: {
+        id: 24,
+        full_name: "O'quvchi 40",
+        phone_number: "+998991234567",
+        birth_date: "2022-02-03",
+        gender: "male",
+        photo: null,
+        district: {
+          id: 3,
+          region_id: 3,
+          name: "Shayxontoxur",
+          created_time: "2022-02-12T18:38:05.866076",
+          last_updated_time: "2022-02-12T18:38:05.866100"
+        },
+        address: null,
+        branch: {
+          id: 1,
+          name: "Asosiy filial",
+          photo: null,
+          phone_number: "+998994022741",
+          district: {
+            id: 3,
+            region_id: 3,
+            name: "Shayxontoxur",
+            created_time: "2022-02-12T18:38:05.866076",
+            last_updated_time: "2022-02-12T18:38:05.866100"
+          },
+          address: "Beruniy. 10-uy",
+          logs: [
+            {
+              id: 3351,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>+998994012741</b> qiymati <b>+998994022741</b>ga o'zgartirildi.",
+              created_time: "2022-03-02T23:38:53.839491"
+            },
+            {
+              id: 4,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>994012741</b> qiymati <b>+998994012741</b>ga o'zgartirildi.",
+              created_time: "2022-02-13T12:24:37.453111"
+            }
+          ],
+          created_time: "2022-02-12T18:38:57.470064",
+          last_updated_time: "2022-03-02T23:38:53.845701"
+        },
+        is_removed: false,
+        balance: -3400000,
+        extra_phone_numbers: [],
+        groups_count: 2,
+        logs: [
+          {
+            id: 1337,
+            employee: "Admin test",
+            text: "ID24 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>full_name maydonining <b>O'quvchi 4</b> qiymati <b>O'quvchi 40</b>ga o'zgartirildi.",
+            created_time: "2022-02-22T08:55:24.169107"
+          },
+          {
+            id: 959,
+            employee: "Admin test",
+            text: "Yangi foydalanuvchi qo'shildi, ID24",
+            created_time: "2022-02-21T14:05:45.521130"
+          }
+        ],
+        created_time: "2022-02-21T14:05:45.516992",
+        last_updated_time: "2022-03-08T02:01:01.405996"
+      },
+      amount: 800000,
+      provider: {
+        id: 3,
+        name: "naqd",
+        created_time: "2022-02-13T12:46:45.214029",
+        last_updated_time: "2022-02-13T12:46:45.214057"
+      },
+      employee: {
+        id: 1,
+        full_name: "Admin test",
+        phone_number: "+998994012741",
+        password: "Test12345",
+        birth_date: "2000-01-01",
+        gender: "male",
+        photo: null,
+        district: {
+          id: 3,
+          region_id: 3,
+          name: "Shayxontoxur",
+          created_time: "2022-02-12T18:38:05.866076",
+          last_updated_time: "2022-02-12T18:38:05.866100"
+        },
+        address: "Uy",
+        branch: {
+          id: 1,
+          name: "Asosiy filial",
+          photo: null,
+          phone_number: "+998994022741",
+          district: {
+            id: 3,
+            region_id: 3,
+            name: "Shayxontoxur",
+            created_time: "2022-02-12T18:38:05.866076",
+            last_updated_time: "2022-02-12T18:38:05.866100"
+          },
+          address: "Beruniy. 10-uy",
+          logs: [
+            {
+              id: 3351,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>+998994012741</b> qiymati <b>+998994022741</b>ga o'zgartirildi.",
+              created_time: "2022-03-02T23:38:53.839491"
+            },
+            {
+              id: 4,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>994012741</b> qiymati <b>+998994012741</b>ga o'zgartirildi.",
+              created_time: "2022-02-13T12:24:37.453111"
+            }
+          ],
+          created_time: "2022-02-12T18:38:57.470064",
+          last_updated_time: "2022-03-02T23:38:53.845701"
+        },
+        is_removed: false,
+        role: "1000",
+        extra_phone_numbers: [],
+        created_time: "2022-02-12T18:42:24.303298",
+        last_updated_time: "2022-03-08T02:01:01.364935"
+      },
+      comment: "16ta dars uchun to'lov qilindi",
+      is_canceled: false,
+      logs: [
+        {
+          id: 1616,
+          employee: "Admin test",
+          text: "Yangi to'lov qo'shildi, ID4",
+          created_time: "2022-02-22T10:29:09.008832"
+        }
+      ],
+      created_time: "2022-02-22T10:29:09.004167",
+      last_updated_time: "2022-02-22T10:29:09.004208"
+    },
+    {
+      id: 3,
+      user: {
+        id: 3,
+        full_name: "Farhod Ilhomov 1",
+        phone_number: "+998912382471",
+        birth_date: "1999-04-20",
+        gender: "male",
+        photo: {
+          id: 5,
+          file: "https://test.edcontrol-api.uz/media/uploads/photos/2022/02/13/55827198_828393140853553_7911177437485972787_n.jpg"
+        },
+        district: {
+          id: 3,
+          region_id: 3,
+          name: "Shayxontoxur",
+          created_time: "2022-02-12T18:38:05.866076",
+          last_updated_time: "2022-02-12T18:38:05.866100"
+        },
+        address: null,
+        branch: {
+          id: 1,
+          name: "Asosiy filial",
+          photo: null,
+          phone_number: "+998994022741",
+          district: {
+            id: 3,
+            region_id: 3,
+            name: "Shayxontoxur",
+            created_time: "2022-02-12T18:38:05.866076",
+            last_updated_time: "2022-02-12T18:38:05.866100"
+          },
+          address: "Beruniy. 10-uy",
+          logs: [
+            {
+              id: 3351,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>+998994012741</b> qiymati <b>+998994022741</b>ga o'zgartirildi.",
+              created_time: "2022-03-02T23:38:53.839491"
+            },
+            {
+              id: 4,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>994012741</b> qiymati <b>+998994012741</b>ga o'zgartirildi.",
+              created_time: "2022-02-13T12:24:37.453111"
+            }
+          ],
+          created_time: "2022-02-12T18:38:57.470064",
+          last_updated_time: "2022-03-02T23:38:53.845701"
+        },
+        is_removed: false,
+        balance: -425000,
+        extra_phone_numbers: [],
+        groups_count: 1,
+        logs: [
+          {
+            id: 1352,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>full_name maydonining <b>Farhod Ilhomov</b> qiymati <b>Farhod Ilhomov 1</b>ga o'zgartirildi.",
+            created_time: "2022-02-22T09:40:37.354163"
+          },
+          {
+            id: 1349,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>True</b> qiymati <b>False</b>ga o'zgartirildi.",
+            created_time: "2022-02-22T09:31:01.788104"
+          },
+          {
+            id: 1348,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>False</b> qiymati <b>True</b>ga o'zgartirildi.",
+            created_time: "2022-02-22T09:30:14.751404"
+          },
+          {
+            id: 1346,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>True</b> qiymati <b>False</b>ga o'zgartirildi.",
+            created_time: "2022-02-22T09:28:53.988755"
+          },
+          {
+            id: 1344,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>False</b> qiymati <b>True</b>ga o'zgartirildi.",
+            created_time: "2022-02-22T09:05:59.260125"
+          },
+          {
+            id: 1342,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>True</b> qiymati <b>False</b>ga o'zgartirildi.",
+            created_time: "2022-02-22T09:05:16.017260"
+          },
+          {
+            id: 377,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>False</b> qiymati <b>True</b>ga o'zgartirildi.",
+            created_time: "2022-02-20T07:34:36.695826"
+          },
+          {
+            id: 308,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>True</b> qiymati <b>False</b>ga o'zgartirildi.",
+            created_time: "2022-02-19T16:57:04.043409"
+          },
+          {
+            id: 305,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>False</b> qiymati <b>True</b>ga o'zgartirildi.",
+            created_time: "2022-02-19T16:56:37.352173"
+          },
+          {
+            id: 303,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>True</b> qiymati <b>False</b>ga o'zgartirildi.",
+            created_time: "2022-02-19T16:54:02.035016"
+          },
+          {
+            id: 297,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>False</b> qiymati <b>True</b>ga o'zgartirildi.",
+            created_time: "2022-02-19T13:58:43.380995"
+          },
+          {
+            id: 212,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>True</b> qiymati <b>False</b>ga o'zgartirildi.",
+            created_time: "2022-02-15T21:32:44.653191"
+          },
+          {
+            id: 211,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>False</b> qiymati <b>True</b>ga o'zgartirildi.",
+            created_time: "2022-02-15T21:21:59.458681"
+          }
+        ],
+        created_time: "2022-02-13T12:39:42.883759",
+        last_updated_time: "2022-03-08T02:01:01.354858"
+      },
+      amount: 1160000,
+      provider: {
+        id: 2,
+        name: "click",
+        created_time: "2022-02-13T12:46:41.458410",
+        last_updated_time: "2022-02-13T12:46:41.458434"
+      },
+      employee: {
+        id: 1,
+        full_name: "Admin test",
+        phone_number: "+998994012741",
+        password: "Test12345",
+        birth_date: "2000-01-01",
+        gender: "male",
+        photo: null,
+        district: {
+          id: 3,
+          region_id: 3,
+          name: "Shayxontoxur",
+          created_time: "2022-02-12T18:38:05.866076",
+          last_updated_time: "2022-02-12T18:38:05.866100"
+        },
+        address: "Uy",
+        branch: {
+          id: 1,
+          name: "Asosiy filial",
+          photo: null,
+          phone_number: "+998994022741",
+          district: {
+            id: 3,
+            region_id: 3,
+            name: "Shayxontoxur",
+            created_time: "2022-02-12T18:38:05.866076",
+            last_updated_time: "2022-02-12T18:38:05.866100"
+          },
+          address: "Beruniy. 10-uy",
+          logs: [
+            {
+              id: 3351,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>+998994012741</b> qiymati <b>+998994022741</b>ga o'zgartirildi.",
+              created_time: "2022-03-02T23:38:53.839491"
+            },
+            {
+              id: 4,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>994012741</b> qiymati <b>+998994012741</b>ga o'zgartirildi.",
+              created_time: "2022-02-13T12:24:37.453111"
+            }
+          ],
+          created_time: "2022-02-12T18:38:57.470064",
+          last_updated_time: "2022-03-02T23:38:53.845701"
+        },
+        is_removed: false,
+        role: "1000",
+        extra_phone_numbers: [],
+        created_time: "2022-02-12T18:42:24.303298",
+        last_updated_time: "2022-03-08T02:01:01.364935"
+      },
+      comment: null,
+      is_canceled: false,
+      logs: [
+        {
+          id: 369,
+          employee: "Admin test",
+          text: "Yangi to'lov qo'shildi, ID3",
+          created_time: "2022-02-19T17:41:58.096692"
+        }
+      ],
+      created_time: "2022-02-19T17:41:58.093702",
+      last_updated_time: "2022-02-19T17:41:58.093740"
+    },
+    {
+      id: 2,
+      user: {
+        id: 3,
+        full_name: "Farhod Ilhomov 1",
+        phone_number: "+998912382471",
+        birth_date: "1999-04-20",
+        gender: "male",
+        photo: {
+          id: 5,
+          file: "https://test.edcontrol-api.uz/media/uploads/photos/2022/02/13/55827198_828393140853553_7911177437485972787_n.jpg"
+        },
+        district: {
+          id: 3,
+          region_id: 3,
+          name: "Shayxontoxur",
+          created_time: "2022-02-12T18:38:05.866076",
+          last_updated_time: "2022-02-12T18:38:05.866100"
+        },
+        address: null,
+        branch: {
+          id: 1,
+          name: "Asosiy filial",
+          photo: null,
+          phone_number: "+998994022741",
+          district: {
+            id: 3,
+            region_id: 3,
+            name: "Shayxontoxur",
+            created_time: "2022-02-12T18:38:05.866076",
+            last_updated_time: "2022-02-12T18:38:05.866100"
+          },
+          address: "Beruniy. 10-uy",
+          logs: [
+            {
+              id: 3351,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>+998994012741</b> qiymati <b>+998994022741</b>ga o'zgartirildi.",
+              created_time: "2022-03-02T23:38:53.839491"
+            },
+            {
+              id: 4,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>994012741</b> qiymati <b>+998994012741</b>ga o'zgartirildi.",
+              created_time: "2022-02-13T12:24:37.453111"
+            }
+          ],
+          created_time: "2022-02-12T18:38:57.470064",
+          last_updated_time: "2022-03-02T23:38:53.845701"
+        },
+        is_removed: false,
+        balance: -425000,
+        extra_phone_numbers: [],
+        groups_count: 1,
+        logs: [
+          {
+            id: 1352,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>full_name maydonining <b>Farhod Ilhomov</b> qiymati <b>Farhod Ilhomov 1</b>ga o'zgartirildi.",
+            created_time: "2022-02-22T09:40:37.354163"
+          },
+          {
+            id: 1349,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>True</b> qiymati <b>False</b>ga o'zgartirildi.",
+            created_time: "2022-02-22T09:31:01.788104"
+          },
+          {
+            id: 1348,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>False</b> qiymati <b>True</b>ga o'zgartirildi.",
+            created_time: "2022-02-22T09:30:14.751404"
+          },
+          {
+            id: 1346,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>True</b> qiymati <b>False</b>ga o'zgartirildi.",
+            created_time: "2022-02-22T09:28:53.988755"
+          },
+          {
+            id: 1344,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>False</b> qiymati <b>True</b>ga o'zgartirildi.",
+            created_time: "2022-02-22T09:05:59.260125"
+          },
+          {
+            id: 1342,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>True</b> qiymati <b>False</b>ga o'zgartirildi.",
+            created_time: "2022-02-22T09:05:16.017260"
+          },
+          {
+            id: 377,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>False</b> qiymati <b>True</b>ga o'zgartirildi.",
+            created_time: "2022-02-20T07:34:36.695826"
+          },
+          {
+            id: 308,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>True</b> qiymati <b>False</b>ga o'zgartirildi.",
+            created_time: "2022-02-19T16:57:04.043409"
+          },
+          {
+            id: 305,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>False</b> qiymati <b>True</b>ga o'zgartirildi.",
+            created_time: "2022-02-19T16:56:37.352173"
+          },
+          {
+            id: 303,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>True</b> qiymati <b>False</b>ga o'zgartirildi.",
+            created_time: "2022-02-19T16:54:02.035016"
+          },
+          {
+            id: 297,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>False</b> qiymati <b>True</b>ga o'zgartirildi.",
+            created_time: "2022-02-19T13:58:43.380995"
+          },
+          {
+            id: 212,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>True</b> qiymati <b>False</b>ga o'zgartirildi.",
+            created_time: "2022-02-15T21:32:44.653191"
+          },
+          {
+            id: 211,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>False</b> qiymati <b>True</b>ga o'zgartirildi.",
+            created_time: "2022-02-15T21:21:59.458681"
+          }
+        ],
+        created_time: "2022-02-13T12:39:42.883759",
+        last_updated_time: "2022-03-08T02:01:01.354858"
+      },
+      amount: 350000,
+      provider: {
+        id: 3,
+        name: "naqd",
+        created_time: "2022-02-13T12:46:45.214029",
+        last_updated_time: "2022-02-13T12:46:45.214057"
+      },
+      employee: {
+        id: 1,
+        full_name: "Admin test",
+        phone_number: "+998994012741",
+        password: "Test12345",
+        birth_date: "2000-01-01",
+        gender: "male",
+        photo: null,
+        district: {
+          id: 3,
+          region_id: 3,
+          name: "Shayxontoxur",
+          created_time: "2022-02-12T18:38:05.866076",
+          last_updated_time: "2022-02-12T18:38:05.866100"
+        },
+        address: "Uy",
+        branch: {
+          id: 1,
+          name: "Asosiy filial",
+          photo: null,
+          phone_number: "+998994022741",
+          district: {
+            id: 3,
+            region_id: 3,
+            name: "Shayxontoxur",
+            created_time: "2022-02-12T18:38:05.866076",
+            last_updated_time: "2022-02-12T18:38:05.866100"
+          },
+          address: "Beruniy. 10-uy",
+          logs: [
+            {
+              id: 3351,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>+998994012741</b> qiymati <b>+998994022741</b>ga o'zgartirildi.",
+              created_time: "2022-03-02T23:38:53.839491"
+            },
+            {
+              id: 4,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>994012741</b> qiymati <b>+998994012741</b>ga o'zgartirildi.",
+              created_time: "2022-02-13T12:24:37.453111"
+            }
+          ],
+          created_time: "2022-02-12T18:38:57.470064",
+          last_updated_time: "2022-03-02T23:38:53.845701"
+        },
+        is_removed: false,
+        role: "1000",
+        extra_phone_numbers: [],
+        created_time: "2022-02-12T18:42:24.303298",
+        last_updated_time: "2022-03-08T02:01:01.364935"
+      },
+      comment: "mart oyi uchun",
+      is_canceled: false,
+      logs: [
+        {
+          id: 3331,
+          employee: "Admin test",
+          text: "ID2 raqamli to'lov ma'lumotlari o'zgartirildi.<br/><br/>is_canceled maydonining <b>True</b> qiymati <b>False</b>ga o'zgartirildi.",
+          created_time: "2022-02-27T22:42:55.628700"
+        },
+        {
+          id: 282,
+          employee: "Admin test",
+          text: "ID2 raqamli to'lov ma'lumotlari o'zgartirildi.<br/><br/>is_canceled maydonining <b>False</b> qiymati <b>True</b>ga o'zgartirildi.",
+          created_time: "2022-02-17T15:51:59.648320"
+        },
+        {
+          id: 66,
+          employee: "Admin test",
+          text: "Yangi to'lov qo'shildi, ID2",
+          created_time: "2022-02-13T12:48:37.003269"
+        }
+      ],
+      created_time: "2022-02-13T12:48:36.999700",
+      last_updated_time: "2022-02-27T22:42:55.635470"
+    },
+    {
+      id: 1,
+      user: {
+        id: 3,
+        full_name: "Farhod Ilhomov 1",
+        phone_number: "+998912382471",
+        birth_date: "1999-04-20",
+        gender: "male",
+        photo: {
+          id: 5,
+          file: "https://test.edcontrol-api.uz/media/uploads/photos/2022/02/13/55827198_828393140853553_7911177437485972787_n.jpg"
+        },
+        district: {
+          id: 3,
+          region_id: 3,
+          name: "Shayxontoxur",
+          created_time: "2022-02-12T18:38:05.866076",
+          last_updated_time: "2022-02-12T18:38:05.866100"
+        },
+        address: null,
+        branch: {
+          id: 1,
+          name: "Asosiy filial",
+          photo: null,
+          phone_number: "+998994022741",
+          district: {
+            id: 3,
+            region_id: 3,
+            name: "Shayxontoxur",
+            created_time: "2022-02-12T18:38:05.866076",
+            last_updated_time: "2022-02-12T18:38:05.866100"
+          },
+          address: "Beruniy. 10-uy",
+          logs: [
+            {
+              id: 3351,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>+998994012741</b> qiymati <b>+998994022741</b>ga o'zgartirildi.",
+              created_time: "2022-03-02T23:38:53.839491"
+            },
+            {
+              id: 4,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>994012741</b> qiymati <b>+998994012741</b>ga o'zgartirildi.",
+              created_time: "2022-02-13T12:24:37.453111"
+            }
+          ],
+          created_time: "2022-02-12T18:38:57.470064",
+          last_updated_time: "2022-03-02T23:38:53.845701"
+        },
+        is_removed: false,
+        balance: -425000,
+        extra_phone_numbers: [],
+        groups_count: 1,
+        logs: [
+          {
+            id: 1352,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>full_name maydonining <b>Farhod Ilhomov</b> qiymati <b>Farhod Ilhomov 1</b>ga o'zgartirildi.",
+            created_time: "2022-02-22T09:40:37.354163"
+          },
+          {
+            id: 1349,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>True</b> qiymati <b>False</b>ga o'zgartirildi.",
+            created_time: "2022-02-22T09:31:01.788104"
+          },
+          {
+            id: 1348,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>False</b> qiymati <b>True</b>ga o'zgartirildi.",
+            created_time: "2022-02-22T09:30:14.751404"
+          },
+          {
+            id: 1346,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>True</b> qiymati <b>False</b>ga o'zgartirildi.",
+            created_time: "2022-02-22T09:28:53.988755"
+          },
+          {
+            id: 1344,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>False</b> qiymati <b>True</b>ga o'zgartirildi.",
+            created_time: "2022-02-22T09:05:59.260125"
+          },
+          {
+            id: 1342,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>True</b> qiymati <b>False</b>ga o'zgartirildi.",
+            created_time: "2022-02-22T09:05:16.017260"
+          },
+          {
+            id: 377,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>False</b> qiymati <b>True</b>ga o'zgartirildi.",
+            created_time: "2022-02-20T07:34:36.695826"
+          },
+          {
+            id: 308,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>True</b> qiymati <b>False</b>ga o'zgartirildi.",
+            created_time: "2022-02-19T16:57:04.043409"
+          },
+          {
+            id: 305,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>False</b> qiymati <b>True</b>ga o'zgartirildi.",
+            created_time: "2022-02-19T16:56:37.352173"
+          },
+          {
+            id: 303,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>True</b> qiymati <b>False</b>ga o'zgartirildi.",
+            created_time: "2022-02-19T16:54:02.035016"
+          },
+          {
+            id: 297,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>False</b> qiymati <b>True</b>ga o'zgartirildi.",
+            created_time: "2022-02-19T13:58:43.380995"
+          },
+          {
+            id: 212,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>True</b> qiymati <b>False</b>ga o'zgartirildi.",
+            created_time: "2022-02-15T21:32:44.653191"
+          },
+          {
+            id: 211,
+            employee: "Admin test",
+            text: "ID3 raqamli foydalanuvchi ma'lumotlari o'zgartirildi.<br/><br/>is_removed maydonining <b>False</b> qiymati <b>True</b>ga o'zgartirildi.",
+            created_time: "2022-02-15T21:21:59.458681"
+          }
+        ],
+        created_time: "2022-02-13T12:39:42.883759",
+        last_updated_time: "2022-03-08T02:01:01.354858"
+      },
+      amount: 450000,
+      provider: {
+        id: 2,
+        name: "click",
+        created_time: "2022-02-13T12:46:41.458410",
+        last_updated_time: "2022-02-13T12:46:41.458434"
+      },
+      employee: {
+        id: 1,
+        full_name: "Admin test",
+        phone_number: "+998994012741",
+        password: "Test12345",
+        birth_date: "2000-01-01",
+        gender: "male",
+        photo: null,
+        district: {
+          id: 3,
+          region_id: 3,
+          name: "Shayxontoxur",
+          created_time: "2022-02-12T18:38:05.866076",
+          last_updated_time: "2022-02-12T18:38:05.866100"
+        },
+        address: "Uy",
+        branch: {
+          id: 1,
+          name: "Asosiy filial",
+          photo: null,
+          phone_number: "+998994022741",
+          district: {
+            id: 3,
+            region_id: 3,
+            name: "Shayxontoxur",
+            created_time: "2022-02-12T18:38:05.866076",
+            last_updated_time: "2022-02-12T18:38:05.866100"
+          },
+          address: "Beruniy. 10-uy",
+          logs: [
+            {
+              id: 3351,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>+998994012741</b> qiymati <b>+998994022741</b>ga o'zgartirildi.",
+              created_time: "2022-03-02T23:38:53.839491"
+            },
+            {
+              id: 4,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>994012741</b> qiymati <b>+998994012741</b>ga o'zgartirildi.",
+              created_time: "2022-02-13T12:24:37.453111"
+            }
+          ],
+          created_time: "2022-02-12T18:38:57.470064",
+          last_updated_time: "2022-03-02T23:38:53.845701"
+        },
+        is_removed: false,
+        role: "1000",
+        extra_phone_numbers: [],
+        created_time: "2022-02-12T18:42:24.303298",
+        last_updated_time: "2022-03-08T02:01:01.364935"
+      },
+      comment: "no comment",
+      is_canceled: true,
+      logs: [
+        {
+          id: 72,
+          employee: "Admin test",
+          text: "ID1 raqamli to'lov ma'lumotlari o'zgartirildi.<br/><br/>is_canceled maydonining <b>False</b> qiymati <b>True</b>ga o'zgartirildi.",
+          created_time: "2022-02-13T13:17:46.406364"
+        },
+        {
+          id: 70,
+          employee: "Admin test",
+          text: "ID1 raqamli to'lov ma'lumotlari o'zgartirildi.<br/><br/>is_canceled maydonining <b>True</b> qiymati <b>False</b>ga o'zgartirildi.",
+          created_time: "2022-02-13T13:17:41.149562"
+        },
+        {
+          id: 69,
+          employee: "Admin test",
+          text: "ID1 raqamli to'lov ma'lumotlari o'zgartirildi.<br/><br/>is_canceled maydonining <b>False</b> qiymati <b>True</b>ga o'zgartirildi.",
+          created_time: "2022-02-13T12:49:52.152567"
+        },
+        {
+          id: 64,
+          employee: "Admin test",
+          text: "Yangi to'lov qo'shildi, ID1",
+          created_time: "2022-02-13T12:48:14.356325"
+        }
+      ],
+      created_time: "2022-02-13T12:48:14.352219",
+      last_updated_time: "2022-02-13T13:17:46.410779"
+    }
+  ]
+}
+
+export const outcomeAPI ={
+  count: 2,
+  next: null,
+  previous: null,
+  results: [
+    {
+      id: 4,
+      name: "Qo'shimcha xarajatlar",
+      amount: 5000000,
+      reason: {
+        id: 5,
+        name: "Boshqa harajatlar",
+        created_time: "2022-02-17T15:50:23.915215",
+        last_updated_time: "2022-02-17T15:50:23.915241"
+      },
+      employee: {
+        id: 23,
+        full_name: "Eshmirza aka",
+        phone_number: "+998977777777",
+        password: "12345",
+        birth_date: "1979-02-14",
+        gender: "male",
+        photo: {
+          id: 65,
+          file: "https://test.edcontrol-api.uz/media/uploads/photos/2022/02/20/242001514_132852549072249_7777885330157641992_n.jpg"
+        },
+        district: {
+          id: 3,
+          region_id: 3,
+          name: "Shayxontoxur",
+          created_time: "2022-02-12T18:38:05.866076",
+          last_updated_time: "2022-02-12T18:38:05.866100"
+        },
+        address: "Taxtapul",
+        branch: {
+          id: 1,
+          name: "Asosiy filial",
+          photo: null,
+          phone_number: "+998994022741",
+          district: {
+            id: 3,
+            region_id: 3,
+            name: "Shayxontoxur",
+            created_time: "2022-02-12T18:38:05.866076",
+            last_updated_time: "2022-02-12T18:38:05.866100"
+          },
+          address: "Beruniy. 10-uy",
+          logs: [
+            {
+              id: 3351,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>+998994012741</b> qiymati <b>+998994022741</b>ga o'zgartirildi.",
+              created_time: "2022-03-02T23:38:53.839491"
+            },
+            {
+              id: 4,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>994012741</b> qiymati <b>+998994012741</b>ga o'zgartirildi.",
+              created_time: "2022-02-13T12:24:37.453111"
+            }
+          ],
+          created_time: "2022-02-12T18:38:57.470064",
+          last_updated_time: "2022-03-02T23:38:53.845701"
+        },
+        is_removed: false,
+        role: "9",
+        extra_phone_numbers: [],
+        created_time: "2022-02-20T20:28:52.911758",
+        last_updated_time: "2022-02-22T09:35:02.709914"
+      },
+      comment: "davxd advfd asd asda",
+      logs: [
+        {
+          id: 3345,
+          employee: "Admin test",
+          text: "Yangi chiqim qo'shildi, ID4",
+          created_time: "2022-03-01T11:38:02.610604"
+        }
+      ],
+      created_time: "2022-03-01T11:38:02.607103",
+      last_updated_time: "2022-03-01T11:38:02.607129"
+    },
+    {
+      id: 3,
+      name: "Oylik maosh",
+      amount: 1020000,
+      reason: {
+        id: 1,
+        name: "Oylik maosh",
+        created_time: "2022-02-17T15:49:48.281972",
+        last_updated_time: "2022-02-17T15:49:48.281994"
+      },
+      employee: {
+        id: 17,
+        full_name: "Samandar Xamidov",
+        phone_number: "+998999798404",
+        password: "Samandar005",
+        birth_date: "2005-12-12",
+        gender: "male",
+        photo: {
+          id: 58,
+          file: "https://test.edcontrol-api.uz/media/uploads/photos/2022/02/20/photo_2021-11-27_21-09-43.jpg"
+        },
+        district: {
+          id: 3,
+          region_id: 3,
+          name: "Shayxontoxur",
+          created_time: "2022-02-12T18:38:05.866076",
+          last_updated_time: "2022-02-12T18:38:05.866100"
+        },
+        address: "Uyi",
+        branch: {
+          id: 1,
+          name: "Asosiy filial",
+          photo: null,
+          phone_number: "+998994022741",
+          district: {
+            id: 3,
+            region_id: 3,
+            name: "Shayxontoxur",
+            created_time: "2022-02-12T18:38:05.866076",
+            last_updated_time: "2022-02-12T18:38:05.866100"
+          },
+          address: "Beruniy. 10-uy",
+          logs: [
+            {
+              id: 3351,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>+998994012741</b> qiymati <b>+998994022741</b>ga o'zgartirildi.",
+              created_time: "2022-03-02T23:38:53.839491"
+            },
+            {
+              id: 4,
+              employee: "Admin test",
+              text: "ID1 raqamli filial ma'lumotlari o'zgartirildi.<br/><br/>phone_number maydonining <b>994012741</b> qiymati <b>+998994012741</b>ga o'zgartirildi.",
+              created_time: "2022-02-13T12:24:37.453111"
+            }
+          ],
+          created_time: "2022-02-12T18:38:57.470064",
+          last_updated_time: "2022-03-02T23:38:53.845701"
+        },
+        is_removed: false,
+        role: "9",
+        extra_phone_numbers: [],
+        created_time: "2022-02-20T07:55:13.117463",
+        last_updated_time: "2022-02-20T07:55:13.117493"
+      },
+      comment: "Samandar Xamidullohga oylik",
+      logs: [
+        {
+          id: 3342,
+          employee: "Admin test",
+          text: "Yangi chiqim qo'shildi, ID3",
+          created_time: "2022-03-01T11:33:31.170632"
+        }
+      ],
+      created_time: "2022-03-01T11:33:31.167221",
+      last_updated_time: "2022-03-01T11:33:31.167259"
+    }
+  ]
+}

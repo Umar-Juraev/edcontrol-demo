@@ -16,6 +16,7 @@ import CostsFilterModal from "../CostsFilterModal";
 
 import classes from "../../Finance.module.scss";
 import { useAppSelector } from "store/hooks";
+import { outcomeAPI } from "fakeAPI/fakeAPI";
 
 export type Props = {
   createCost: boolean;
@@ -41,8 +42,7 @@ const CostsTable: FC<Props> = ({ createCost, setCreateCost }) => {
   };
   checkObjectValueExist(queryKeys);
 
-  // const outcomesQuery = useOutcomesQuery(queryKeys);
-  // const [deleteMutation] = useDeleteOutcomeMutation();
+  
 
   function onChange(page: number) {
     setPage(page);
@@ -119,17 +119,16 @@ const CostsTable: FC<Props> = ({ createCost, setCreateCost }) => {
 
   return (
     <div>
-      {/* <Table
+      <Table
         columns={columns}
-        dataSource={outcomesQuery.data?.results || []}
-        loading={outcomesQuery.isFetching}
+        dataSource={outcomeAPI.results || []}
         pagination={{
-          total: outcomesQuery.data?.count,
+          total: outcomeAPI.count,
           pageSize: 10,
           current: page,
           onChange: (e) => onChange(e),
         }}
-      /> */}
+      />
       <CreateCostModal visible={createCost} setVisible={setCreateCost} />
 
       <CostsFilterModal />

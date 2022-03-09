@@ -10,6 +10,7 @@ import { useAppSelector } from "store/hooks";
 import { PrintIcon, UndoIcon } from "components/svg";
 import PaymentsFilterModal from "../PaymentsFilterModal";
 import PaymentUpdateModal from "../PaymentUpdateModal";
+import { paymentsAPI } from "fakeAPI/fakeAPI";
 
 export type Props = {};
 
@@ -28,12 +29,11 @@ const PaymentsTable: FC<Props> = () => {
     page,
     provider: paymentStates.provider,
     by_direction: paymentStates.direction,
-    // by_user_gender: [paymentStates.gender]
   }
   checkObjectValueExist(queryKeys)
 
-  // const { data, isFetching } = usePaymentsQuery(queryKeys);
-  // const [updateMutation] = useUpdatePaymentMutation()
+  
+  
 
 
 
@@ -118,17 +118,16 @@ const PaymentsTable: FC<Props> = () => {
 
   return (
     <div>
-      {/* <Table
+      <Table
         columns={columns}
-        dataSource={data?.results}
-        loading={isFetching}
+        dataSource={paymentsAPI.results}
         rowClassName={(record) => record.is_canceled && 'danger-table-row'}
         scroll={{ x: 765 }}
         pagination={{
-          total: data?.count,
+          total: paymentsAPI.count,
           pageSize: 10,
           current: page,
-          onChange: (e) => onChange(e),
+         
           showSizeChanger: false
         }}
       />
@@ -137,8 +136,7 @@ const PaymentsTable: FC<Props> = () => {
       <PaymentUpdateModal
         visible={updateModal}
         setVisible={setUpdateModal}
-        data={selectedPayment}
-      /> */}
+      />
     </div>
   );
 };

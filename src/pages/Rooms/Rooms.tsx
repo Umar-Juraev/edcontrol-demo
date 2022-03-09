@@ -16,14 +16,14 @@ const Rooms = (props: Props) => {
   const tabs = [
     {
       key: 2,
-      title: `Xonalar`,
+      title: `Rooms`,
       panel: (
         <RoomsTable createRoom={createRoom} setCreateRoom={setCreateRoom} />
       ),
     },
     {
       key: 1,
-      title: `Dars jadvali`,
+      title: `Schedule`,
       panel: <ScheduleTable/>,
     },
   ];
@@ -31,7 +31,7 @@ const Rooms = (props: Props) => {
   return (
     <div>
       <Row align="middle" justify="space-between" className="nav">
-        <h1>Xonalar</h1>
+        <h1>Rooms</h1>
         <Button
           type="primary"
           addMode
@@ -39,7 +39,7 @@ const Rooms = (props: Props) => {
           style={{ height: 50, padding: "13px 32px" }}
           onClick={() => setCreateRoom(true)}
         >
-          Xona qo'shish
+          Add room
         </Button>
       </Row>
 

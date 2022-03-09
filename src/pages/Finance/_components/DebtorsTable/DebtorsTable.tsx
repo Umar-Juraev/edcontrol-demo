@@ -4,14 +4,13 @@ import { useHistory } from "react-router-dom";
 
 import { Table } from "components/shared";
 import { separateNumberThousands, separatePhoneNumber } from "utils";
+import { studentAPI } from "fakeAPI/fakeAPI";
 
 export type Props = {};
 
 const DebtorsTable: FC<Props> = () => {
   const [page, setPage] = useState(1)
-  const history = useHistory()
-
-  // const studentsQuery = useStudentsQuery({ balance__lt: 0, page })
+  const history = useHistory()  
 
   const currentParams = history.location.search?.split('&')
   const tabParams = currentParams[0]?.split("=")[1];
@@ -54,19 +53,18 @@ const DebtorsTable: FC<Props> = () => {
 
   return (
     <div>
-      {/* <Table
+      <Table
         columns={columns}
-        dataSource={studentsQuery.data?.results || []}
-        loading={studentsQuery.isFetching}
+        dataSource={studentAPI.results.filter(item=> item.balance < 0)|| []}
         scroll={{ x: 646 }}
         pagination={{
-          total: studentsQuery.data?.count,
+          total: studentAPI.count,
           pageSize: 10,
           current: page,
           onChange: (e) => onChange(e),
           showSizeChanger: false
         }}
-      /> */}
+      />
     </div>
   );
 };

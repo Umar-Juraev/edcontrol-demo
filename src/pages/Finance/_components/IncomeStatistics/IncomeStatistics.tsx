@@ -15,28 +15,24 @@ import BarChart from "./BarChart";
 const IncomeStatistics = () => {
   const [isAnnual, setIsAnnual] = useState<boolean>(false);
 
-  // const { data: statisticsData } = usePaymentStatisticsQuery()
 
   const cardData = [
     {
-      title: `Umumiy daromad`,
+      title: `Gross income`,
       icon: Income,
-      // value: `${separateNumberThousands(statisticsData?.total_payments)} so'm`,
-      value: <div>umar</div>,
+      value: `${separateNumberThousands(1200000)} so'm`,
       col: 8,
     },
     {
-      title: `Yillik daromad`,
+      title: `Annual income`,
       icon: AnnualIncome,
-      // value: `${separateNumberThousands(statisticsData?.annual_payments)} so'm`,
-      value: <div>umar</div>,
+      value: `${separateNumberThousands(125500)} so'm`,
       col: 8,
     },
     {
-      title: `Oylik daromad`,
+      title: `Monthly income`,
       icon: MonthlyIncome,
-      // value: `${separateNumberThousands(statisticsData?.monthly_payments)} so'm`,
-      value: <div>umar</div>,
+      value: `${separateNumberThousands(25000)} so'm`,
       col: 8,
     },
   ];
@@ -76,10 +72,10 @@ const IncomeStatistics = () => {
                 </Col>
                 <Col>
                   <Button onClick={() => setIsAnnual(false)} className={!isAnnual ? classes.activeButton : ''}>
-                    Oylik daromad
+                  Monthly income
                   </Button>
                   <Button onClick={() => setIsAnnual(true)} className={isAnnual ? classes.activeButton : ''} >
-                    Yillik daromad
+                  Annual income
                   </Button>
                 </Col>
               </Row>
@@ -90,7 +86,6 @@ const IncomeStatistics = () => {
             </Col>
           </Row>
 
-          {/* <FinanceColumnChart isAnnual={isAnnual} /> */}
           <BarChart isAnnual={isAnnual} />
         </Col>
       </Row>

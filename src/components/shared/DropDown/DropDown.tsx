@@ -14,18 +14,22 @@ export type Props = {
 
 const DropDown = ({ stayStatic, item, onLogout }: Props) => {
   const [click, setClick] = useState(false);
-  
+
   const ref = useRef(null)
   const handleSetClick = () => {
     if (!stayStatic) setClick(!click);
   };
-  useClickAway(ref, ()=>setClick(false))
+  useClickAway(ref, () => setClick(false))
 
   return (
     <div ref={ref} onClick={handleSetClick} className={`${classes.dropDown}`}>
       <div className={classes.dropDown__row}>
         <div className={classes.dropDown__box}>
-          <img src={item.img} alt="" />
+          <div className={classes.img}>
+            {item.img ?
+              <img src={item.img} alt="" />
+              : null}
+          </div>
           <span>{textSlice(item.full_name, 15)}</span>
         </div>
 
